@@ -1,0 +1,11 @@
+{#Виджет "лучшие игры"<br/>#}
+
+{% for game in bestGames %}
+    <div class="b1">
+        <a href="{{ path('game_view', {category: game.category.slug, slug: game.slug}) }}">
+            <img style="width: 60px;" src="{{ game.logo.path|imagine_filter('thumbnail') }}" alt="{{ game.translate.name }}">
+            <span>{{ game.translate.name }}</span>
+        </a>
+    </div>
+
+{% endfor %}

@@ -1,0 +1,28 @@
+{% extends "@front/layout.html.twig" %}
+{% block seo %}
+    {{ parent() }}
+    <title>{{ page.translate.name }}</title>
+    <meta name="keywords" content="{{ page.translate.keywords }}">
+    <meta name="description" content="{{ page.translate.description }}">
+{% endblock %}
+{% block content %}
+
+
+    <section class="header-content tools_b">
+        <h1>{{ page.translate.name }}</h1>
+    </section>
+<article class="pages-post">
+    {{ page.translate.content|markup }}
+
+</article>
+    <script>
+        $(".accordion-toggle").click(function(){
+            if ( $(this).find('.close_tab').hasClass('active') ) {
+                $(this).find('.close_tab').removeClass('active');
+            } else {
+                $(".accordion-toggle .close_tab").removeClass('active');
+                $(this).find('.close_tab').addClass('active');
+            }
+        });
+    </script>
+{% endblock %}

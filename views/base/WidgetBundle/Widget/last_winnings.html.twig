@@ -1,0 +1,12 @@
+{% for statistic in lastWinnings %}
+    {#{% if statistic.winAmount/100 >= 20 %}#}
+    <tr>
+        <td><a href="">{{ statistic.game.translate.name }}</a></td>
+        <td>${{ statistic.winAmount/100 }}</td>
+    </tr>
+    <tr class="interlayer">
+        <td></td>
+        <td></td>
+    </tr>
+    {#{% endif %}#}
+{% endfor %}

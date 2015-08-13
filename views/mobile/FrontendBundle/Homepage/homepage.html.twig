@@ -1,0 +1,60 @@
+{% extends "@front/layout.html.twig" %}
+
+{% block content %}
+
+    <section class="header-content tools"></section>
+    <div id="myCarousel" class="carousel slide">
+        <div class="carousel-inner">
+    {% if app.request.locale == "ru" %}
+        <div class="active item"><img src="{{ asset('assets/mobile_img/slider_1_ru.jpg') }}" alt=""/></div>
+        <div class="item"><img src="{{ asset('assets/mobile_img/slider_2_ru.jpg') }}" alt=""/></div>
+        <div class="item"><img src="{{ asset('assets/mobile_img/slider_3_ru.jpg') }}" alt=""/></div>
+        <div class="item"><img src="{{ asset('assets/mobile_img/slider_4_ru.jpg') }}" alt=""/></div>
+        <div class="item"><img src="{{ asset('assets/mobile_img/slider_5_ru.jpg') }}" alt=""/></div>
+        <div class="item"><img src="{{ asset('assets/mobile_img/slider_6_ru.jpg') }}" alt=""/></div>
+        <div class="item"><img src="{{ asset('assets/mobile_img/slider_7_ru.jpg') }}" alt=""/></div>
+        <div class="item"><img src="{{ asset('assets/mobile_img/slider_8_ru.jpg') }}" alt=""/></div>
+    {% else %}
+        <div class="active item"><img src="{{ asset('assets/mobile_img/slider_1_en.jpg') }}" alt=""/></div>
+        <div class="item"><img src="{{ asset('assets/mobile_img/slider_2_en.jpg') }}" alt=""/></div>
+        <div class="item"><img src="{{ asset('assets/mobile_img/slider_3_en.jpg') }}" alt=""/></div>
+        <div class="item"><img src="{{ asset('assets/mobile_img/slider_4_en.jpg') }}" alt=""/></div>
+        <div class="item"><img src="{{ asset('assets/mobile_img/slider_5_en.jpg') }}" alt=""/></div>
+        <div class="item"><img src="{{ asset('assets/mobile_img/slider_6_en.jpg') }}" alt=""/></div>
+        <div class="item"><img src="{{ asset('assets/mobile_img/slider_7_en.jpg') }}" alt=""/></div>
+        <div class="item"><img src="{{ asset('assets/mobile_img/slider_8_en.jpg') }}" alt=""/></div>
+    {% endif %}
+
+        </div>
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+
+    <section class="header-content"></section>
+    <ul class="gallery" id="Gallery">
+        {% for game in games %}
+        <li>
+            {% if not is_granted('ROLE_USER') %}
+                 <a href="{{ path('game_play_demo', {category: game.category.slug, slug: game.slug}) }}" class="modal-show">
+            {% else %}
+                     <a href="{{ path('game_play_real', {category: game.category.slug, slug: game.slug}) }}" class="modal-show">
+            {% endif %}
+
+                <img src="{{ game.mobileLogo.path|imagine_filter('mobile_thumbnail') }}"
+                     alt="{{ game.translate.name }}"/>
+                <div>
+                    <em>{{ game.translate.name }}</em>
+                    <i id="like{{ game.translate.id }}" onclick="likes(this.id)" class="click_link"></i>
+                </div>
+            </a>
+            {#<a href="{{ path('game_play_demo', {category: game.category.slug, slug: game.slug}) }}" class="demo_games_btn">{{ 'demo'|trans}}</a>#}
+            {#<i class=""></i>#}
+        {#</div>#}
+        </li>
+    {% endfor %}
+
+    </ul>
+
+
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "@front/layout.html.twig" %}
+
+{% block content %}
+    <section class="header-content tools_b">
+        <h1>{{ 'withdraw_title'|trans({}, 'payment')  }}</h1>
+    </section>
+    <article class="pay_off">
+        <header>
+            <h3>{{ 'my_account'|trans({}, 'payment')  }}</h3>
+        </header>
+        <div style="overflow: hidden;">
+            {{ form|raw }}
+        </div>
+    </article>
+
+
+
+
+
+            <script>
+                var names = "{{'names'|trans({}, 'payment')}}";
+                var pay_btn = "{{'pay_btn'|trans({}, 'payment')}}";
+                var amount = "{{'amount'|trans({}, 'payment')}}";
+
+                $("form").addClass("form-inline");
+                $(".form-inline div").addClass("section_input");
+                $(".form-inline div label").addClass("required label-left");
+                $(".form-inline div input").addClass("input");
+                $(".form-inline div button").css({'marginLeft':'168px','marginTop': '10px'}).addClass("setting_btn btn_blue btn_grin").text(pay_btn);
+
+                $('.form-inline label:contains("Name")').text(names);
+                $('.form-inline label:contains("Amount")').text(amount);
+
+
+                //    $("#credit_card_payment>div input, #simple_payment>div input").wrap("<div class='controls'></div>");
+                //    $("#credit_card_payment>div select, #simple_payment>div select").wrap("<div class='controls'></div>");
+                //    $("#credit_card_payment>div button, #simple_payment>div button").text(pay_btn).wrap("<div class='controls'></div>");
+            </script>
+
+
+<style>
+#withdrawal ul {
+    color: red;
+}
+</style>
+
+{% endblock %}

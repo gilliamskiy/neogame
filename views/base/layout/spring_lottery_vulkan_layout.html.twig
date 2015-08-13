@@ -1,0 +1,330 @@
+{% include "@front/layout/header.html.twig" %}
+<section>
+<!-- less: s_breadcrumbs.less -->
+<figure class="breadCrumbs">
+    <nav>
+        <span><a href="{{ path('front_homepage') }}">VulkanoGames</a></span>
+        <span><a href="{{ path('lotteries_list') }}">{{ 'Лотереи'|trans({}, 'lotteries') }}</a></span>
+        <span>{{ 'spring'|trans({}, 'lottery_year') }}</span>
+    </nav>
+</figure>
+
+<div class="lottery_Spring">
+<div class="lottery-bannerBlock">
+    {% if app.request.locale == "ru" %}
+        <img src="{{ asset('assets/images/lottery/spring/banner_ru.jpg') }}">
+    {% else %}
+        <img src="{{ asset('assets/images/lottery/spring/banner_en.jpg') }}">
+    {% endif %}
+</div>
+<div class="lottery-title">
+    {{ 'our_prizes'|trans({}, 'lottery_year') }}</h4>
+</div>
+<div class="lottery-content_bg">
+    <div style="height: 250px;"></div>
+    {% if app.request.locale == "ru" %}
+        <h2>Джанкет-тур в Лондон - Казино Park Tower Casino<br/>
+            с закупкой фишек на 7 777 долларов</h2>
+    {% else %}
+        <h2>Junket tour to London - Park Tower Casino<br/>
+            with $7 777 chips in your pockets</h2>
+    {% endif %}
+    <div class="lottery-block lottery-block1">
+        <div class="lottery-post_left">
+            <h3>Dell Alienware 18</h3>
+            {% if app.request.locale == "ru" %}
+                <p>Экран 18.4" (1920x1080) Full HD LED, глянцевый / Intel Core i7-4910MQ (2.9 - 3.9 ГГц) / RAM 16 ГБ
+                    / HDD 1 ТБ + SSD 256 ГБ mSATA / 2 x nVidia GeForce GTX 860M, 2 x 8 ГБ SLI / Blu-ray / LAN /
+                    Wi-Fi / Bluetooth / веб-камера / Windows 8.1 64bit SL / 5.47 кг</p>
+            {% else %}
+                <p>Display 18.4" (1920x1080) Full HD LED, glossy / Intel Core i7-4910MQ (2.9 - 3.9 GHz) / RAM 16
+                    Gb / HDD 1 Tb + SSD 256 Gb mSATA / 2 x nVidia GeForce GTX 860M, 2 x 8 Gb SLI / Blu-ray / LAN
+                    / Wi-Fi / Bluetooth / web-camera / Windows 8.1 64bit SL / 5.47 kg</p>
+            {% endif %}
+        </div>
+        <div class="lottery-post_right">
+            <h3>Apple A1567 iPad Air 2</h3>
+            {% if app.request.locale == "ru" %}
+                <p>Экран 9.7" IPS (2048x1536) емкостный Multi-Touch / Apple A8X (1.5 ГГц) / RAM 2 ГБ / 128 ГБ
+                    встроенной памяти / 3G / 4G / EV-DO / Wi-Fi / Bluetooth 4.0 / основная камера 8 Мп, фронтальная
+                    - 1.2 Мп / A-GPS / ГЛОНАСС / iOS 8 / 444 г / серый</p>
+            {% else %}
+                <p>Display 9.7" IPS (2048x1536) Capacitive Multi-Touch screen / Apple A8X (1.5 GHz) / RAM 2 Gb /
+                    128 Gb built-in memory / 3G / 4G / EV-DO / Wi-Fi / Bluetooth 4.0 / main camera 8 Mp, front
+                    camera - 1.2 Mp / A-GPS / GLONASS / iOS 8 / 444 g / Space Grey</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="lottery-block lottery-block2">
+        <div class="lottery-post_left">
+            <h3>Sony HDR-AS100V</h3>
+            {% if app.request.locale == "ru" %}
+                <p>Экран 18.4" (1920x1080) Full HD LED, глянцевый / Intel Core i7-4910MQ (2.9 - 3.9 ГГц) / RAM 16 ГБ
+                    / HDD 1 ТБ + SSD 256 ГБ mSATA / 2 x nVidia GeForce GTX 860M, 2 x 8 ГБ SLI / Blu-ray / LAN /
+                    Wi-Fi / Bluetooth / веб-камера / Windows 8.1 64bit SL / 5.47 кг</p>
+            {% else %}
+                <p>Matrix (light sensor): 1/2.3” (7.76 mm) Exmor R CMOS matrix with reverse illumination<br/>
+                    Pixel amount: 18.9 Mp<br/>
+                    Effective pixels (photo/video): 13.5 Mp<br/>
+                    Media type: Flash memory<br/>
+                    Video resolution: Full HD (1920x1080)</p>
+            {% endif %}
+        </div>
+        <div class="lottery-post_right">
+            <h3>Apple iPhone 6 Plus 128GB </h3>
+            {% if app.request.locale == "ru" %}
+                <p>Экран 5.5" Retina (1920x1080, сенсорный емкостный, Multi‑Touch) / моноблок / Apple A8 / камера 8
+                    Мп + фронтальная 1.2 Мп / Bluetooth 4.0 / Wi-Fi 802.11 a/b/g/n/ac / 1 ГБ оперативной памяти /
+                    128 ГБ встроенной памяти / NFC / 3G / LTE / GPS / GLONASS / разъем 3.5 мм / iOS 8 / 158.1 x 77.8
+                    x 7.1 мм, 172 г / золотистый</p>
+            {% else %}
+                <p>Display 5.5" Retina (1920x1080, Capacitive Multi-Touch screen) / monoblock / Apple A8 / 8 Mp
+                    camera + 1.2 Mp front camera / Bluetooth 4.0 / Wi-Fi 802.11 a/b/g/n/ac / 1 Gb RAM / 128 GB
+                    built-in memory / NFC / 3G / LTE / GPS / GLONASS / 3.5 mm outlet / iOS 8 / 158.1 x 77.8 x
+                    7.1 mm, 172 g / gold</p>
+            {% endif %}
+        </div>
+    </div>
+    {% if app.request.locale == "ru" %}
+    <div class="lottery-block lottery-block3">
+        {% else %}
+        <div class="lottery-block lottery-block3" style="padding-top: 185px;">
+        {% endif %}
+        <div class="lottery-post_left">
+            <h3>sWaP Social Black</h3>
+            {% if app.request.locale == "ru" %}
+                <p>Тип: часы-телефон; Совместимость: Android; Форма дисплея: прямоугольная; Дисплей: цветной;
+                    Дисплей ("): 1.54; Сенсорный экран; ОС: Android; Интерфейс подключения: Bluetooth v.3; Звуковой
+                    сигнал; Вибрация; SMS; Вызовы; Цифровая камера; Wi-Fi; Ёмкость аккумулятора (мАч): 500; Съемный
+                    ремешок</p>
+            {% else %}
+                <p>Type: smart watch; Compatible with Android; Display form: square; Display: color; Display ("): 1.54;
+                    Touchscreen; OS: Android; Connection Interface: Bluetooth v.3; Signal sound; Vibration; SMS; Calls;
+                    Digital camera; Wi-Fi; Battery capacity (mAh): 500; Detachable strap</p>
+            {% endif %}
+        </div>
+        <div class="lottery-post_right">
+            <h3>Apple A1567 iPad Air 2</h3>
+            {% if app.request.locale == "ru" %}
+            <p>Процессор: Центральный: AMD Jaguar<br/>
+                Графический: AMD Radeon<br/>
+                Оперативная память: DDR3: 8192 МБ (2133 МГц)<br/>
+                ESRAM: 32 МБ<br/>
+                Жесткий диск: 500 ГБ</p>
+            {% else %}
+                <p>Processor: Central AMD Jaguar<br/>
+                Graphics: AMD Radeon<br/>
+                RAM memory: DDR3: 8192 Mb (2133 MHz)<br/>
+                ESRAM: 32 Mb<br/>
+                Hard drive: 500 Gb</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="lottery-block lottery-block4">
+        <div class="lottery-post_left">
+            <h3>Sennheiser RS 220 </h3>
+            {% if app.request.locale == "ru" %}
+            <p>Тип: беспроводные; Длина кабеля/радиус действия (м): 100; Вес (г): 329; Конструкция: накладные,
+                открытые; Номинальное сопротивление (Ом): 150; Частотный диапазон (Гц): 16-22000;
+                Чувствительность (дБ): 106; Регулировка громкости;</p>
+            {% else %}
+                <p>Type: wireless; Cable length/coverage range (m): 100; Weight (g): 329; Construction: overhead,
+                    opened; Rated resistance (Om): 150; Frequency range(Hz): 16-22000; Sensitivity (dB): 106; Volume
+                    adjusting</p>
+            {% endif %}
+        </div>
+        <div class="lottery-post_right">
+            <h3>PocketBook InkPad 840 </h3>
+            {% if app.request.locale == "ru" %}
+            <p>Диагональ дисплея: 8"<br/>
+                Разрешение: 1600x1200<br/>
+                Тип матрицы: E Ink Pearl<br/>
+                Количество градаций серого: 16<br/>
+                Встроенная память: 4 ГБ<br/>
+                Воспроизведение медиафайлов: Аудио<br/>
+                Вес: 350 г</p>
+            {% else %}
+                <p>Display: 8"<br/>
+                    Definition: 1600x1200<br/>
+                    Matrix: E Ink Pearl<br/>
+                    Shades of grey: 16<br/>
+                    Built-in memory: 4 Gb<br/>
+                    Playable media files: Audio<br/>
+                    Weight: 350 g</p>
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+<a href="{{ account_url('/bonus-offers') }}" class="lottery-btn">{{ 'participate'|trans({}, 'lottery_year') }}</a>
+
+<div class="lottery-title">
+    {{ 'rules'|trans({}, 'lottery_year') }}
+</div>
+<ul class="lottery-pravels">
+    {% if app.request.locale == "ru" %}
+    <li>- Лотерея проводится с 1 марта (00:00) до 12 апреля 2015 года (23:59).</li>
+    <li>- Принять участие в лотерее может каждый зарегистрированный игрок VulkanoGames Club.</li>
+    <li>- Для участия в лотерее игрок должен иметь минимум 1 лотерейный билет.</li>
+    <li>- Лотерейный билет выдается за каждый бонус VulkanoGames Club, активированный на депозиты от $15.</li>
+    <li>- Получение лотерейных билетов невозможно после 12 апреля (23:59) GMT+4.</li>
+    <li>- Игрок может обладать неограниченным количеством лотерейных билетов.</li>
+    <li>- Размер депозита и/или бонуса не влияет на количество полученных лотерейных билетов.</li>
+    <li>- При заказе выплаты, игрок не теряет лотерейные билеты, полученные с момента последнего депозита.</li>
+    <li>- В розыгрыше призов участвуют все лотерейные билеты, полученные всеми игроками VulkanoGames Club.</li>
+    <li>- Выигрышный билет будет определен случайным образом.</li>
+    <li>- При получении приза игрок и все его лотерейные билеты исключаются из последующих розыгрышей.</li>
+    <li>- Призы Лотереи VulkanoGames Club будут разыграны по очереди 14 апреля, начиная в 12:00 GMT+4</li>
+    <li>- При получении лотерейного билета есть вероятность, что вместо обычного лотерейного билета игрок получит
+        "престиж-билет".
+    </li>
+    <li>- "Престиж-билет" считается как обычный билет до розыгрыша всех призов Лотереи VulkanoGames Club.</li>
+    <li>- После лотереи "престиж-билеты" в течение месяца могут быть обменены всеми игроками, которые не получили приз,
+        на бездепозитные бонусы VulkanoGames Club (крайний срок 25 апреля в 23:59 GMT+4)
+    </li>
+    {% else %}
+        <li>- The lottery is held from 01.03.2015 (00:00 GMT+4) through 12.04.2015 (23:59 GMT+4).</li>
+        <li>- Any registered VulkanoGames Club player can participate in the lottery.</li>
+        <li>- A player needs to have at least one lottery ticket to participate in the lottery.</li>
+        <li>- The lottery ticket is given for each bonus activated on deposits over $15.</li>
+        <li>- The lottery tickets will not be given after 12.04.2015 (23:59) GMT+4</li>
+        <li>- A player can own an unlimited number of lottery tickets.</li>
+        <li>- The amount of given lottery tickets doesn't depend on the size of deposits and/or received bonuses.</li>
+        <li>- A player will not lose lottery tickets received after the last deposit if the withdrawal is ordered.</li>
+        <li>- All lottery tickets received by players at VulkanoGames Club take part in the prizes giveaway.</li>
+        <li>- The winning lottery ticket will be picked randomly on 14.04.2015</li>
+        <li>- A player and all his lottery tickets are discarded from the lottery if one of the listed prizes have been received by that player.</li>
+        <li>- The lottery prizes are to be given away one by one, starting at 12:00 GMT+4</li>
+        <li>- Each player has a chance of receiving a "prestige-ticket" instead of a common one.</li>
+        <li>- The "prestige-ticket" is equal to common lottery tickets during the Lottery prizes giveaway at VulkanoGames Club.</li>
+        <li>- When the lottery ends all players who haven't won any prize can exchange their "prestige-tickets" for non deposit bonuses at VulkanoGames Club within a month (ending on 25.04.2015 23:59 GMT +4 2014)</li>
+
+    {% endif %}
+</ul>
+<a href="{{ account_url('/bonus-offers') }}" class="lottery-btn">{{ 'get_lottery_ticket'|trans({}, 'lottery_year') }}</a>
+
+<table class="lottery-table">
+    <thead>
+    <tr>
+        <th>{{ 'tickets'|trans({}, 'lottery_year') }}</th>
+        <th>{{ 'bonus_size'|trans({}, 'lottery_year') }}</th>
+        <th>{{ 'ticket_value'|trans({}, 'lottery_year') }}</th>
+        <th>{{ 'wager'|trans({}, 'lottery_year') }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            1
+        </td>
+        <td>
+            $5.00
+        </td>
+        <td>
+            $5.00
+        </td>
+        <td>
+            x30
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+            5
+        </td>
+        <td>
+            $35.00
+        </td>
+        <td>
+            $7.00
+        </td>
+        <td>
+            x30
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+            10
+        </td>
+        <td>
+            $100.00
+        </td>
+        <td>
+            $10.00
+        </td>
+        <td>
+            x30
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+<div class="lottery-title" style="margin-bottom: 35px;">
+    {{ 'tick'|trans({}, 'lottery_year') }}
+</div>
+
+<div class="lottery-content">
+    <div class="lottery-row">
+        <div class="lottery-tow_12">
+            <div class="lottery-billet">
+
+                {% if app.request.locale == "ru" %}
+                <div class="lottery-billet-post fl_l bl_o">
+                    {% else %}
+                    <div class="lottery-billet-post fl_l bl_o bl_o_en">
+                        {% endif %}
+                        <div class="lottery-billet-code">31-ab352345</div>
+                        <div class="lottery-billet-text">
+                            <h3>{{ 'ordinary'|trans({}, 'lottery_year') }}</h3>
+
+                            <p>{{ 'the_ordinary'|trans({}, 'lottery_year') }}</p>
+                        </div>
+                    </div>
+                    {% if app.request.locale == "ru" %}
+                    <div class="lottery-billet-post fl_r bl_z">
+                        {% else %}
+                        <div class="lottery-billet-post fl_r bl_z bl_z_en">
+                            {% endif %}
+                            <div class="lottery-billet-code">31-ab352345</div>
+                            <div class="lottery-billet-text">
+                                <h3>{{ 'golden'|trans({}, 'lottery_year') }}</h3>
+
+                                <p>{{ 'the_golden'|trans({}, 'lottery_year') }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% if tickets %}
+                        <table class="lottery-table">
+                            <thead>
+                            <tr>
+                                <th>{{ 'nickname'|trans({}, 'lottery_year') }}</th>
+                                <th>{{ 'ticket_number'|trans({}, 'lottery_year') }}</th>
+
+                            </tr>
+                            </thead>
+
+
+                            <tbody>
+                            {% for ticket in tickets %}
+                                <tr>
+                                    <td>{{ ticket.user_account.profile.preferred_name }}</td>
+                                    <td>{{ ticket.number }}</td>
+                                </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    {% else %}
+
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+{% include "@front/layout/footer.html.twig" %}

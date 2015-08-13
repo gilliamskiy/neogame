@@ -1,0 +1,242 @@
+
+{% block widget_attributes %}
+    id="{{ id }}" name="{{ full_name }}"
+    {% if read_only %} readonly="readonly"{% endif %}
+    {% if disabled %} disabled="disabled"{% endif %}
+    {#{% if required %} required="required"{% endif %}#}
+    {% for attrname, attrvalue in attr %}
+        {{- " " -}}
+        {% if attrname in ['placeholder', 'title'] %}
+            {{ attrname }}="{{ attrvalue|trans({}, translation_domain) }}"
+        {% elseif attrvalue is sameas(true) %}
+            {{ attrname }}="{{ attrname }}"
+        {% elseif attrvalue is not sameas(false) %}
+            {{ attrname }}="{{ attrvalue }}"
+        {% endif %}
+    {% endfor %}
+{% endblock widget_attributes %}
+
+{% block form_row %}
+    {% spaceless %}
+
+        {{ form_errors(form) }}
+        <div class="control-group{% if errors|length > 0 %} has-error{% endif %}">
+            {#{{ form_label(form, label|default(null)) }}#}
+            <div class="controls">
+                {{ form_widget(form) }}
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock form_row %}
+
+{% block form_label %}
+    {% spaceless %}
+        {% if required %}
+            {% set attr = attr|merge({'class': attr.class|default('') ~ ' required'}) %}
+        {% endif %}
+        {% set attr = attr|merge({'class': attr.class|default('') ~ ' control-label'}) %}
+        <label for="{{ id }}" {% for attrname,attrvalue in attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>
+        {% set label=label|default(name|humanize) %}
+        {{ label|trans }}
+        </label>
+    {% endspaceless %}
+{% endblock form_label %}
+
+{% block form_widget %}
+    {% spaceless %}
+        {% if compound %}
+            {{ block('form_widget_compound') }}
+        {% else %}
+            {{ block('form_widget_simple') }}
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_widget %}
+
+{% block form_widget_simple %}
+    {% spaceless %}
+        {% set type = type|default('text') %}
+        {% if attr.class is not defined or 'col-' not in attr.class %}
+            {% set attr = attr|merge({'class': (attr.class|default('') ~ '')|trim}) %}
+        {% endif %}
+        {% set attr = attr|merge({'class': attr.class|default('') ~ ' form-control'}) %}
+        <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}>
+    {% endspaceless %}
+{% endblock form_widget_simple %}
+
+{% block form_widget_compound %}
+    {% spaceless %}
+        {% if form.parent is empty %}
+            {{ form_errors(form) }}
+        {% endif %}
+        {{ block('form_rows') }}
+        {{ form_rest(form) }}
+    {% endspaceless %}
+{% endblock form_widget_compound %}
+
+
+{% block checkbox_row %}
+
+    {% spaceless %}
+
+        {{ form_errors(form) }}
+<div style=" margin-top: -15px; margin-bottom: 0px;" class="brrrr control-group{% if errors|length > 0 %} has-error{% endif %}">
+            <div class="controls">
+                {{ form_widget(form) }}
+                {{ form_label(form, label|default(null)) }}
+            </div>
+</div>
+
+    {% endspaceless %}
+
+{% endblock checkbox_row %}
+{% block checkbox_label %}
+    {% spaceless %}
+        {% if required %}
+            {% set attr = attr|merge({'class': attr.class|default('') ~ ' required'}) %}
+        {% endif %}
+        {% set attr = attr|merge({'class': attr.class|default('') ~ ' css-label big lite-blue-big'}) %}
+        <label for="{{ id }}" {% for attrname,attrvalue in attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>
+        {% set label=label|default(name|humanize) %}
+        {{ label|trans }}
+        </label>
+    {% endspaceless %}
+{% endblock checkbox_label %}
+{% block checkbox_widget %}
+
+    {% spaceless %}
+        <input class="css-checkbox big" type="checkbox" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}{% if checked %} checked="checked"{% endif %}>
+    {% endspaceless %}
+
+{% endblock checkbox_widget %}
+
+
+
+{#{% block money_widget %}#}
+    {#{% spaceless %}#}
+        {#{{ block('form_widget_simple') }}#}
+    {#{% endspaceless %}#}
+{#{% endblock money_widget %}#}
+
+{#{% block textarea_widget %}#}
+    {#{% spaceless %}#}
+        {#{% set attr = attr|merge({'class': (attr.class|default('') ~ ' input-block-level')|trim}) %}#}
+        {#<textarea {{ block('widget_attributes') }}>{{ value }}</textarea>#}
+    {#{% endspaceless %}#}
+{#{% endblock textarea_widget %}#}
+
+{% block choice_widget_collapsed %}
+    {% spaceless %}
+        <select {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %}>
+            {% if empty_value is not none %}
+                <option value=""{% if required %} disabled="disabled"{% if value is empty %} selected="selected"{% endif %}{% endif %}>{{ empty_value|trans({}, translation_domain) }}</option>
+            {% endif %}
+            {% if preferred_choices|length > 0 %}
+                {% set options = preferred_choices %}
+                {{ block('choice_widget_options') }}
+                {% if choices|length > 0 and separator is not none %}
+                    <option disabled="disabled">{{ separator }}</option>
+                {% endif %}
+            {% endif %}
+            {% set options = choices %}
+            {{ block('choice_widget_options') }}
+        </select>
+    {% endspaceless %}
+{% endblock choice_widget_collapsed %}
+
+
+
+
+
+{% block hidden_row %}
+    {% spaceless %}
+        {{ form_widget(form) }}
+    {% endspaceless %}
+{% endblock hidden_row %}
+{% block hidden_widget %}
+    {% spaceless %}
+        {% set type = type|default('hidden') %}
+        <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}>
+    {% endspaceless %}
+
+{% endblock hidden_widget %}
+{% block submit_row %}
+    {% spaceless %}
+        <div class="control-group" style="margin-top: 10px;">
+            <div class="controls">
+                {{ form_widget(form) }}
+            </div>
+        </div>
+        <div class="control-group row">
+            {#<div class="offset1">#}
+                {#<label class="control-label">Войти через:</label>#}
+
+                {#<div class="controls">#}
+                    {#<img src="{{ asset('assets/images/icons_soc.png') }}" alt="#">#}
+
+                {#</div>#}
+            {#</div>#}
+
+        </div>
+    {% endspaceless %}
+{% endblock submit_row %}
+{% block submit_widget %}
+    {% spaceless %}
+        {% set type = type|default('submit') %}
+        {% set attr = attr|merge({'class': attr.class|default('') ~ ' reset_pass regBtn'}) %}
+        {{ block('button_widget') }}
+    {% endspaceless %}
+
+
+{% endblock submit_widget %}
+
+{#{% block button_widget %}#}
+    {#{% spaceless %}#}
+        {#{% set attr = attr|merge({'class': attr.class|default('') ~ ' regBtn'}) %}#}
+        {#{% if label == 'save' %}#}
+            {#{% set attr = attr|merge({'class': attr.class|default('') ~ ' '}) %}#}
+        {#{% endif %}#}
+        {#{% if label is empty %}#}
+            {#{% set label = name|humanize %}#}
+        {#{% endif %}#}
+        {#<button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}</button>#}
+    {#{% endspaceless %}#}
+{#{% endblock button_widget %}#}
+
+
+
+
+{% block form_start %}
+    {% spaceless %}
+        {% set method = method|upper %}
+        {% if method in ["GET", "POST"] %}
+            {% set form_method = method %}
+        {% else %}
+            {% set form_method = "POST" %}
+        {% endif %}
+        {% set attr = attr|merge({'class': attr.class|default('') ~ ' form-horizontal'}) %}
+        {% set action = action|default(path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params'))) %}
+        <form id="f-reg" method="{{ form_method|lower }}" role="form" action="{{ action }}"{% for attrname, attrvalue in attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}{% if multipart %} enctype="multipart/form-data"{% endif %}>
+
+
+        {% if form_method != method %}
+            <input type="hidden" name="_method" value="{{ method }}" />
+
+        {% endif %}
+
+
+    {% endspaceless %}
+
+{% endblock form_start %}
+
+
+{% block form_errors -%}
+    {% if errors|length > 0 -%}
+        <ul>
+            {%- for error in errors -%}
+             <p class="warning" style="display: none">{{ error.message }}</p>
+            {%- endfor -%}
+        </ul>
+    {%- endif %}
+{%- endblock form_errors %}
+
+

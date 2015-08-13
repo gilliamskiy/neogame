@@ -1,0 +1,225 @@
+main_game: main game
+free_game: free game
+chance_game: chance game
+bonus_game: bonus game
+mini_bonus_game: mini bonus game
+super_bonus_game: super bonus game
+my_lottery: My lottery tickets
+history_bonuses: History bonuses
+status: Status
+add_funds: Add funds
+withdraw: Withdraw
+type: Type round
+date: Date
+amount: Amount
+balance: Balance
+payment_system: Payment System
+payment: Payment
+withdrawal: Withdrawal
+credit: Credit
+current_password: Current password
+new_password: New password
+repeat_password: Repeat password
+header: Header
+download: Download
+select_game: Select game
+find: Find
+Выбирите игру: Select game
+game: Name of the game
+rate: Rate
+player: Player
+win: Win
+no_records: No records
+amount_of_payment: Amount of payment
+payment_by: Payment by
+my_account: My Account
+amend: Amend
+form_preferred_name: Nickname
+form_full_name: Full name
+form_birthday: Date of birth
+gender: Gender
+country: Country
+city: City
+address: Address
+phone_number: Phone number
+Profile: Profile
+upstairs: Upstairs
+card_number: Card Number
+state_province_region: State / Province / Region
+card_holder: Card Holder
+month_and_year: Month and year of expiry of cards (mm / yyyy)
+security_code: Security code (cvv / cvv2 / cvc)
+month: Expiration month
+year: Expiration year
+all_the_fields: All the fields are filled with Latin letters
+region: Region
+zip: Zip
+email: E-mail
+game_club: Game Club
+cash: Cash
+games: Games
+all_games: All Games
+roulettes: Roulettes
+slots: Slots
+cards: Cards
+videopokers: Videopokers
+other: Other
+rounds_history: Game history
+depositing: Deposits
+fair_play: Fair Play
+responsibility_casino: Responsible gaming
+security: Security
+support: Support
+agreement: Agreement
+payouts: Withdrawals
+game_club_copyright:  © 2011 - 2014 VulkanoGames Club - online slot machines. All rights reserved.
+login: LOGIN
+register: REGISTER
+ajax_load: Loading , please wait...
+log_in: Log in
+registration : Registration
+casino_title: Casino Club Vulcan - online slot machines
+latest_wins: Latest Wins
+top_games: Top Games
+jackpot: Jackpot
+all_games: All games
+play_now: Play now
+demo_game: Demo game
+read_more: Read more
+main_game: main game
+free_game: free game
+chance_game: chance game
+bonus_game: bonus game
+mini_bonus_game: mini bonus game
+super_bonus_game: super bonus game
+games: Games
+categories_of_games: Categories of games
+all_games: All games
+game_room: Game room
+play_now: Play now
+demo_game: Demo game
+read_more: Read more
+registration: Registration
+login: Login
+messages: Messages
+play_for_money: Play for Money
+balance: Balance
+bonus: Bonus
+select_game: Select game
+rules_of_the_game: Rules of the game
+support: Support
+demo_mode: demo mode
+rating_games: Rating Games
+liked: Liked
+features_game: Features of the game
+play_now: PLAY NOW
+complete_games: Complete list of games
+next: NEXT
+pay_btn: PAY
+form_email: E-mail:
+form_password: Password:
+form_preferred_locale: Language:
+form_is_receiving_newsletters: Subscribe
+form_is_receiving_bonuses: I want to receive bonuses
+wager: Wager
+form_username: E-mail
+voucher: Voucher
+account: Account
+code_n: Code
+popular_games: Popular
+novomatic_slot: Novomatic slots
+novomatic_deluxe: Novomatic Deluxe Slots
+igrosoft_slot: Igrosoft slots
+gazgaming_slot: GazGaming slots
+casino_games: Casino games
+Популярные: Popular
+to_be: To have constant access to the gaming club Volcano , set extension
+install_extension: Install extension
+statistics: Statistics
+rating_winnings: Rating games on the amount of winnings
+rating_wins: Rating wins
+loss: Rate
+win: Win
+player_rankings: Player Rankings on the amount of winnings
+rating_rounds: Rating rounds on the ratio of winning to rate
+avatar: Avatar
+nick: Nickname
+percentage: Percentage
+winners: Winners
+cof_money_account: Exchange rate ruling at
+attention: Attention!
+the_following: The following information will be indicated in the bank statement:
+minimum_sum: Minimum amount
+maximum_sum: Maximum amount
+back_to: Back to pay systems
+back: Back to
+
+error_404: Error 404
+page_not_found: This page not found
+several_reasons: There may be several reasons
+moved_or_renamed: Page moved or renamed
+no_longer: Page no longer exists on this site
+url_untrue: URL untrue
+propose_to: I propose to go
+home_page: Home Page
+write_to_contact: Write to contact
+additionally: Additionally
+mobile_version: Mobile version
+bonus_policy: Bonus policy
+individual_proposals: Personal Promotions
+partners: Affiliates
+about: About
+payments_oper: Transaction
+mail: Mail
+terms: Terms
+mobile: Mobile
+help: Help
+pob_loter: Winners
+live_tournaments: Live tournaments
+past_tournaments: Past Tournaments
+russion: Russian
+english: English
+promotions_bonuses: Promotions & bonuses
+tournaments: Tournaments
+lotteries: Lotteries
+wallet: Purse number/account:
+title_with: Slot machines volcano. Play for free and for money - Withdrawals
+title_pay: Slot machines volcano. Play for free and for money completions account
+personal: Personalized suggestions
+edit_p: Edit Profile
+rate_win: Win
+select_a_game: Select a game
+bonuses: Bonuses
+payments_operations: Account operations
+validity: Validity
+status_bonus: Status bonus
+contacts_us: Contacts us
+policies: Policy Casino
+lasts: Lasts
+promotions: Promotions
+wager: Wager
+req_email: Please enter a valid email address
+req_pass: Not less then enter {0} characters
+date_game: Time
+game_game: Game
+
+main: Main game
+free_roll: Freespins
+bonus: Bonus game
+chance: Chance game
+login_mob: Login
+register_mob: Registration
+full_version: Full version
+pl_rocess: Add funds
+user_lotteries: Lottery tickets
+live_tournaments: Live tournaments
+extensions: Extensions
+demo: Demo
+
+game_demo_pay: You are playing<br/>in Demo mode
+game_demo_payment: Please<br/>make deposit
+game_demo_last: Remind me later
+monay_cache_btn: Deposit money
+monay_cache: Not enough money on your account to play
+more_info: More info
+lucky_games: Play

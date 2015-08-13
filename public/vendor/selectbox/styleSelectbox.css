@@ -1,0 +1,164 @@
+.selectbox {
+    vertical-align: middle;
+    cursor: pointer
+}
+
+.selectbox .select {
+    width: 220px;
+    height: 30px;
+    padding: 0 45px 0 10px;
+    font: 13px/30px Tahoma, sans-serif;
+    color: #0c40cf;
+    background: #000;
+    border: 1px solid #0c40cf
+}
+
+.selectbox .select .text {
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden
+}
+
+.selectbox .trigger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 31px;
+    background: url(../../images/options_caseN.png);
+    height: 100%
+}
+
+.selectbox .dropdown {
+    top: 33px;
+    width: 275px;
+    margin: 0;
+    padding: 4px 0;
+    background: #000;
+    border: 1px solid #0c40cf;
+    font: 13px/18px Tahoma, sans-serif;
+    max-height: 230px !important
+}
+
+.selectbox ul {
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+
+.selectbox li {
+    padding: 5px 10px 6px;
+    color: #0c40cf
+}
+
+.selectbox li.selected, .selectbox li:hover {
+    background: #001a53;
+    color: #FFF
+}
+
+.selectbox li.disabled {
+    color: #FFF
+}
+
+.selectbox li.disabled:hover {
+    background: 0 0
+}
+
+#register .selectbox, .widget_select .selectbox {
+    vertical-align: middle;
+    cursor: pointer
+}
+
+#register .selectbox .select, .widget_select .selectbox .select {
+    width: 263px;
+    height: 30px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #fff;
+    background: #031636;
+    background: -moz-linear-gradient(left, #031636 0, #071f46 31%, #0a234c 52%, #071f46 71%, #031636 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #031636), color-stop(31%, #071f46), color-stop(52%, #0a234c), color-stop(71%, #071f46), color-stop(100%, #031636));
+    background: -webkit-linear-gradient(left, #031636 0, #071f46 31%, #0a234c 52%, #071f46 71%, #031636 100%);
+    background: -o-linear-gradient(left, #031636 0, #071f46 31%, #0a234c 52%, #071f46 71%, #031636 100%);
+    background: -ms-linear-gradient(left, #031636 0, #071f46 31%, #0a234c 52%, #071f46 71%, #031636 100%);
+    background: linear-gradient(to right, #031636 0, #071f46 31%, #0a234c 52%, #071f46 71%, #031636 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#031636', endColorstr='#031636', GradientType=1);
+    border: 1px solid #2ed7fd;
+    box-shadow: 0 0 9px 1px #3054bc;
+    -moz-box-shadow: 0 0 9px 1px #3054bc;
+    -webkit-box-shadow: 0 0 9px 1px #3054bc;
+    padding: 3px 45px 3px 10px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px
+}
+
+#register .selectbox .select .text, .widget_select .selectbox .select .text {
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden
+}
+
+#register .selectbox .trigger, .widget_select .selectbox .trigger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 39px;
+    background: url(../../images/options_caseNR.png);
+    height: 100%;
+    -webkit-border-top-right-radius: 4px;
+    -webkit-border-bottom-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    -moz-border-radius-bottomright: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px
+}
+
+#register .selectbox .dropdown, .widget_select .selectbox .dropdown {
+    top: 34px;
+    width: 318px;
+    margin: 0;
+    padding: 4px 0;
+    background: #031636;
+    background: -moz-linear-gradient(left, #031636 0, #071f46 31%, #0a234c 52%, #071f46 71%, #031636 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #031636), color-stop(31%, #071f46), color-stop(52%, #0a234c), color-stop(71%, #071f46), color-stop(100%, #031636));
+    background: -webkit-linear-gradient(left, #031636 0, #071f46 31%, #0a234c 52%, #071f46 71%, #031636 100%);
+    background: -o-linear-gradient(left, #031636 0, #071f46 31%, #0a234c 52%, #071f46 71%, #031636 100%);
+    background: -ms-linear-gradient(left, #031636 0, #071f46 31%, #0a234c 52%, #071f46 71%, #031636 100%);
+    background: linear-gradient(to right, #031636 0, #071f46 31%, #0a234c 52%, #071f46 71%, #031636 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#031636', endColorstr='#031636', GradientType=1);
+    border: 1px solid #2ed7fd;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 20px
+}
+
+#register .selectbox ul, .widget_select .selectbox ul {
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+
+#register .selectbox li, .widget_select .selectbox li {
+    padding: 5px 10px 6px;
+    color: #fff
+}
+
+#register .selectbox li.selected, #register .selectbox li:hover,
+.widget_select .selectbox li.selected, .widget_select .selectbox li:hover{
+    background: #001a53;
+    color: #FFF
+}
+
+#register .selectbox li.disabled,
+.widget_select .selectbox li.disabled{
+    color: #FFF
+}
+
+#register .selectbox li.disabled:hover,
+.widget_select .selectbox li.disabled:hover{
+    background: 0 0
+}

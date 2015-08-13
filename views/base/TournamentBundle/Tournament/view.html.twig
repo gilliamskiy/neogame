@@ -1,0 +1,167 @@
+{% extends "@front/" ~ tournament.layout %}
+{% block content %}
+
+
+    <section>
+    <!-- less: s_breadcrumbs.less -->
+        <figure class="breadCrumbs">
+            <nav>
+                <span><a href="{{ path('front_homepage') }}">VulkanoGames</a></span>
+                <span><a href="{{ path('tournaments_list') }}">{{ 'Турниры'|trans({}, 'tournaments') }}</a></span>
+
+                <span>{{ tournament.translate.name }}</span>
+            </nav>
+        </figure>
+    <!--end less: s_breadcrumbs.less -->
+
+    <!-- less: s_news-list.less -->
+    <figure class="tourney-list">
+        <article>
+            <header>
+                <h1>{{ tournament.translate.name }}</h1>
+            </header>
+            <div>
+                <article>
+                   <span class="newsDate">
+                       {{'Начало'|trans({}, 'tournaments') }}: {{ tournament.startDate|format_datetime }}<br>
+                       {{'Окончание'|trans({}, 'tournaments') }}: {{ tournament.endDate|format_datetime }}</span>
+                    <nav >
+                        <label>{{'Участвуют игры'|trans({}, 'tournaments') }}:</label>
+
+                        {% for game in tournament.games %}
+                            <a href="{{ path('game_view', {category: game.category.slug, slug: game.slug}) }}">{{ game.translate.name }}</a>
+                        {% endfor %}
+                        {#{% for participant in tournament.participants %}#}
+                            {#<a>{{ participant.user_account.profile.preferred_name }}</a>#}
+                        {#{% endfor %}#}
+                    </nav>
+                    {{ tournament.translate.announce|markup }}
+                    <figure class="postLike" style="display: none;">
+                        <div>
+                            <a href="#" class="like"><span></span>{{ 'Нравится'|trans({}, 'lotteries') }}</a>
+                            <a href="#" class="dislike"><span></span></a>
+                        </div>
+                        <div class="peopleLike">
+                            {{ 'Понравилось'|trans({}, 'lotteries') }} 11 {{ 'игрокам'|trans({}, 'lotteries') }}<br> {{ 'Не понравилось'|trans({}, 'lotteries') }} 0 {{ 'игрокам'|trans({}, 'lotteries') }}
+                        </div>
+                    </figure>
+                </article>
+                <div>
+                    <aside>
+                        <figure class="date">
+                            <p>
+                                <span>{{'Старт'|trans({}, 'tournaments') }}</span><span>{{ tournament.startDate|format_datetime }}</span>
+                            </p>
+                            <p>
+                                <span>{{'Финиш'|trans({}, 'tournaments') }}</span><span>{{ tournament.endDate|format_datetime }}</span>
+                            </p>
+                        </figure>
+                        <figure class="fund">
+                            <p>{{'Призовой фонд'|trans({}, 'tournaments') }}: <span>{{ tournament.funds.amount }} {{ tournament.funds.currency }}</span></p>
+                        </figure>
+                    </aside>
+                    <section>
+                        <figure class="prize_places">
+                            <a data-toggle="modal" href="#tournament">{{'Призовые места'|trans({}, 'tournaments') }}</a>
+                        </figure>
+                        {#<figure class="take_part">#}
+                            {#<p>Вы уже учавствуете в турнире</p>#}
+                        {#</figure>#}
+                    </section>
+                </div>
+            </div>
+            <SECTION id="table_tur" class="table_block showAllParticipants">
+                <header>
+                    <h4>{{'Участники турнира'|trans({}, 'tournaments') }}</h4>
+                </header>
+                <table style="width: 100%;" >
+                    <thead>
+                        <tr style="height:23px">
+                            <td>{{'Место'|trans({}, 'tournaments') }}</td>
+                            <td>{{'Игрок'|trans({}, 'tournaments') }}</td>
+                            <td>{{'rounds'|trans({}, 'tournament') }}</td>
+                            <td>{{'sum_rates'|trans({}, 'tournament') }}</td>
+                            <td>{{'win'|trans({}, 'tournament') }}</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for participant in tournament.participants %}
+                        {% if participant.rewards.amount is defined %}
+                            <tr>
+                        {% else %}
+                            <tr class="hiddenRow">
+                        {% endif %}
+                            <td>{{ participant.place }}</td>
+                            <td><a>{{ participant.user_account.profile.preferred_name }}</a></td>
+                            <td>{{ participant.statistics.rounds|number_format }}</td>
+                            <td>{{ participant.statistics.betAmount|number_format_currency(participant.user_account.project.currency) }}</td>
+                            {% if participant.rewards.amount is defined %}
+                                <td>{{ participant.rewards.amount|number_format_currency(participant.rewards.currency) }}</td>
+                            {% else %}
+                                <td>&mdash;</td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </SECTION>
+            <footer class="arrowToBottom">
+                <a id="show_all_participants" data-other="{{'tok_win'|trans({}, 'tournament') }}" href="">{{'tok_all'|trans({}, 'tournament') }}</a>
+            </footer>
+
+            <div class="tournament_content">
+                {{ tournament.translate.content|markup }}
+
+            </div>
+
+            <footer>
+                <a href="{{ path('tournaments_list') }}">{{'К списку турниров'|trans({}, 'tournaments') }}</a>
+            </footer>
+        </article>
+    </figure>
+    <!--end less: s_news-list.less -->
+
+    <!-- less: s_seotext.less -->
+    {% include "@front/layout/seo_text.html.twig" %}
+    <!--end less: s_seotext.less -->
+    </section>
+
+
+    <section class="windows tourney-list">
+        <div style="position: absolute !important;" id="tournament" class="tournament modal hide fade" tabindex="-1" role="dialog" aria-labelledby="tournamentLabel" aria-hidden="true">
+            <article>
+                <SECTION class="table_block">
+                    <header>
+                        <h3>{{'Призовые места'|trans({}, 'tournaments') }}</h3>
+                        <em class="closeModalWindow close" data-dismiss="modal" aria-hidden="true"></em>
+                    </header>
+                    <div class="table_section">
+                        <table width="100%">
+                            <thead>
+                            <tr height="23">
+                                <td>{{'Место'|trans({}, 'tournaments') }}</td>
+                                {#<td>{{'Тип'|trans({}, 'tournaments') }}</td>#}
+                                {#<td>{{'Сумма'|trans({}, 'tournaments') }}</td>#}
+                                <td>{{'win'|trans({}, 'tournament') }}</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for item in tournament.rewards %}
+                                {% set reward = item.reward %}
+                                <tr>
+                                    <td>{{ item.place }}</td>
+                                    <td>{{ reward.amount|number_format_currency(reward.currency) }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                </SECTION>
+            </article>
+
+
+        </div>
+    </section>
+{% endblock %}

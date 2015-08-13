@@ -1,0 +1,160 @@
+/*! Functions */
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+    font-family: 'TahomaBold';
+    src: url('../fonts/tb.eot');
+    src: url('../fonts/tb.eot') format('embedded-opentype'), url('../fonts/tb.woff') format('woff'), url('../fonts/tb.ttf') format('truetype'), url('../fonts/tb.svg#TahomaBold') format('svg');
+}
+
+@grey: #9b9b9b;
+@link-color: #31c2ff;
+@header-yellow: #f7ae22;
+@orange: #ff9834;
+@green:#00e000;
+
+._box-shadow (@x: 0, @y: 0, @blur:0, @spread: 0, @color: #000) {
+    box-shadow: @arguments;
+    -moz-box-shadow: @arguments;
+    -webkit-box-shadow: @arguments;
+}
+
+.text-shadow(@x: 0, @y: 0, @blur: 0, @color: #000) {
+    text-shadow: @arguments;
+    -moz-text-shadow: @arguments;
+    -webkit-text-shadow: @arguments;
+}
+
+._text-shadow-2lev {
+    text-shadow: #000 1px 0px, #000 1px 1px, #000 0px 1px, #000 -1px 1px, #000 -1px 0px, #000 -1px -1px, #000 0px -1px, #000 1px -1px, #000 0 0 5px, #000 0 0 5px, #000 0 0 5px, #000 0 0 5px, #000 0 0 5px, #000 0 0 5px, #000 0 0 5px, #000 0 0 5px, #004ee8 0 0 8px, #004ee8 0 0 8px, #004ee8 0 0 8px, #004ee8 0 0 8px, #004ee8 0 0 8px, #004ee8 0 0 8px, #004ee8 0 0 8px, #004ee8 0 0 8px;
+    -moz-text-shadow: #000 1px 0px, #000 1px 1px, #000 0px 1px, #000 -1px 1px, #000 -1px 0px, #000 -1px -1px, #000 0px -1px, #000 1px -1px, #000 0 0 5px, #000 0 0 5px, #000 0 0 5px, #000 0 0 5px, #000 0 0 5px, #000 0 0 5px, #000 0 0 5px, #000 0 0 5px, #004ee8 0 0 8px, #004ee8 0 0 8px, #004ee8 0 0 8px, #004ee8 0 0 8px, #004ee8 0 0 8px, #004ee8 0 0 8px, #004ee8 0 0 8px, #004ee8 0 0 8px;
+    -webkit-text-shadow: #000 1px 0px, #000 1px 1px, #000 0px 1px, #000 -1px 1px, #000 -1px 0px, #000 -1px -1px, #000 0px -1px, #000 1px -1px, #000 0 0 5px, #000 0 0 5px, #000 0 0 5px, #000 0 0 5px, #000 0 0 5px, #000 0 0 5px, #000 0 0 5px, #000 0 0 5px, #004ee8 0 0 8px, #004ee8 0 0 8px, #004ee8 0 0 8px, #004ee8 0 0 8px, #004ee8 0 0 8px, #004ee8 0 0 8px, #004ee8 0 0 8px, #004ee8 0 0 8px;
+}
+._text_shadow_neon(@color1: #fff, @color2: #fff, @color3: #fff){
+
+ text-shadow:0px 0px 2px @color1,0px 0px 4px @color2,0px 0px 14px @color3,0px 0px 10px @color3;
+-moz-text-shadow:0px 0px 2px @color1,0px 0px 4px @color2,0px 0px 14px @color3,0px 0px 10px @color3;
+-webkit-text-shadow:0px 0px 2px @color1,0px 0px 4px @color2,0px 0px 14px @color3,0px 0px 10px @color3;
+}
+
+._grad_vert (@top_color: #FFF, @bottom_color: #000) {
+    background: @top_color;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@top_color', endColorstr='@bottom_color');
+    background: -moz-linear-gradient(top, @top_color, @bottom_color);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @top_color), color-stop(100%, @bottom_color));
+    background: -webkit-linear-gradient(top, @top_color, @bottom_color);
+    background: -o-linear-gradient(top, @top_color, @bottom_color);
+    background: -ms-linear-gradient(top, @top_color, @bottom_color);
+    background: linear-gradient(top, @top_color, @bottom_color);
+}
+
+._grad_hor (@top_color: #FFF, @bottom_color: #000) {
+    background: @top_color;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@top_color', endColorstr='@bottom_color', GradientType=1);
+    background: -moz-linear-gradient(left, @top_color, @bottom_color);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,@top_color), color-stop(100%,@bottom_color));
+    background: -webkit-linear-gradient(left, @top_color, @bottom_color);
+    background: -o-linear-gradient(left, @top_color, @bottom_color);
+    background: -ms-linear-gradient(left, @top_color, @bottom_color);
+    background: linear-gradient(left, @top_color, @bottom_color);
+}
+
+._grad(@top_color: #FFF, @bottom_color: #000) {
+    background: @top_color;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@bottom_color', endColorstr='@top_color');
+    background: -moz-linear-gradient(top, @bottom_color, @top_color);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@bottom_color), color-stop(100%,@top_color));
+    background: -webkit-linear-gradient(top, @bottom_color, @top_color);
+    background: -o-linear-gradient(top, @bottom_color, @top_color);
+    background: -ms-linear-gradient(top, @bottom_color, @top_color);
+    background: linear-gradient(top, @bottom_color, @top_color);
+
+    @top_color_l: lighten(@top_color, 5%);
+    @bottom_color_l: lighten(@bottom_color, 5%);
+
+    &:hover {
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=@bottom_color_l, endColorstr=@top_color_l);
+        background: -moz-linear-gradient(top, @bottom_color_l, @top_color_l);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@bottom_color_l), color-stop(100%,@top_color_l));
+        background: -webkit-linear-gradient(top, @bottom_color_l, @top_color_l);
+        background: -o-linear-gradient(top, @bottom_color_l, @top_color_l);
+        background: -ms-linear-gradient(top, @bottom_color_l, @top_color_l);
+        background: linear-gradient(top, @bottom_color_l, @top_color_l);
+    }
+}
+
+._rounded-corners (@r1: 5px, @r2: 5px, @r3: 5px, @r4: 5px) {
+    ._border_radius (@arguments);
+}
+
+._border_radius (@radius: 5px) {
+    border-radius: @arguments;
+    -webkit-border-radius: @arguments;
+    -moz-border-radius: @arguments;
+}
+
+._border_radius (@r1, @r2, @r3, @r4) {
+    border-radius: @arguments;
+    -webkit-border-radius: @arguments;
+    -moz-border-radius: @arguments;
+}
+
+._opacity (@count: 0.5) {
+    @ie_count: @count * 100;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=@ie_count);
+    -moz-opacity: @count;
+    -khtml-opacity: @count;
+    opacity: @count;
+}
+
+._opacity_block (@color: #000, @count: 0.1) {
+    > * {
+        position: relative;
+        z-index: 2;
+    }
+
+    &:before {
+        ._opacity (@count);
+        content: '';
+        background: @color;
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+._center (@position: absolute) {
+    position: @position;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+html[xmlns] .clearfix {
+    display: block;
+}
+
+* html .clearfix {
+    height: 1%;
+}
+

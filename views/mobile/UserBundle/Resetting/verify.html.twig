@@ -1,0 +1,23 @@
+{% extends "@front/layout.html.twig" %}
+{% block seo %}
+    {{ parent() }}
+    <title>{{ 'change_password'|trans({}, 'users') }}</title>
+
+{% endblock %}
+{% form_theme form "@front/Form/password.html.twig" %}
+{% block content %}
+    <section class="auth-header">
+        <h1>{{ 'change_password'|trans({}, 'users') }}</h1>
+        <a class="auth-header-close" href="/"></a>
+    </section>
+    <article class="auth-content" style="min-height: 200px">
+        <div class="auth-form-content">
+            {{ form(form) }}
+        </div>
+    </article>
+    <script>
+        var select_send = "{{ 'select_send'|trans({}, 'users')}}";
+        $('#resetting_submit:contains("Submit")').text(select_send);
+        $('#resetting_email').attr('placeholder','E-mail');
+    </script>
+{% endblock %}

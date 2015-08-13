@@ -1,0 +1,236 @@
+{% extends "@base/layout.html.twig" %}
+{% block seo %}
+    {{ parent() }}
+    <title>{{ 'casino_title'|trans }}</title>
+{% endblock %}
+{% block content %}
+    <section>
+        <figure class="main-slider">
+            <div>
+                <figure class="other" style="background: url('{{ asset('assets/temp/slider/tournament.png') }}') no-repeat center;">
+                    <a href=""></a>
+                </figure>
+                <div id="wowslider-container">
+                    <div class="ws_images">
+                        <ul>
+                            {{ widget("cms.banner", "banner_statick", app.request.locale ) }}
+                        </ul>
+                    </div>
+                    <div class="ws_bullets">
+                        <ul>
+                            {{ widget("cms.banner", "banner_statick", app.request.locale) }}
+                        </ul>
+                    </div>
+                    <a href="#" class="ws_frame"></a>
+                    <div class="ws_shadow"></div>
+                </div>
+            </div>
+            <aside>
+                <div class="block last-winnings">
+                    <header>
+                        <h4>{{ 'latest_wins'|trans }}</h4>
+                    </header>
+                    <table>
+                        {{ widget("cms.last_winnings", 2000) }}
+                    </table>
+                </div>
+                <div class="block top-games">
+                    <header>
+                        <h4>{{ 'live_tournaments'|trans }}</h4>
+                    </header>
+                    <div class="flexslider">
+                        <ul class="slides">
+                            {{ widget("cms.banner", "banner_inter", app.request.locale ) }}
+
+                        </ul>
+                    </div>
+
+                    {#{{ widget("cms.best_games") }}#}
+                </div>
+                <div class="jackpot" id="jackpot">
+                    <span>{{ 'jackpot'|trans }}</span>
+                    <strong>
+                        {{ widget("cms.jackpot") }}
+
+                    </strong>
+                </div>
+            </aside>
+        </figure>
+
+        <figure class="main-games">
+            <nav class="tabs">
+                <a href="{{ path('game_list') }}" class="active" title="{{ 'popular_games'|trans}}">{{ 'popular_games'|trans}}</a>
+                {% for category in categories %}
+                    <a href="{{ path('game_type_list', {category: category.slug}) }}" title="{{ category.translate.name }}">{{ category.translate.name }}</a>
+
+                {% endfor %}
+            </nav>
+            <div>
+                {% for game in games %}
+                    <div class="games_post">
+                        <em><img src="{{ game.logo.path|imagine_filter('thumbnail') }}"  alt="{{ game.translate.name }}"></em>
+                        <figure>
+                            {% if game.isNew %}
+                                {#<div class="logoNews"></div>#}
+                            {% endif %}
+                            {% if game.is3D %}
+                                <div class="logo3d"></div>
+                            {% endif %}
+                            <article>
+                                <h4 style="display: none;">{{ game.translate.name }}</h4>
+
+                                
+                                {% if not is_granted('ROLE_USER') %}
+                                    <a
+                                            {#data-toggle="modal" data-id="{{ path('game_play_real', {category: game.category.slug, slug: game.slug}) }}" #}
+                                            class="localStore playNow login_right_now" href="{{ path('user_oauth') }}">{{ 'play_now'|trans}}</a>
+
+                                {% else %}
+                                    <a class="playNow login_right_now" href="{{ path('game_play_real', {category: game.category.slug, slug: game.slug}) }}">{{ 'play_now'|trans}}</a>
+
+                                {% endif %}
+                                {% if game.isEnabledDemo %}
+                                    <a class="demo login_right_now" href="{{ path('game_play_demo', {category: game.category.slug, slug: game.slug}) }}">{{ 'demo_game'|trans}}</a>
+
+                                {% endif %}
+                                
+
+
+                                <a class="details" href="{{ path('game_view', {category: game.category.slug, slug: game.slug}) }}">{{ 'read_more'|trans}}</a>
+                            </article>
+                        </figure>
+                        <span>{{ game.translate.name }}</span>
+                    </div>
+                {% endfor %}
+            </div>
+        </figure>
+        <!-- less: s_seotext.less -->
+        {% if app.request.locale == "ru" %}
+        <figure class="seo-text">
+            <section>
+        <header>
+            <h1>Almurut игровые автоматы</h1>
+        </header>
+            <p>
+                В нашем казино представлены игровые автоматы Almurut, которые вы можете играть как бесплатно, так и на
+                реальные деньги. Игровые автоматы Almurut — это лучший способ проведения азартного досуга. Играть в нашем
+                казино можно как на реальные деньги, так и бесплатно в демо версии автоматов. </p>
+            <p>
+                Для того, чтобы начать играть достаточно выбрать понравившуюся вам игру и запустить демо версию. Когда
+                вы поймете, что готовы играть на реальные деньги, просто пополняете свой счет любым существующим
+                способом и зарабатываете. Наше казино Almurut поддерживает практически любой из существующих на
+                сегодняшний день способов оплаты товаров и услуг в интернете, что делает его еще удобнее для игроков.
+
+
+            </p>
+
+        </section>
+            <section>
+                <header>
+                    <h2>
+                        Особенности игровых автоматов Almurut
+                    </h2>
+                </header>
+                <p>
+                    Игровые автоматы от нашего казино выделяются среди других очень хорошим дизайном, прекрасным музыкальным
+                    сопровождением. Интерфейс максимально удобный, что обеспечивает комфортную игру для наших пользователей.
+
+                    Если вы новичок и хотите ознакомиться с игровыми автоматами Almurut, то наш сайт максимально удобен для
+                    этого, ведь у нас вы можете играть абсолютно бесплатно. Также бесплатные игровые автоматы Almurut очень
+                    удобны, если вы хотите ощутить азарт, но не хотите тратить деньги. Но в этом случае вы не сможете
+                    поднять крупненькую сумму.
+
+                </p>
+
+            </section>
+
+            <div style="clear: both; margin-bottom: 10px"></div>
+            <section style="width: 100%; float: inherit">
+            <header>
+                <h3>Комфортная игра в Almurut казино</h3>
+            </header>
+            <p>
+                Особенность нашего виртуального заведения в том, что все слоты доступны с любой точки мира, при
+                наличии компьютера и интернета. Вы можете взять ноутбук, бокал вина, сесть на удобный диван и
+                зарабатывать достаточно неплохие деньги. Можете отдыхать на курорте и в это время играть в онлайн
+                игровые автоматы.
+            </p>
+
+            <p>
+                Сайт доступен круглосуточно. Также, в любое время вы можете обратиться в нашу дружелюбную поддержку
+                онлайн, которая поможет вам решить любой, возникший у вас вопрос.
+            </p>
+
+            <p>
+                Играйте у нас в казино Almurut и постепенно увеличивайте свои выигрыши, которые со временем помогут
+                вам стать настоящим миллионером.
+            </p>
+            </section>
+        </figure>
+        {% else %}
+            <figure class="seo-text">
+                <section>
+                    <header>
+                        <h1>Vulkan slot machines</h1>
+                    </header>
+                    <p>In our casino Vulkan repsentes slot machines which you can play for free or on real money .
+                        Vulkan slot machines is the best way of gambling leisure. In our casino you can play on real
+                        money or for free in demo version of slots.</p>
+
+                    <p>To start playing just choose the game you like and start a demo version. When you understand that
+                        you are ready to play on real money, make a deposit on your account with any existing payment
+                        sysytem and raise money. Our casino Vulkan maintain almost all means of payment on the Internet
+                        what makes it even more convenient for players.</p>
+
+                </section>
+                <section>
+                    <header>
+                        <h2>
+                            Features of Vulkan slot machines
+                        </h2>
+                    </header>
+                    <p>Slot machines in our casino distinguish with very good design and pleasant music. The interface
+                        is very convenient that provides comfortable game for our users. If you are a beginner and you
+                        want to familiarize with Vulkan slot machines, our site is very cosy for this purpose, as you
+                        can play absolutely free of charge. Also free Vulkan slot machines are very favorable, if you
+                        want to feel passion, but do not want to spend money. But in this case you cannot hit the large
+                        sum.</p>
+
+                </section>
+
+                <div style="clear: both; margin-bottom: 10px"></div>
+                <section style="width: 100%; float: inherit">
+                    <header>
+                        <h3>Comfort game in Vulkan casino</h3>
+                    </header>
+                    <p>The feature of our virtual institution is that all slots are available from any point of the
+                        world if you have a computer and the Internet. You can take the laptop, a glass of wine, sit
+                        down on comfortable sofa and earn quite good money. You can relax at the resort and at the same
+                        time play online slot machines.</p>
+
+                    <p>The site is available round the clock. Also, at any time you can apply online to our friendly
+                        support service which will answer to any question you have.
+                        Play in Vulkan casino and increase the prizes that will help you to become a real millionaire.</p>
+                </section>
+            </figure>
+        {% endif %}
+        {% include "@front/layout/seo_text.html.twig" %}
+        <!--end less: s_seotext.less -->
+    </section>
+    <script type="text/javascript" src="{{ asset('assets/vendor/build/wowslider.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/vendor/sample/script.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('assets/js/jquery.flexslider-min.js') }}"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(function(){
+            $('.flexslider').flexslider({
+                'pauseOnAction': false,
+                'pauseOnHover' : false,
+                'directionNav' : true,
+                'prevText': "",
+                'nextText': "",
+                'controlNav': false
+            });
+        });
+    </script>
+{% endblock %}

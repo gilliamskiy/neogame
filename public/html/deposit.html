@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Vulcane</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+
+
+    <!-- Подключаем или css или less!!! -->
+    <!--
+    <link rel="stylesheet" type="text/css" href="/assets/css/frontend.min.css">
+    <!---->
+
+    <link rel="stylesheet/less" type="text/css" href="less/p_deposit.less">
+    <script src="vendor/less-1.3.3.min.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript" src="vendor/modernizr.js"></script>
+    <script type="text/javascript" src="vendor/jquery-1.11.0.min.js"></script>
+
+    <script type="text/javascript" src="js/functions.js"></script>
+    <!---->
+
+    <!--[if (gte IE 6)&(lte IE 8)]>
+    <script type="text/javascript" src="vendor/mootools_1.4.5.js"></script>
+    <script type="text/javascript" src="vendor/selectivizr-min.js"></script>
+    <![endif]-->
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+</head>
+
+<body>
+<div class="bg-main">
+    <figure class="spires"></figure>
+    <figure class="column"></figure>
+</div>
+<section class="main">
+<header>
+    <a href="#" id="authBtn"><span>ВОЙТИ В КЛУБ</span></a>
+    <a href="#" id="regBtn"><span>РЕГИСТРАЦИЯ</span></a>
+    <figure class="logo"><a href="/"></a></figure>
+    <nav class="topMenuNav">
+        <a href="#">Игровой зал</a>
+        <a href="#">Акции и бонусы</a>
+        <a href="#">Касса</a>
+        <a href="#">Достижения</a>
+        <a href="#">О нас</a>
+        <a href="#">Регистрация</a>
+        <div class="lang">
+            <ul>
+                <li class="ru"><a href="#"></a></li>
+                <li class="en"><a href="/en/"></a></li>
+            </ul>
+            <label>Язык:</label>
+        </div>
+    </nav>
+</header>
+<section>
+<!-- less: s_breadcrumbs.less -->
+<figure class="breadCrumbs">
+    <nav>
+        <span><a href="/">Главная</a></span>
+        <span>Профиль</span>
+        <span>Сделать депозит</span>
+    </nav>
+</figure>
+<!--end less: s_breadcrumbs.less -->
+
+<!-- less: s_news-list.less -->
+<figure class="list help">
+<header>
+    <h1>Выберите метод платежа</h1>
+</header>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a style="background: url(/images/visa.png) no-repeat 13px;" class="accordion-toggle " data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                Пластиковые карты Visa и MasterCard
+                <span class="close"></span>
+            </a>
+
+        </div>
+
+        <div id="collapseOne" class="accordion-body in collapse">
+
+            <div class="accordion-inner">
+                <p>
+                    Пластиковая карта – универсальный платежный инструмент, применяющийся для оплаты практически любых видов услуг и товаров, включая и онлайн-покупки. Используя пластиковую карту для пополнения счета в Клубе, Вы обеспечиваете себе возможность легко и быстро получить свой выигрыш. Если Вы хотите идти в ногу со временем и иметь в распоряжении универсальное и удобное платежное средство, карты VISA или MasterCard — Ваш выбор!
+                    Вы можете пополнить игровой счет, напрямую используя пластиковую карту и минуя какие-либо платежные системы. Для этого выберите в «Кассе» соответствующий метод и введите требуемые данные.
+                </p>
+                <section>
+                    <a href="#" class="green_btn" ><span>Пополнить счет</span></a>
+                    <div>
+                        Минимальный депозит: $5
+                        <br> Максимальный депозит: $500
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a style="background: url(/images/qiwi.png) no-repeat 15px;"  class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                Платежный терминал QIWI
+                <span class="close"></span>
+            </a>
+        </div>
+        <div id="collapseTwo" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <p>
+                    Пластиковая карта – универсальный платежный инструмент, применяющийся для оплаты практически любых видов услуг и товаров, включая и онлайн-покупки. Используя пластиковую карту для пополнения счета в Клубе, Вы обеспечиваете себе возможность легко и быстро получить свой выигрыш. Если Вы хотите идти в ногу со временем и иметь в распоряжении универсальное и удобное платежное средство, карты VISA или MasterCard — Ваш выбор!
+                    Вы можете пополнить игровой счет, напрямую используя пластиковую карту и минуя какие-либо платежные системы. Для этого выберите в «Кассе» соответствующий метод и введите требуемые данные.
+                </p>
+                <section>
+                    <a href="#" class="green_btn" ><span>Пополнить счет</span></a>
+                    <div>
+                        Минимальный депозит: $5
+                        <br> Максимальный депозит: $500
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a style="background: url(/images/yandex.png) no-repeat 20px;" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                Яндекс.Деньги
+                <span class="close"></span>
+            </a>
+        </div>
+        <div id="collapseThree" class="accordion-body collapse">
+            <div class="accordion-inner">
+
+                <p>
+                    Пластиковая карта – универсальный платежный инструмент, применяющийся для оплаты практически любых видов услуг и товаров, включая и онлайн-покупки. Используя пластиковую карту для пополнения счета в Клубе, Вы обеспечиваете себе возможность легко и быстро получить свой выигрыш. Если Вы хотите идти в ногу со временем и иметь в распоряжении универсальное и удобное платежное средство, карты VISA или MasterCard — Ваш выбор!
+                    Вы можете пополнить игровой счет, напрямую используя пластиковую карту и минуя какие-либо платежные системы. Для этого выберите в «Кассе» соответствующий метод и введите требуемые данные.
+                </p>
+                <section>
+                    <a href="#" class="green_btn" ><span>Пополнить счет</span></a>
+                    <div>
+                        Минимальный депозит: $5
+                        <br> Максимальный депозит: $500
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a style="background: url(/images/sms_img.png) no-repeat 19px;" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse4">
+                Оплата через SMS
+                <span class="close"></span>
+            </a>
+        </div>
+        <div id="collapse4" class="accordion-body collapse">
+            <div class="accordion-inner">
+
+                <p>
+                    Пластиковая карта – универсальный платежный инструмент, применяющийся для оплаты практически любых видов услуг и товаров, включая и онлайн-покупки. Используя пластиковую карту для пополнения счета в Клубе, Вы обеспечиваете себе возможность легко и быстро получить свой выигрыш. Если Вы хотите идти в ногу со временем и иметь в распоряжении универсальное и удобное платежное средство, карты VISA или MasterCard — Ваш выбор!
+                    Вы можете пополнить игровой счет, напрямую используя пластиковую карту и минуя какие-либо платежные системы. Для этого выберите в «Кассе» соответствующий метод и введите требуемые данные.
+                </p>
+                <section>
+                    <a href="#" class="green_btn" ><span>Пополнить счет</span></a>
+                    <div>
+                        Минимальный депозит: $5
+                        <br> Максимальный депозит: $500
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a style="background: url(/images/mts_img.png) no-repeat 23px;" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse5">
+                MTS мобильный платеж
+                <span class="close"></span>
+            </a>
+        </div>
+        <div id="collapse5" class="accordion-body collapse">
+            <div class="accordion-inner">
+
+                <p>
+                    Пластиковая карта – универсальный платежный инструмент, применяющийся для оплаты практически любых видов услуг и товаров, включая и онлайн-покупки. Используя пластиковую карту для пополнения счета в Клубе, Вы обеспечиваете себе возможность легко и быстро получить свой выигрыш. Если Вы хотите идти в ногу со временем и иметь в распоряжении универсальное и удобное платежное средство, карты VISA или MasterCard — Ваш выбор!
+                    Вы можете пополнить игровой счет, напрямую используя пластиковую карту и минуя какие-либо платежные системы. Для этого выберите в «Кассе» соответствующий метод и введите требуемые данные.
+                </p>
+                <section>
+                    <a href="#" class="green_btn" ><span>Пополнить счет</span></a>
+                    <div>
+                        Минимальный депозит: $5
+                        <br> Максимальный депозит: $500
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a style="background: url(/images/moneta.png) no-repeat 2px;" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse6">
+                Монета.ру
+                <span class="close"></span>
+            </a>
+        </div>
+        <div id="collapse6" class="accordion-body collapse">
+            <div class="accordion-inner">
+
+                <p>
+                    Пластиковая карта – универсальный платежный инструмент, применяющийся для оплаты практически любых видов услуг и товаров, включая и онлайн-покупки. Используя пластиковую карту для пополнения счета в Клубе, Вы обеспечиваете себе возможность легко и быстро получить свой выигрыш. Если Вы хотите идти в ногу со временем и иметь в распоряжении универсальное и удобное платежное средство, карты VISA или MasterCard — Ваш выбор!
+                    Вы можете пополнить игровой счет, напрямую используя пластиковую карту и минуя какие-либо платежные системы. Для этого выберите в «Кассе» соответствующий метод и введите требуемые данные.
+                </p>
+                <section>
+                    <a href="#" class="green_btn" ><span>Пополнить счет</span></a>
+                    <div>
+                        Минимальный депозит: $5
+                        <br> Максимальный депозит: $500
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a style="background: url(/images/alfa.png) no-repeat 2px;" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse7">
+                Альфа-клик
+                <span class="close"></span>
+            </a>
+        </div>
+        <div id="collapse7" class="accordion-body collapse">
+            <div class="accordion-inner">
+
+                <p>
+                    Пластиковая карта – универсальный платежный инструмент, применяющийся для оплаты практически любых видов услуг и товаров, включая и онлайн-покупки. Используя пластиковую карту для пополнения счета в Клубе, Вы обеспечиваете себе возможность легко и быстро получить свой выигрыш. Если Вы хотите идти в ногу со временем и иметь в распоряжении универсальное и удобное платежное средство, карты VISA или MasterCard — Ваш выбор!
+                    Вы можете пополнить игровой счет, напрямую используя пластиковую карту и минуя какие-либо платежные системы. Для этого выберите в «Кассе» соответствующий метод и введите требуемые данные.
+                </p>
+                <section>
+                    <a href="#" class="green_btn" ><span>Пополнить счет</span></a>
+                    <div>
+                        Минимальный депозит: $5
+                        <br> Максимальный депозит: $500
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a style="background: url(/images/mail_img.png) no-repeat 1px;" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse8">
+                Деньги@Mail.ru
+                <span class="close"></span>
+            </a>
+        </div>
+        <div id="collapse8" class="accordion-body collapse">
+            <div class="accordion-inner">
+
+                <p>
+                    Пластиковая карта – универсальный платежный инструмент, применяющийся для оплаты практически любых видов услуг и товаров, включая и онлайн-покупки. Используя пластиковую карту для пополнения счета в Клубе, Вы обеспечиваете себе возможность легко и быстро получить свой выигрыш. Если Вы хотите идти в ногу со временем и иметь в распоряжении универсальное и удобное платежное средство, карты VISA или MasterCard — Ваш выбор!
+                    Вы можете пополнить игровой счет, напрямую используя пластиковую карту и минуя какие-либо платежные системы. Для этого выберите в «Кассе» соответствующий метод и введите требуемые данные.
+                </p>
+                <section>
+                    <a href="#" class="green_btn" ><span>Пополнить счет</span></a>
+                    <div>
+                        Минимальный депозит: $5
+                        <br> Максимальный депозит: $500
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <article style="display: none;">
+    <header  >
+        <h1>Пластиковые карты Visa и MasterCard</h1>
+        <span class="close"></span>
+    </header>
+    <div >
+        <p>
+            Пластиковая карта – универсальный платежный инструмент, применяющийся для оплаты практически любых видов услуг и товаров, включая и онлайн-покупки. Используя пластиковую карту для пополнения счета в Клубе, Вы обеспечиваете себе возможность легко и быстро получить свой выигрыш. Если Вы хотите идти в ногу со временем и иметь в распоряжении универсальное и удобное платежное средство, карты VISA или MasterCard — Ваш выбор!
+            Вы можете пополнить игровой счет, напрямую используя пластиковую карту и минуя какие-либо платежные системы. Для этого выберите в «Кассе» соответствующий метод и введите требуемые данные.
+        </p>
+        <section>
+            <a class="green_btn" ><span>Пополнить счет</span></a>
+            <div>
+                Минимальный депозит: $5
+                <br> Максимальный депозит: $500
+            </div>
+        </section>
+
+    </div>
+</article>
+    <article style="display: none;">
+    <header  >
+        <h1> Акция "Отыграйся" в Твист Казино</h1>
+        <span class="close"></span>
+    </header>
+    <div >
+        <p>
+            Пластиковая карта – универсальный платежный инструмент, применяющийся для оплаты практически любых видов услуг и товаров, включая и онлайн-покупки. Используя пластиковую карту для пополнения счета в Клубе, Вы обеспечиваете себе возможность легко и быстро получить свой выигрыш. Если Вы хотите идти в ногу со временем и иметь в распоряжении универсальное и удобное платежное средство, карты VISA или MasterCard — Ваш выбор!
+            Вы можете пополнить игровой счет, напрямую используя пластиковую карту и минуя какие-либо платежные системы. Для этого выберите в «Кассе» соответствующий метод и введите требуемые данные.
+        </p>
+        <section>
+            <a class="green_btn" ><span>Пополнить счет</span></a>
+            <div>
+                Минимальный депозит: $5
+                <br> Максимальный депозит: $500
+            </div>
+        </section>
+    </div>
+</article>
+</figure>
+    <section class="mainSidebar">
+        <figure class="personalData">
+            <p class="personalMail">
+                info@2illusions.org
+            </p>
+            <img src="http://twistcasinogames.com/media/cache/thumbnail/">
+            <aside class="balance">
+                Баланс        <span>0,00&nbsp;$</span>
+            </aside>
+            <aside class="status">
+                Статус        <span>Standard</span>
+            </aside>
+        </figure>
+
+        <figure class="personalFunctions">
+            <ul>
+                <li><a  href="/lottery">Мои лотерейные билеты</a></li>
+                <li><a href="/profile">Личные данные</a></li>
+                <li><a href="/messages">Личные сообщения</a></li>
+                <li><a href="/documents">Загрузить документы</a></li>
+                <li><a href="/deposit">Пополнить счет</a></li>
+                <li><a href="/offers">Получить бонус</a></li>
+                <li><a href="/withdrawals">Заказать выплату</a></li>
+                <li><a href="/deposit/history">История платежей</a></li>
+                <li><a href="/bonus/history">История бонусов</a></li>
+                <li><a href="/round/history">История игр</a></li>
+                <li><a href="/logout">Выйти</a></li>
+            </ul>
+        </figure>
+    </section>
+    <div ctyle="clear:both;"></div>
+<!--end less: s_news-list.less -->
+
+<!-- less: s_seotext.less -->
+<figure class="seo-text">
+
+    <section>
+        <header>
+            <h3>Уважаемые посетители онлайн казино Almurut!</h3>
+        </header>
+        <p>
+            Игровые автоматы Almurut давно зарекомендовали себя в качестве лидера азартных развлечений. Знакомые всем игровые автоматы <a href="#">Gaminator</a>,  <a href="#">Mega Jack</a> и  <a href="#">Игрософт</a> получили внушительную популярность в сети Интернет, где каждый теперь имеет возможность сыграть в свои любимые, проверенные временем игры.
+            Пожалуй, не найдется ни одного такого игрока в России, кому была бы незнакома яркая красно-синяя вывеска Almurut слоты и игровые автоматы. Игорный бренд "Almurut" по праву завоевал в свое время славу и репутацию лучшего предложения для любителей азартных игр.
+        </p>
+        <p>
+            Сегодня игровой клуб Almurut готов предложить вам новое слово в виртуальных азартных развлечениях. Знаменитые  <a href="#">игровые автоматы на деньги</a> казино Almurut теперь доступны в сети Интернет. С прежним высоким качеством обслуживания, самыми щедрыми играми на рынке. И конечно же - в нашей виртуальной версии мы сохранили тот самый неповторимый дух успеха и удачи, присущий настоящему Almurutу!
+        </p>
+    </section>
+
+    <section>
+        <header>
+            <h3>Вы можете играть в игровые автоматы казино Almurut бесплатно без регистрации или на деньги!</h3>
+        </header>
+        <p>
+            Разумеется, играть онлайн в казино Almurut вы можете в любой игровой автомат бесплатно и без регистрации. В игровом клубе Almurut представлены игровые аппараты мировых лидеров. У нас вы найдете как давно всем известные и азартные игры марки Novomatic Gaminator и Игрософт, так и более новые разработки - 3D слоты.
+        </p>
+        <p>
+            Важнейшим приоритетом для нас является качество обслуживания. Так, мы предлагаем круглосуточную службу поддержки. Задать свой вопрос по работе казино Almurut онлайн и получить на него квалифицированны ответ вы можете в любое время дня и ночи. Наш онлайн-чат всегда открыт для вас, а наши консультанты с удовольствием помогут разобраться с любым вопросом. Для вас всегда доступны классические игровые автоматы 777 и самые популярные: Гейминатор, Игрософт и Мега Джек. Эти слоты дают возможность играть бесплатно и без регистрации, не нужно отправлять никаких смс, а также вы можете играть на реальные деньги.
+        </p>
+    </section>
+</figure>
+</section>
+<!--end less: s_seotext.less -->
+
+<footer>
+    <section class="paySystems">
+    </section>
+    <nav class="footerNav">
+        <ul>
+            <li><a href="">Ответственная игра</a></li>
+            <li><a href="">Безопасность</a></li>
+            <li><a href="">FAQ</a></li>
+            <li><a href="">Правила</a></li>
+            <li><a href="">Турниры</a></li>
+            <li><a href="">Служба поддержки</a></li>
+            <li><a href="">О клубе</a></li>
+        </ul>
+    </nav>
+    <section class="copyright">
+        <p>
+            Игровой интернет клуб «Almurut» © 2011-2013. Казино клуб Almurut – игровые автоматы онлайн.
+        </p>
+    </section>
+</footer>
+</section>
+
+
+<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+/*! Statistics*/
+body > .main > section > .statistics {
+    padding-left: 23px;
+    > header {
+        > * {
+            font-size: 27px;
+            padding: 7px 0px 20px 6px;
+            color: white;
+            margin: 0px;
+        }
+    }
+    > article {
+        width: 310px;
+        float: left;
+        header {
+            > * {
+                margin: 0px;
+                height: 38px;
+                line-height: 17px;
+            }
+        }
+        & + article {
+
+            margin-left: 15px;
+        }
+
+        article {
+
+            width: 310px;
+            display: table;
+            padding: 10px 0px 14px 0px;
+            border-top: 1px solid #001c6d;
+//            height: 96px;
+            overflow: hidden;
+
+            div {
+                display: table-cell;
+                color: white;
+                font-size: 15px;
+                &:first-child {
+
+                    width: 37px;
+                    text-align: center;
+                }
+                &:nth-child(2) {
+
+                    width: 90px;
+                }
+                &:nth-child(3) {
+                    vertical-align: top;
+                    padding-left: 6px;
+                    span:first-child {
+
+                        color: #386af2
+                    }
+                    > a {
+                        color: @orange;
+                        text-decoration: underline;
+                        margin-bottom: 5px;
+                        & + div {
+                            padding: 0px;
+                        }
+                    }
+                    > * {
+                        display: block;
+                    }
+                }
+                div {
+                    font-size: 13px;
+                    line-height: 12px;
+                }
+            }
+            &:nth-child(odd) {
+
+                background: #00071b;
+            }
+        }
+    }
+
+
+  .bodyTable {
+    overflow: hidden;
+    padding: 10px 0px!important;
+    border-top: 1px solid #001c6d!important;
+    .bodyTable_wi {
+      color: #fff;
+      font-size: 15px;
+      margin: 0;
+      width: 134px;
+      text-align: center;
+      display: table-cell;
+    }
+
+    .bodyTable_first {
+      width: 37px;
+      padding:  7px 0;
+    }
+    .nameTable {
+//      color: #386af2!important;
+      vertical-align: middle!important;
+    }
+  }
+
+
+  .static_linc {
+    color: #ff9834;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .static_name {
+    color: #ffffff!important;
+  }
+}

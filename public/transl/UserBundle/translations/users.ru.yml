@@ -1,0 +1,29 @@
+register: Регистрация
+login: Войти
+form_email: Email
+form_password: Пароль
+form_preferred_locale: Язык
+form_is_receiving_newsletters: Подписаться на новости
+form_is_receiving_bonuses: Хочу получать бонусы
+form_edit_btn: Сохранить
+male: Мужской
+female: Женский
+form_preferred_name: Отображаемое имя
+form_full_name: Полное имя
+form_birthday: Дата рождения
+gender: Пол
+country: Страна
+city: Город
+address: Адрес
+phone_number: Телефон
+logout: Выйти
+edit_profile: Редактировать профиль
+change_password: Изменить пароль
+password:
+  invalid_current: Неверно указан текущий пароль
+  unknown_error: Произошла ошибка при изменении пароля
+  changed: Пароль изменен
+current_password: Текущий пароль
+new_password: Новый пароль
+repeat_password: Повторите пароль
+form_username: Логин

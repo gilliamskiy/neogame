@@ -1,0 +1,728 @@
+/*! Index */
+
+body > .main > section > .main-slider {
+    padding: 10px 8px 10px 12px;
+    height: 360px;
+
+    > div {
+        ._border_radius (1px);
+        border: 1px solid #2fdaff;
+        width: 723px;
+        height: 338px;
+        float: left;
+        overflow: hidden;
+
+        > figure {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: none;
+
+            & + figure {
+                display: block;
+            }
+
+            &.tournament {
+                > aside {
+                    ._opacity_block (#000, 0.6);
+                    position: absolute;
+                    border-top: 1px solid #547cb0;
+                    width: 100%;
+                    height: 86px;
+                    bottom: 0;
+
+                    div {
+                        position: absolute;
+
+                        &.name,
+                        &.fond {
+                            left: 76px;
+                        }
+
+                        &.name {
+                            top: 15px;
+                            font-size: 19px;
+                            line-height: 19px;
+                            height: 19px;
+                            font-weight: bold;
+                            color: #FFF;
+
+                            span,
+                            span a {
+                                color: #35b2ff;
+                            }
+
+                            a {
+                                text-decoration: underline;
+                            }
+                        }
+
+                        &.fond {
+                            bottom: 19px;
+                            font-size: 13px;
+                            line-height: 13px;
+                            color: #b0caee;
+                            vertical-align: top;
+
+                            span {
+                                display: inline-block;
+                                font-size: 26px;
+                                font-weight: bold;
+                                color: #2db81a;
+                            }
+                        }
+
+                        &.begin,
+                        &.finish {
+                            font-size: 15px;
+                            line-height: 26px;
+                            height: 26px;
+                            top: 12px;
+                            right: 15px;
+                            color: #35b2ff;
+
+                            span {
+                                font-size: 26px;
+                                color: #FFF;
+                            }
+                        }
+
+                        &.finish {
+                            top: auto;
+                            bottom: 16px;
+                        }
+                    }
+
+                    &:after {
+                        content: '';
+                        background: url("../images/bg_main_slider_tounament.png") left top no-repeat;
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+
+            &.other {
+                a {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+  .wowslider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .ws-title-wrapper {
+    aside {
+      position: relative;
+      height: 86px;
+
+      div {
+        position: absolute;
+
+        &.name,
+        &.fond {
+          left: 76px;
+        }
+
+        &.name {
+          top: 15px;
+          font-size: 19px;
+          line-height: 19px;
+          height: 19px;
+          font-weight: bold;
+          color: #FFF;
+
+          span,
+          span a {
+            color: #35b2ff;
+          }
+
+          a {
+            text-decoration: underline;
+          }
+        }
+
+        &.fond {
+          bottom: 19px;
+          font-size: 13px;
+          line-height: 13px;
+          color: #b0caee;
+          vertical-align: top;
+
+          span {
+            display: inline-block;
+            font-size: 26px;
+            font-weight: bold;
+            color: #2db81a;
+          }
+        }
+
+        &.begin,
+        &.finish {
+          font-size: 15px;
+          line-height: 26px;
+          height: 26px;
+          top: 12px;
+          right: 15px;
+          color: #35b2ff;
+
+          span {
+            font-size: 26px;
+            color: #FFF;
+          }
+        }
+
+        &.finish {
+          top: auto;
+          bottom: 16px;
+        }
+      }
+
+      &:after {
+        content: '';
+        background: url("../images/bg_main_slider_tounament.png") left top no-repeat;
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .ws-title-wrapper {
+    ._opacity_block (#000, 0.6);
+    position: absolute;
+    border-top: 1px solid #547cb0;
+    width: 100%;
+    height: 86px;
+    bottom: 0;
+    z-index: 122;
+    //    & + figure {
+    //      display: block;
+    //    }
+  }
+
+
+  > aside {
+        position: relative;
+        width: 245px;
+        height: 100%;
+        float: right;
+
+        > div {
+            @that-yellow: #ffd200;
+            font-family: 'TahomaBold', Tahoma, sans-serif;
+
+            &.block {
+                border: 1px solid #547cb0;
+                background: #081a4a;
+
+                & + .block {
+                    margin-top: 8px;
+                    height: 150px;
+                }
+
+                &.last-winnings {
+                    table {
+                        width: 100%;
+
+                        td {
+                            ._grad_hor(#091b4d, #071844);
+                            font-weight: bold;
+                            height: 32px;
+                            vertical-align: middle;
+                            a {
+                                background: url("../images/ico_winning.png") 9px center no-repeat;
+//                                display: inline-block;
+                              display: table-cell;
+                                height: 100%;
+//                                line-height: 32px;
+                              line-height: 18px;
+                                padding-left: 35px;
+                               font-size: 12px;
+                                text-decoration: none;
+                                cursor: default;
+                                color: @header-yellow;
+                              vertical-align: middle;
+                                &:hover {
+                                    text-decoration: none;
+                                }
+                            }
+
+                            & + td {
+                                background: #183881;
+                                padding-left: 5px;
+//                                padding-right: 15px;
+                              padding-right: 5px;
+                                font-size: 13px;
+                                text-align: right;
+                                color: #FFF;
+                            }
+                        }
+
+                        .interlayer {
+                            td {
+                                background: url("../images/horizontal_divider.png") top center no-repeat;
+                                background-size: 125% 1px;
+                                height: 1px;
+                                & + td {
+                                    background: #183881;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.top-games {
+                    position: relative;
+
+                    div {
+//                        top: 40px;
+//                        position: absolute;
+//                        width: 33%;
+//                        height: 101px;
+                      position: relative;
+                      width: 33%;
+                      height: 101px;
+                      float: left;
+                      margin-top: 10px;
+                        a {
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                        img {
+                            position: absolute;
+                            margin: 0 auto;
+                            left: 0;
+                            right: 0;
+                        }
+
+                        span {
+                            position: absolute;
+                            display: block;
+                            margin: 0 auto;
+                            left: 0;
+                            right: 0;
+                            width: 92%;
+                            text-align: center;
+                            font-size: 11px;
+                            line-height: 13px;
+                            top: 60px;
+                            text-decoration: underline;
+                            // color: @header-yellow;
+                            color: @that-yellow;
+                        }
+
+                        &.b1 {
+//                            left: 0;
+                        }
+
+                        &.b2 {
+                            margin: 0 auto;
+                            left: 0;
+                            right: 0;
+                        }
+
+                        &.b3 {
+                            right: 0;
+                        }
+                    }
+                }
+
+                header {
+                    ._grad_vert (#001e50, #000918);
+                    border-bottom: 1px solid #002e48;
+                    height: 34px;
+
+                    > * {
+                        margin: 0;
+                        padding: 0 10px;
+                        font-size: 15px;
+                        line-height: 29px;
+                        height: 34px;
+                        color: #FFF;
+                    }
+                }
+            }
+
+            &.jackpot {
+//                position: absolute;
+//                right: -1px;
+//                bottom: -11px;
+              position: relative;
+                background: url("../images/bg_jackpot.png") center;
+                width: 255px;
+              margin-top: 14px;
+                height: 88px;
+              right: 5px;
+                > span {
+                    ._text-shadow-2lev;
+                    position: absolute;
+                    top: -3px;
+                    display: block;
+                    width: 100%;
+                    font-size: 24px;
+                    font-weight: bold;
+                    text-align: center;
+                    color: #FFF;
+                }
+
+                > strong {
+                    ._text-shadow-2lev;
+                    display: block;
+                    width: 100%;
+                    font-size: 25px;
+                    line-height: 25px;
+                    text-align: center;
+                    letter-spacing: 1px;
+                    padding-top: 31px;
+                    color: @that-yellow;
+                }
+            }
+        }
+    }
+}
+
+body > .main > section > .main-games {
+    margin: 2px 12px 0 11px;
+    header > * {
+    font-size: 28px;
+    margin: 0px 0px 18px 0px;
+    padding-top: 7px;
+    color: white;
+  }
+    > nav {
+        border-bottom: 1px solid #0075ff;
+        font-size: 0;
+
+        a {
+            ._border_radius (5px, 5px, 0, 0);
+            border: 1px solid #0075ff;
+            border-bottom: 0;
+            display: inline-block;
+            padding: 0 18px;
+            font-size: 13px;
+            font-weight: bold;
+            line-height: 30px;
+            height: 30px;
+            color: #FFF;
+
+
+            &:hover {
+                background: #003ea3;
+                background: radial-gradient(ellipse at center, #003ea3, #0D59BE, #0079e8);
+                text-decoration: none;
+            }
+          &.active {
+            background: #003ea3;
+            background: radial-gradient(ellipse at center, #003ea3, #0D59BE, #0079e8);
+            text-decoration: none;
+          }
+
+            & + a {
+                margin-left: -1px;
+            }
+        }
+    }
+
+    > div {
+        margin: 12px 0 0 4px;
+        padding-bottom: 20px;
+        overflow: hidden;
+        font-size: 0;
+
+      div.games_post {
+            display: inline-block;
+            position: relative;
+            background: url("../images/bg_games.png") no-repeat;
+            background-position: top center;
+            width: 186px;
+            height: 188px;
+            margin-left: 0;
+        float: left;
+
+            & + div {
+                margin-left: 10px;
+            }
+
+            &:nth-child(5n+1) {
+                margin-left: 0px;
+            }
+
+            &:nth-child(n+6) {
+                margin-top: 14px;
+            }
+
+            em {
+                ._center;
+                border-radius: 15px;
+                position: absolute;
+                display: block;
+                width: 164px;
+                height: 132px;
+                top: 9px;
+                bottom: auto;
+                overflow: hidden;
+
+                img {
+                    ._center;
+                    position: absolute;
+                    margin: auto;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                }
+            }
+
+            span {
+                ._center;
+                font-family: 'TahomaBold', 'Tahoma', sans-serif;
+                display: inline-block;
+                width: 90%;
+                text-align: center;
+                font-size: 12px;
+                line-height: 12px;
+                top: auto;
+                bottom: 14px;
+//                text-decoration: underline;
+                color: #45c0ff;
+            }
+            >figure {
+              position: absolute;
+              margin: auto;
+              top: 11px;
+              left: 12px;
+              width: 163px;
+              height: 128px;
+              overflow: hidden;
+              z-index: 100;
+              border-radius: 13px;
+                >article {
+                  background: url(../images/bg_blackOpacity.png);
+                  display: none;
+                  width: 100%;
+                  height: 100%;
+                  top: 0;
+                  left: 0;
+                  position: absolute;
+                  border-radius: 13px;
+                  z-index: 2;
+                  h4 {
+                    top: 17px;
+                    width: 100%;
+                    text-align: center;
+                    font-size: 13px;
+                    line-height: 13px;
+                    color: #ffba00;
+                  }
+                  a.playNow {
+                    display: block;
+                    margin: 15px auto 0;
+                    width: 137px;
+                    height: 26px;
+                    padding: 10px 0px 0 0;
+                    font-size: 13px;
+                    line-height: 20px;
+                    text-align: center;
+                    color: #ffffff;
+                    vertical-align: middle;
+                    cursor: pointer;
+
+                    outline: none;
+                    font-family: "Trebuchet MS", san-serif;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    background: url("../images/g_img/games_btn.png") no-repeat;
+
+
+                    -webkit-box-shadow: 0px 1px 7px 2px #2AFF00;
+                    -moz-box-shadow: 0px 1px 7px 2px #2AFF00;
+                    box-shadow: 0px 1px 7px 2px #2AFF00;
+                    border-radius: 20px;
+                    -moz-border-radius: 20px;
+                    -webkit-border-radius: 20px;
+                    text-shadow: 1px 4px 1px rgba(0, 0, 0, 0.36);
+
+                    text-decoration: none;
+                    &:hover {
+                     outline: 0;
+                      outline: thin dotted \9;
+                      -webkit-box-shadow: 0px 1px 9px 3px #2AFF00;
+                      -moz-box-shadow: 0px 1px 9px 3px #2AFF00;
+                      box-shadow: 0px 1px 9px 3px #2AFF00;
+                      text-decoration: none;
+                    }
+                  }
+                  a.demo {
+                    display: block;
+                    margin: 15px auto 0;
+                    width: 115px;
+                    height: 21px;
+                    padding: 7px 0px 0 0;
+                    font-size: 12px;
+                    line-height: 16px;
+                    text-align: center;
+                    color: #ffffff;
+                    vertical-align: middle;
+                    cursor: pointer;
+
+                    outline: none;
+                    font-family: "Trebuchet MS", san-serif;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    background: url("../images/g_img/demo_btn.png") no-repeat;
+
+
+                    -webkit-box-shadow: 0px 1px 5px 1px #005aff;
+                    -moz-box-shadow: 0px 1px 5px 1px #005aff;
+                    box-shadow: 0px 1px 5px 1px #005aff;
+                    border-radius: 20px;
+                    -moz-border-radius: 20px;
+                    -webkit-border-radius: 20px;
+                    text-shadow: 1px 4px 1px rgba(0, 0, 0, 0.36);
+
+                    text-decoration: none;
+                    &:hover {
+                      outline: 0;
+                      outline: thin dotted \9;
+                      -webkit-box-shadow: 0px 1px 7px 2px #005aff;
+                      -moz-box-shadow: 0px 1px 7px 2px #005aff;
+                      box-shadow: 0px 1px 7px 2px #005aff;
+                      text-decoration: none;
+                    }
+                  }
+                  a.details {
+                    margin: 11px auto;
+                    display: block;
+                    font-size: 11px;
+                    text-align: center;
+                    line-height: 11px;
+                    color: #ffffff;
+                  }
+                }
+              }
+
+            &:hover {
+                background-position: bottom center;
+                > span {
+                    color: #cbedff;
+                }
+                >figure {
+                    > article {
+                      display: block;
+                    }
+                }
+            }
+      }
+    }
+
+
+
+
+
+}
+
+body > .main > section > .seo-text {
+    padding-top: 0;
+
+    &:before {
+        margin-top: 7px;
+    }
+}
+
+
+body {
+  > .main  {
+    position: relative;
+    .tex_left {
+        display: block;
+        width: 58px;
+        height: 266px;
+        background: url("../images/tex_block_left.png") no-repeat 0px 0;
+        position: absolute;
+        top: 233px;
+        left: -85px;
+        z-index: 2;
+
+
+
+      span {
+        color: #ffffff;
+        font-size: 16px;
+        text-shadow: 0px 0px 8px #0063ff;
+        -moz-text-shadow: 0px 0px 8px #0063ff;
+        -webkit-text-shadow: 0px 0px 8px #0063ff;
+        padding: 24px 17px 0 17px;
+        display: inline-block;
+        letter-spacing: 1.5px;
+        width: 222px;
+        position: absolute;
+        left: -85px;
+        top: 120px;
+        -webkit-transform: rotate(90deg); /* не забываем префиксные свойства */
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+
+      }
+
+      &:hover {
+          background: url("../images/tex_block_left.png") no-repeat -58px 0px;
+        }
+      }
+    .tex_right {
+      display: block;
+      width: 58px;
+      height: 266px;
+      background: url("../images/tex_block_right.png") no-repeat -58px 0;
+      position: absolute;
+      top: 233px;
+      right: -85px;
+      z-index: 2;
+
+      &:hover {
+        background: url("../images/tex_block_right.png") no-repeat 0 0px;
+      }
+      span {
+        color: #ffffff;
+        font-size: 16px;
+        text-shadow: 0px 0px 8px #0063ff;
+        -moz-text-shadow: 0px 0px 8px #0063ff;
+        -webkit-text-shadow: 0px 0px 8px #0063ff;
+        padding: 24px 17px 0 17px;
+        display: inline-block;
+        letter-spacing: 1px;
+        position: absolute;
+        right: -26px;
+        top: 26px;
+        /* float: left; */
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        /* transform: rotate(90deg); */
+      }
+      img {
+        position: absolute;
+        right: 16px;
+        top: 81px;
+      }
+    }
+
+
+  }
+}

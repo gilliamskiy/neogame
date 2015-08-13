@@ -1,0 +1,74 @@
+{% extends "@front/layout.html.twig" %}
+{% block seo %}
+    {{ parent() }}
+    <title>{{ 'user_lotteries'|trans }}</title>
+
+{% endblock %}
+{% block content %}
+    <section>
+        <!-- less: s_breadcrumbs.less -->
+        <figure class="breadCrumbs">
+            <nav>
+                <span><a href="{{ path('front_homepage') }}">VulkanoGames</a></span>
+                <span><a href="{{ path('lotteries_list') }}">{{ 'Лотереи'|trans({}, 'lotteries') }}</a></span>
+                <span>{{ 'user_lotteries'|trans }}</span>
+            </nav>
+        </figure>
+        <!--end less: s_breadcrumbs.less -->
+
+        <!-- less: s_news-list.less -->
+        <figure class="my_bonuses">
+            <header>
+                <h1>{{ 'user_lotteries'|trans }}</h1>
+            </header>
+            <article class="fix_lottery_billet">
+                {% for lottery in list %}
+                    {% if lottery.type == "gold" %}
+                        {% if app.request.locale == "ru" %}
+                            <div class="lottery_billet_user lottery_billet_gold">
+                                <div class="lottery_billet_user_number">{{ lottery.number }}</div>
+                            </div>
+                        {% else %}
+                            <div class="lottery_billet_user lottery_billet_gold_en">
+                                <div class="lottery_billet_user_number">{{ lottery.number }}</div>
+                            </div>
+                        {% endif %}
+
+                    {% else %}
+                        {% if app.request.locale == "ru" %}
+                            <div class="lottery_billet_user lottery_billet_normal">
+                                <div class="lottery_billet_user_number">{{ lottery.number }}</div>
+                            </div>
+                        {% else %}
+                            <div class="lottery_billet_user lottery_billet_normal_en">
+                                <div class="lottery_billet_user_number">{{ lottery.number }}</div>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+
+                    {#Номер: {{ lottery.number }}<br>#}
+                    {#Дата получения: {{ lottery.date|format_date }}<br>#}
+                    {#Тип: {{ lottery.type }}<br>#}
+                    {#<hr>#}
+                {% endfor %}
+
+            </article>
+            <!-- less: s_pagination.less -->
+
+            <!--end less: s_pagination.less -->
+        </figure>
+        {% if not is_granted('ROLE_USER') %}
+
+
+        {% else %}
+            {% include "@front/layout/right_cabinet_menu.html.twig" %}
+        {% endif %}
+        <div style="clear:both;"></div>
+        <!--end less: s_news-list.less -->
+
+        <!-- less: s_seotext.less -->
+        {% include "@front/layout/seo_text.html.twig" %}
+        <!--end less: s_seotext.less -->
+    </section>
+
+{% endblock %}

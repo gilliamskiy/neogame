@@ -1,0 +1,15 @@
+/*! .Main
+*/
+body > .main {
+  outline: 1px solid red;
+  margin: 0 auto;
+  width: 1000px;
+}
+/*! Functions
+*//*! Header
+*/
+/*! Footer
+*/
+body > .main > footer {
+  height: 200px;
+}

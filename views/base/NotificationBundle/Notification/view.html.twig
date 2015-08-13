@@ -1,0 +1,52 @@
+{% extends "@front/layout.html.twig" %}
+{% block seo %}
+    {{ parent() }}
+    <title>{{ 'Notifications'|trans({}, 'notification') }}</title>
+
+{% endblock %}
+{% block content %}
+
+
+
+    <section>
+    <!-- less: s_breadcrumbs.less -->
+
+    {#{% include "@front/layout/breadCrumbs.html.twig" %}#}
+    <!-- less: s_news-one.less -->
+
+    <!-- less: s_news-list.less -->
+        <figure class="list promotions-list promotions-left_b">
+            <header>
+                <h1>{{ 'Notifications'|trans({}, 'notification') }}</h1>
+            </header>
+            <article>
+                <header>
+                    <h1>{{ notification.title }}</h1>
+                </header>
+                <div>
+                    <span class="newsDate">{{ notification.date|date('d.m.Y H:i') }}</span>
+                    <div>
+                        <p>
+                            {{ notification.message }}
+                        </p>
+
+                    </div>
+                </div>
+            </article>
+
+        </figure>
+
+
+
+
+        <!--end less: s_news-list.less -->
+        {% include "@front/layout/right_cabinet_menu.html.twig" %}
+        <div style="clear:both;"></div>
+
+
+        <!-- less: s_seotext.less -->
+        {% include "@front/layout/seo_text.html.twig" %}
+        <!--end less: s_seotext.less -->
+    </section>
+    <!--end less: s_seotext.less -->
+{% endblock %}

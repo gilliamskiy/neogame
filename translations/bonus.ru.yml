@@ -1,0 +1,35 @@
+since_datetime: Начало действия
+till_datetime: Окончание действия
+user_activations: Кол-во активаций
+remaining_activations: Оставшихся активаций
+is_personal: Персональная
+activation_reward_amount: Бонус за активацию
+coupon_code: Название купона/бонуса
+currency: Валюта
+deposit_rule: Тип начисления бонуса
+deposit_rule_1: Бездепозитный
+deposit_rule_2: На последний депозит
+deposit_rule_3: На сумму последних депозитов
+rules: Правила
+reward: Размер бонуса
+max_amount: Максимальная сумма
+wager: Wager
+deposit_min_amount: Минимальная сумма депозита
+deposit_max_amount: Максимальная сумма депозита
+user_deposited_since: Начало периода учитываемых депозитов
+user_deposited_till: Окончание периода учитываемых депозитов
+user_status: Статус игроков
+payment_system: Платежная система
+offers: Бонусы
+personal: Персональные предложения
+bonuses: Бонусы
+payments_operations: Операции со счетами
+validity: Срок действия
+status_bonus: Статус бонуса
+contacts_us: Контакты
+policies: Политика Казино
+lasts: Время действия
+expects_deposit: Ожидает депозит
+to_get: Получить
+beginning: Начало
+ending: Окончание

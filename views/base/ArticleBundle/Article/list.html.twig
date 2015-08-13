@@ -1,0 +1,51 @@
+{% extends "@front/layout.html.twig" %}
+
+{% block content %}
+<section>
+    <!-- less: s_breadcrumbs.less -->
+    <figure class="breadCrumbs">
+        <nav>
+            <span><a href="{{ path('front_homepage') }}">VulkanoGames</a></span>
+
+            <span>{{ 'Статьи'|trans({}, 'articles') }}</span>
+        </nav>
+    </figure>
+    <!--end less: s_breadcrumbs.less -->
+    <!-- less: s_news-list.less -->
+    <figure class="list news-list">
+        <header>
+            <h1>{{ 'Статьи'|trans({}, 'articles') }}</h1>
+        </header>
+        {% for article in list %}
+            <article>
+                <header>
+                    <h2>
+                        <a href="{{ path('articles_view', {slug: article.translate.slug, id:article.id}) }}">{{ article.translate.name }}</a>
+                    </h2>
+                </header>
+                <div>
+                    <span class="newsDate">{{ article.date|format_date }}</span>
+
+                    {{ article.translate.announce|markup }}
+
+                    <div>
+                        <a href="{{ path('articles_view', {slug: article.translate.slug, id:article.id}) }}">{{ 'Подробнее'|trans({}, 'articles') }} >> </a>
+                    </div>
+                </div>
+            </article>
+        {% endfor %}
+
+    </figure>
+<!--end less: s_news-list.less -->
+    <nav class="paginator">
+        {{ knp_pagination_render(list) }}
+    </nav>
+
+    <!-- less: s_seotext.less -->
+    {% include "@front/layout/seo_text.html.twig" %}
+    <!--end less: s_seotext.less -->
+</section>
+
+{% endblock %}
+
+

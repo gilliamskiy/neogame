@@ -1,0 +1,18 @@
+{% extends "@front/layout.html.twig" %}
+{% block seo %}
+    {{ parent() }}
+    <title>{{ 'change_password'|trans({}, 'users') }}</title>
+
+{% endblock %}
+{% block content %}
+    <section class="auth-header">
+        <h1>{{ 'change_password'|trans({}, 'users') }}</h1>
+        <a class="auth-header-close" href="/"></a>
+    </section>
+    <article class="pages-post">
+        <p>{{ 'the_letter'|trans({}, 'users') }}</p>
+
+    </article>
+
+
+{% endblock %}

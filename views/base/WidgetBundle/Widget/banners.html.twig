@@ -1,0 +1,5 @@
+{# Banners widget template #}
+
+{% for banner in banners %}
+    {{ include( "@front/WidgetBundle/Widget/BannerContent/" ~ banner.type ~ ".html.twig", {content: banner.content }) }}
+{% endfor %}

@@ -1,0 +1,106 @@
+/* CSS Created by CSS CHECKBOX */
+/**********************************/
+/**** www.CSScheckbox.com *********/
+
+/*general styles for all CSS Checkboxes*/
+label {
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+input[type=checkbox].css-checkbox,  input[type="radio"].css-radio {
+    display: none;
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+	padding-left:20px;
+	height:15px; 
+	display:inline-block;
+	line-height:15px;
+	background-repeat:no-repeat;
+	background-position: 0 0;
+	font-size:15px;
+	vertical-align:middle;
+	cursor:pointer;
+    text-shadow: none;
+    -moz-text-shadow: none;
+    -webkit-text-shadow: none;
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+	background-position: 0 -15px;
+}
+input[type="radio"].css-radio:checked + label.css-label {
+    background-position: 0 -16px;
+}
+
+.css-label{
+	background-image:url(../../images/chekbox.png);
+}
+.css-label-radio{
+    background-image:url(../../images/radio_icons.png);
+}
+/*specific classes related to Checkbox skins*/
+
+.lite-blue{background-image:url(../../images/chekbox.png);}
+.lite-blue-big{background-image:url(../../images/chekboxBig.png);}
+.lite-blue-med{background-image:url(../../images/chekboxMed.png);}
+input[type=checkbox].css-checkbox.med + label.css-label.med {
+	padding-left:25px;
+    height:17px; 
+	display:inline-block;
+	line-height:17px;
+	background-repeat:no-repeat;
+	background-position: 0 0;
+	font-size:13px;
+	vertical-align:middle;
+    cursor:pointer;
+    text-shadow: none;
+    -moz-text-shadow: none;
+    -webkit-text-shadow: none;
+}
+input[type="radio"].css-radio + label.css-label-radio {
+    padding-left: 21px;
+    height: 16px;
+    display: inline-block;
+    line-height: 16px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    font-size: 16px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+
+
+input[type=checkbox].css-checkbox.med:checked + label.css-label.med {
+
+    background-position: 0 -17px;
+}
+input[type="radio"].css-radio:checked + label.css-label-radio {
+
+    background-position: 0 -16px;
+}
+
+input[type=checkbox].css-checkbox.big + label.css-label.big {
+    padding-left:28px;
+    height:23px;
+    display:inline-block;
+    line-height:23px;
+    background-repeat:no-repeat;
+    background-position: 0 0;
+    font-size:13px;
+    vertical-align:middle;
+    cursor:pointer;
+    text-shadow: none;
+    -moz-text-shadow: none;
+    -webkit-text-shadow: none;
+}
+input[type=checkbox].css-checkbox.big:checked + label.css-label.big{
+
+    background-position: 0 -23px;
+}

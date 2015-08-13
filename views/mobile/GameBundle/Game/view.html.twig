@@ -1,0 +1,151 @@
+{% extends "@front/layout.html.twig" %}
+{% block seo %}
+       {{ parent() }}
+    <title>{{ game.translate.pageTitle }}</title>
+    <meta name="keywords" content="{{ game.translate.metaKeywords }}">
+    <meta name="description" content="{{ game.translate.metaDescription }}">
+{% endblock %}
+{% block content %}
+    <section>
+    <!-- less: s_breadcrumbs.less -->
+        <figure class="breadCrumbs">
+            <nav>
+                <span><a href="{{ path('front_homepage') }}">VulkanoGames</a></span>
+                <span><a href="{{ path('game_list') }}">{{ 'game_room'|trans}}</a></span>
+                <span><a href="{{ path('game_type_list', {category: game.category.slug}) }}">{{ game.category.name }}</a></span>
+                <span>{{ game.translate.name }}</span>
+            </nav>
+        </figure>
+        <!-- less: s_news-list.less -->
+        <figure class="page_game">
+            <article>
+                <header>
+                    <h1>{{ game.translate.name }}</h1>
+
+                    <div class="my_games">
+                        <a href="#" class="v_iz">{{ 'liked'|trans }}</a>
+
+                        {% if game.isEnabledDemo %}
+                       <a class="webkit-reflect demo_game_iz" href="{{ path('game_play_demo', {category:game.category.slug, slug: game.slug}) }}">{{ 'demo_game'|trans}}</a>
+                        {% endif %}
+
+                    </div>
+                </header>
+                <div class="images_games-block">
+                    <!--<img src="images/page_img1.jpg" alt="#">-->
+                    <ul>
+                        {% for screenshot in game.screenshots %}
+                            <li>
+                                <img class="reflex" src="{{ screenshot.path|imagine_filter('full')  }}" alt="{{ game.translate.name }}">
+                            </li>
+                        {% endfor %}
+                    </ul>
+
+                </div>
+
+                <div>
+                    <article>
+                        <SECTION class="table_block">
+                            <header>
+                                <h1>{{ 'features_game'|trans }}</h1>
+                            </header>
+                            <table width="88%">
+                                <tbody>
+                                {% for characteristic in game.characteristics %}
+                                <tr>
+                                    <td width="70%">{{ characteristic.name }}</td>
+                                    <td>{{ characteristic.value|trans }}</td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </SECTION>
+
+                    </article>
+                    <div>
+                        {% if not is_granted('ROLE_USER') %}
+                            <a  data-toggle="modal" data-id="{{ path('game_play_real', {category: game.category.slug, slug:game.slug}) }}" class="localStore webkit-reflect" href="#login">{{ 'play_now'|trans }}<span class="moz-reflect">{{ 'play_now'|trans }}</span></a>
+
+                        {% else %}
+                            <a   class="webkit-reflect reflex" href="{{ path('game_play_real', {category: game.category.slug, slug:game.slug}) }}">{{ 'play_now'|trans }}<span class="moz-reflect">{{ 'play_now'|trans }}</span></a>
+
+                        {% endif %}
+<style>
+
+    .moz-reflect {
+        -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(opacity=.25) progid:DXImageTransform.Microsoft.Blur(PixelRadius='3', MakeShadow='false') progid:DXImageTransform.Microsoft.MotionBlur(strength=15, direction=0) progid:DXImageTransform.Microsoft.Blur(PixelRadius='3', MakeShadow='false');"
+
+    }
+    .moz-reflect::after{
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#031e5799', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+
+    }
+
+</style>
+
+                        <figure class="postLike">
+                            {#<div>#}
+                                {#<a href="#" class="like"><span></span>{{ 'Нравится'|trans({}, 'lotteries') }}</a>#}
+                                {#<a href="#" class="dislike"><span></span></a>#}
+                            {#</div>#}
+                            {#<div class="peopleLike">#}
+                                {#{{ 'Понравилось'|trans({}, 'lotteries') }} 11 {{ 'игрокам'|trans({}, 'lotteries') }}<br> {{ 'Не понравилось'|trans({}, 'lotteries') }} 0 {{ 'игрокам'|trans({}, 'lotteries') }}#}
+                            {#</div>#}
+                        </figure>
+                    </div>
+                </div>
+
+                <article style="margin-top: 10px;">
+                    <p>{{ game.translate.content|markup }}</p>
+
+                </article>
+                <footer>
+                    <a href="{{ path('game_list') }}">{{ 'complete_games'|trans }}</a>
+                </footer>
+            </article>
+        </figure>
+        <!--end less: s_news-list.less -->
+
+        <!-- less: s_seotext.less -->
+        {% include "@front/layout/seo_text.html.twig" %}
+        <!--end less: s_seotext.less -->
+
+    </section>
+    <script>
+        $('.localStore').click(function() {
+            localStorage.removeItem('tempUrl');
+            var tempUrl = $(this).attr('data-id');
+            localStorage.setItem('tempUrl',tempUrl);
+        });
+
+        var options = {  startOpacity: 0.6,
+            reflectionScale: 0.5 };
+        $('.reflect').reflect(options);
+        function mirror(obj){
+            // By Aleko from Studioad.ru
+            var t,w,h,c,e,opacity,percent;
+            opacity = 80; // opacity
+            area = 50; // area
+            e=/*@cc_on!@*/false;
+            if(e){o=opacity;}else{o=opacity/100;}
+            t=obj.parentNode;
+            w=obj.offsetWidth;
+            h=obj.offsetHeight;
+            c=o/((h/100)*area);
+            for(i=1;i<=((h/100)*area);i++){
+                sp = document.createElement('SPAN');
+                sp.style.display='block';
+                sp.style.backgroundImage='url('+obj.src+')';
+                sp.style.backgroundPosition='0px '+i+'px';
+                if(e){sp.style.filter='progid:DXImageTransform.Microsoft.Alpha(opacity='+o+')';}else{sp.style.opacity = o;}
+                sp.style.height='1px';
+                sp.style.width=w+'px';
+                t.appendChild(sp);
+                o=o-c;
+            }
+        };
+
+    </script>
+
+    <script type="text/javascript" src="{{ asset('assets/js/reflex.min.js') }}"></script>
+{% endblock %}

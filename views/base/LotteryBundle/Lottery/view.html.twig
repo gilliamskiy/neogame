@@ -1,0 +1,67 @@
+{% extends "@front/" ~ lottery.layout %}
+
+{% block content %}
+    <section>
+    <!-- less: s_breadcrumbs.less -->
+        <figure class="breadCrumbs">
+            <nav>
+                <span><a href="{{ path('front_homepage') }}">VulkanoGames</a></span>
+                <span><a href="{{ path('lotteries_list') }}">{{ 'Лотереи'|trans({}, 'lotteries') }}</a></span>
+                <span>{{ lottery.translate.name }}</span>
+            </nav>
+        </figure>
+    <!--end less: s_breadcrumbs.less -->
+    <!-- less: s_news-list.less -->
+    <figure class="tourney-list">
+        <article>
+            <header>
+                <h1>{{ lottery.translate.name }}</h1>
+            </header>
+            <div>
+                <article>
+                    <p class="warning" style="display: none;">
+                        Для участия в турнире необходимо оплатить взнос 0,06$
+                    </p>
+
+                    <p>{{ lottery.translate.content|raw }}</p>
+                    <figure class="postLike" style="display: none;">
+                        <div>
+                            <a href="#" class="like"><span></span>{{ 'Нравится'|trans({}, 'lotteries') }}</a>
+                            <a href="#" class="dislike"><span></span></a>
+                        </div>
+                        <div class="peopleLike">
+                            {{ 'Понравилось'|trans({}, 'lotteries') }} 11 {{ 'игрокам'|trans({}, 'lotteries') }}<br> {{ 'Не понравилось'|trans({}, 'lotteries') }} 0 {{ 'игрокам'|trans({}, 'lotteries') }}
+                        </div>
+                    </figure>
+                </article>
+                <div>
+                    <aside>
+                        <figure class="date">
+                            <p>
+                                <span>{{'Старт'|trans({}, 'lotteries') }}</span><span>{{ lottery.startDate|format_date }}</span>
+                            </p>
+                            <p>
+                                <span>{{'Финиш'|trans({}, 'lotteries') }}</span><span>{{ lottery.endDate|format_date }}</span>
+                            </p>
+                        </figure>
+
+                    </aside>
+
+                </div>
+            </div>
+
+
+
+            <footer>
+                <a href="{{ path('lotteries_list') }}">{{'К списку лотерей'|trans({}, 'lotteries') }}</a>
+            </footer>
+        </article>
+    </figure>
+    <!--end less: s_news-list.less -->
+
+    <!-- less: s_seotext.less -->
+    {% include "@front/layout/seo_text.html.twig" %}
+    <!--end less: s_seotext.less -->
+    </section>
+
+{% endblock %}

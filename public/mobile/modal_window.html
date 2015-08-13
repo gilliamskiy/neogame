@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>TABLE</title>
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+
+
+    <link rel="stylesheet/less" type="text/css" href="less/main.less">
+    <script>
+        less = {
+            env: "development",
+            async: false,
+            fileAsync: false,
+            poll: 1000,
+            functions: {},
+            dumpLineNumbers: "комментарий",
+            relativeUrls: false,
+            rootpath: ""
+        };
+    </script>
+    <script src="js/less.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+
+    <header>
+        <a id="header_menu_active" class="menu" href="#"></a>
+        <a class="logo" href="#"></a>
+        <a class="user" href="#"></a>
+
+        <nav>
+            <a class="games" href="#"><i></i>Games</a>
+            <a class="deposit" href="#"><i></i>Deposit</a>
+            <a class="withdraw" href="#"><i></i>Withdraw</a>
+            <a class="transaction" href="#"><i></i>Transaction</a>
+            <a class="promotions" href="#"><i></i>Promotions</a>
+            <a class="contacts_us" href="#"><i></i>Contacts us</a>
+            <a class="faq" href="#"><i></i>FAQ</a>
+            <a class="policies" href="#"><i></i>Policies</a>
+            <a class="logout" href="#"><i></i>Logout</a>
+        </nav>
+    </header>
+
+    <section class="header-content">
+        <h1>Policies</h1>
+    </section>
+
+    <article class="faq">
+        <div class="active">
+            <header><a  data-toggle="modal" href="#login">login</a></header>
+            <article>
+                <p>How do I start playing at Twist Casino? How do I start playing at Twist Casino? How do I start playing at Twist Casino? How do I start playing at Twist Casino?</p>
+            </article>
+        </div>
+
+        <div>
+            <header>How do I start playing at Twist Casino? How do I start playing at Twist Casino?</header>
+            <article>
+                <p>How do I start playing at Twist Casino? How do I start playing at Twist Casino? How do I start playing at Twist Casino? How do I start playing at Twist Casino?</p>
+            </article>
+        </div>
+    </article>
+
+    <footer>
+        <nav>
+            <a class="call" href="#">
+                <i></i>
+                27/7
+            </a>
+            <a class="terms" href="#">
+                <i></i>
+                Terms
+            </a>
+            <a class="promos" href="#">
+                <i></i>
+                Promos
+            </a>
+            <a class="secure" href="#">
+                <i></i>
+                Secure
+            </a>
+            <a class="logout" href="#">
+                <i></i>
+                Logout
+            </a>
+        </nav>
+
+        <p>
+            © 2014 Twist Casino. Все права защищены.
+        </p>
+    </footer>
+
+    <section class="modal_container" data-show="false_">
+        <div id="login" class="modal window hide fade" tabindex="-1" role="dialog" aria-labelledby="LoginLabel" aria-hidden="true">
+            <header>
+                <h5>Вход в казино</h5>
+
+                <em class="closeModalWindow close" data-dismiss="modal" aria-hidden="true"></em>
+            </header>
+
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label">Логин:</label>
+                    <div class="controls">
+                        <input type="email"  required="required">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Пароль:</label>
+                    <div class="controls">
+                        <input type="password"  required="required">
+                    </div>
+                </div>
+
+                <!--<div class="control-group margin-bottom-0">-->
+                    <!--<div class="controls">-->
+                        <!--<a class="link" href="#">Забыли пароль?</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="control-group">-->
+                    <!--<div class="controls">-->
+                        <!--<label class="checkbox">-->
+                            <!--<input type="checkbox">Remember me-->
+                        <!--</label>-->
+                        <!--<button type="submit" class="btn btn-success">Войти</button>-->
+                        <!--<a href="#" class="btn btn-primary">Регистрация</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="controls too__btn">
+                    <button type="submit" id="btn_login">Войти</button>
+                    <button type="submit" data-toggle="modal" href="#register" class="red__btn regBtn">Регистрация</button>
+                </div>
+
+
+            </form>
+        </div>
+    </section>
+    <script src="http://m.casino-cms.http80.info/assets/vendor/build/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="http://m.casino-cms.http80.info/assets/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="http://m.casino-cms.http80.info/assets/js/main_mobile.min.js" type="text/javascript"></script>
+</body>
+</html>

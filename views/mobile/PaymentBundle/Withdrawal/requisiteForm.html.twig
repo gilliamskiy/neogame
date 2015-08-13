@@ -1,0 +1,89 @@
+{% extends "@front/layout.html.twig" %}
+
+{% block content %}
+    <section class="header-content tools_b">
+        <h1>{{ 'withdraw_title'|trans({}, 'payment')  }}</h1>
+    </section>
+    <article class="pay_off">
+        <header>
+            <h3>{{ 'my_account'|trans({}, 'payment')  }}</h3>
+        </header>
+        <div style="overflow: hidden;" class="with">
+            {{ form|raw }}
+        </div>
+    </article>
+
+
+
+    <script>
+        var names = "{{'names'|trans({}, 'payment')}}";
+        var pay_btn = "{{'pay_btn'|trans({}, 'payment')}}";
+        var amount = "{{'amount'|trans({}, 'payment')}}";
+
+        var card_number = "{{ 'card_number'|trans({}, 'payment')}}";
+        var security_code = "{{ 'security_code'|trans({}, 'payment')}}";
+        var card_holder = "{{ 'card_holder'|trans({}, 'payment')}}";
+        var month = "{{ 'month'|trans({}, 'payment')}}";
+        var year = "{{ 'year'|trans({}, 'payment')}}";
+        var country = "{{ 'country'|trans({}, 'payment')}}";
+        var region = "{{ 'region'|trans({}, 'payment')}}";
+        var city = "{{ 'city'|trans({}, 'payment')}}";
+        var address = "{{ 'address'|trans({}, 'payment')}}";
+        var zip = "{{ 'zip'|trans({}, 'payment')}}";
+        var email = "{{ 'email'|trans({}, 'payment')}}";
+        var phone_number = "{{ 'phone_number'|trans({}, 'payment')}}";
+
+        var attention = "{{ 'attention'|trans({}, 'payment')}}";
+        var the_following = "{{ 'the_following'|trans({}, 'payment')}}";
+
+        var account = "{{ 'account'|trans({}, 'payment')}}";
+        var code = "{{ 'code'|trans({}, 'payment')}}";
+        var voucher = "{{ 'voucher'|trans}}";
+        var wallet = "{{ 'wallet'|trans}}";
+        $("form").addClass("form-inline");
+
+        $(".form-inline>div, .form-inline #requisite_data div").addClass("section_input");
+        $(".form-inline>div label, .form-inline #requisite_data div label").addClass("required label-left");
+        $(".form-inline>div input, .form-inline #requisite_data div input").addClass("input");
+        $(".form-inline>div button, .form-inline #requisite_data div button").css({'marginLeft':'200px','marginTop': '10px'}).addClass("setting_btn btn_blue btn_grin").text(pay_btn);
+
+        $('.form-inline label:contains("Name")').text(names);
+        $('.form-inline label:contains("Amount")').text(amount);
+        $('.form-inline label:contains("Pan")').text(card_number);
+
+        $('.form-inline label:contains("Account")').text(account);
+        $('.form-inline label:contains("Code")').text(code);
+
+        $('.form-inline label:contains("Wallet")').text(wallet);
+
+        $('.form-inline label:contains("Cvc")').text(security_code);
+        $('.form-inline label:contains("Card holder")').text(card_holder);
+        $('.form-inline label:contains("Expiration month")').text(month);
+        $('.form-inline label:contains("Expiration year")').text(year);
+        $('.form-inline label:contains("Country")').text(country);
+        $('.form-inline label:contains("Region")').text(region);
+        $('.form-inline label:contains("City")').text(city);
+        $('.form-inline label:contains("Address")').text(address);
+        $('.form-inline label:contains("Zip")').text(zip);
+        $('.form-inline label:contains("Email")').text(email);
+        $('.form-inline label:contains("Phone number")').text(phone_number);
+        $('.form-inline label:contains("Phone")').text(phone_number);
+        $('.form-inline label:contains("Voucher")').text(voucher);
+
+        $("<div class='control-group min_margin'>" +
+        "<p style='padding: 5px 20px 0 0px; margin: 0; color: #fff;'><strong style='color: #45bbff;'>"+attention+"</strong><br/>"+the_following+"" +
+        " <i style='font-size: 14px; font-style: normal;'>Twist Service LTD</i></p></div></div>").insertAfter('#requisite_data>div:nth-child(14)');
+        $('select').selectbox();
+    </script>
+    <style>
+        .selectbox .select {
+            width: 220px!important;
+        }
+        .selectbox .dropdown {
+            width: 275px!important;
+        }
+        #requisite_data {
+            padding: 0 0px 20px;
+        }
+    </style>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% form_theme form "@front/Form/registration.html.twig" %}
+<div style="padding: 10px 15px 0;">
+    {% if errors is defined %}
+
+        {% for field, fieldErrors in errors %}
+            <p class="warning" style="display: block;">{{ field }}:</p>
+
+            <ul style="color: #fff;">
+                {% for fieldError in fieldErrors %}
+                    <li>{{ fieldError }}</li>
+                {% endfor %}
+            </ul>
+
+        {% endfor %}
+
+    {% endif %}
+</div>
+
+
+{{ form(form) }}
+
+<script>
+    $(document).ready(function() {
+        var frm = $('#f-reg');
+        var options = {
+            target:        '#form_register',
+            beforeSubmit:  showRequest,
+            success:       showResponse,
+            type: frm.attr('method'),
+            dataType:  'json',
+            url: frm.attr('action')
+
+        };
+        $('#f-reg').submit(function() {
+            $(this).ajaxSubmit(options);
+            return false;
+        });
+    });
+    function showRequest(formData, jqForm, options) {
+        $('.loadajax').show();
+    }
+
+    // post-submit callback
+    function showResponse(responseText, statusText, xhr, $form)  {
+        $('.loadajax').hide();
+        if (responseText.result == 'form') {
+            $('#form_register').html(responseText.form.html);
+        }
+        if (responseText.result == 'redirect') {
+            var url = responseText.redirect.url;
+            $(location).attr('href',url);
+        }
+    }
+    $('select').selectbox();
+</script>

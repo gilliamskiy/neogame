@@ -1,0 +1,57 @@
+{% extends "@front/layout.html.twig" %}
+
+{% trans_default_domain('payment') %}
+
+{% block content %}
+
+    <section class="header-content tools_b">
+        <h1>{{ 'requisites'|trans({}, 'payment') }}</h1>
+    </section>
+    <article class="container_content">
+        <table>
+
+            <tr>
+
+                <th>{{ 'title'|trans({}, 'payment')  }}</th>
+                <th>{{ 'edit'|trans }}</th>
+                <th>{{ 'to_order'|trans }}</th>
+            </tr>
+
+
+            {% for requisite in requisites %}
+                <tr>
+
+                    <td>{{ requisite.info.name }}</td>
+                    <td><a href="{{ path('profile_edit_requisites', {paySystemId: paySystemId, requisiteId: requisite.id}) }}">{{ 'edit_requisites'|trans }}</a></td>
+                    <td><a href="{{ path('profile_withdrawal_order', {paySystemId: paySystemId, requisiteId: requisite.id}) }}">{{ 'order_withdrawal'|trans }}</a></td>
+                </tr>
+            {% endfor %}
+
+        </table>
+
+        <p style="margin-top: 10px; text-align: center"><a class="addNew" href="{{ path('profile_add_requisites', {paySystemId: paySystemId}) }}">{{ 'add_requisites'|trans }}</a></p>
+
+    </article>
+
+
+
+
+<style>
+    .section_input ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        display: inline-block;
+        width: 209px;
+        color: red;
+    }
+
+</style>
+
+
+
+
+
+
+{% endblock %}

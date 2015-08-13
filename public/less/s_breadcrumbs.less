@@ -1,0 +1,28 @@
+/*! breadCrumbs*/
+body > .main > section > .breadCrumbs {
+    nav {
+        ._grad_vert(#001e70,#000000);
+      border-bottom: 1px solid #012c75;
+        color: white;
+        font-size: 0px;
+        height: 36px;
+        line-height: 36px;
+        padding: 0px 12px;
+        span {
+            font-size: 12px;
+            a {
+                color: white;
+            }
+            &:after {
+                content: "→";
+                font-size: 10px;
+                color: grey;
+                padding: 0px 7px;
+            }
+            &:last-child:after {
+                content: "";
+                padding: 0px;
+            }
+        }
+    }
+}

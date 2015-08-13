@@ -1,0 +1,326 @@
+/*! Toolbar */
+
+//#authBtn,
+//#regBtn {
+//    display: none;
+//}
+
+body > .toolbar {
+    border-bottom: 1px solid #224bbf;
+    background: #000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 39px;
+
+    z-index: 99999999;
+
+    nav {
+        margin: 0 auto;
+        width: 1000px;
+        height: 100%;
+
+        > div {
+            float: left;
+            height: 100%;
+
+            > span {
+                display: inline-block;
+                position: relative;
+                line-height: 38px;
+                font-size: 12px;
+                font-weight: bold;
+                height: 100%;
+                color: #FFF;
+
+                a.ico-link {
+                    position: absolute;
+                    display: inline-block;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 100;
+                }
+
+                em {
+                    position: absolute;
+                    display: block;
+                    top: 5px;
+                    right: -5px;
+                    font-size: 10px;
+                    width: 16px;
+                    height: 15px;
+                    line-height: 15px;
+                    text-align: center;
+                    font-style: normal;
+                    z-index: 10;
+
+                    &:after {
+                        content: '';
+                        background: #e80000;
+                        border-radius: 7px;
+                        border: 7px solid #e80000;
+                        display: block;
+                        position: absolute;
+                        top: 0px;
+                        right: 0px;
+                        width: 1px;
+                        height: 1px;
+                        z-index: -1;
+                    }
+                }
+
+                > aside {
+                    margin-right: 3px;
+                    display: inline-block;
+                    height: 100%;
+                    vertical-align: top;
+
+                    &:after {
+                        content: url('../images/toolbar/ico_money.png');
+                        position: relative;
+                        display: inline-block;
+                        bottom: 1px;
+                        vertical-align: middle;
+                        height: 25px;
+                    }
+                }
+            }
+
+            & + div {
+                border-left: 1px solid #112762;
+            }
+
+            // Общие свойства.
+            &.right {
+                float: right;
+            }
+
+            &.main-padding {
+                padding: 0 11px 0 11px;
+            }
+
+            &.list {
+                span {
+                    position: relative;
+
+                    &:after {
+                        content: '';
+                        background: url("../images/toolbar/ico_hover_menu.png") 100% 5px no-repeat;
+                        display: inline-block;
+                        padding-left: 5px;
+                        width: 7px;
+                        height: 14px;
+                        vertical-align: middle;
+                    }
+                }
+
+                figure {
+                    position: absolute;
+                    width: 160px;
+                    display: none;
+                    bottom: 1px;
+
+                    &:after {
+                        content: '';
+                        border: 4px solid transparent;
+                        border-bottom-color: #00c7e4;
+                        position: absolute;
+                        margin: 0 auto;
+                        bottom: -1px;
+                        left: 0;
+                        right: 0;
+                        display: block;
+                        width: 1px;
+                        height: 1px;
+                    }
+
+                    aside {
+                        position: absolute;
+                        width: auto;
+                        border-radius: 5px;
+                        overflow: hidden;
+                        border: 1px solid #00c7e4;
+                        background: #013193;
+                        margin: 0 auto;
+                        top: 0px;
+                        left: 0;
+                        right: 0;
+                        z-index: 500;
+
+                        a {
+                            display: block;
+                            padding: 5px 15px;
+                            line-height: 15px;
+                            font-size: 12px;
+                            text-decoration: none;
+                            font-weight: normal;
+                            color: #93d6ff;
+
+                            & + a {
+                                border-top: 1px solid  #0d44b5;
+                            }
+
+                            &:hover {
+                                background: #0047d9;
+                            }
+                        }
+                    }
+                }
+
+                &:hover {
+                    figure {
+                        display: block;
+                    }
+                }
+            }
+
+
+            // Уникальные свойства.
+            &.money {
+                span {
+                    font-size: 16px;
+                    color: #8de336;
+
+                    a {
+                        margin-left: 3px;
+                        display: inline-block;
+                        background: url("../images/toolbar/ico_replenishment.png");
+                        width: 13px;
+                        height: 13px;
+                    }
+                }
+            }
+
+            &.games span > aside:after {content: url('../images/toolbar/ico_games.png'); bottom: 3px;}
+            &.wallet span > aside:after {content: url('../images/toolbar/ico_wallet.png'); bottom: 4px;}
+            &.msg span > aside:after {content: url('../images/toolbar/ico_envelope.png'); bottom: -1px;}
+            &.bonuses span > aside:after {content: url('../images/toolbar/ico_gift.png'); bottom: 3px;}
+
+            &.games span { color: #e7ad03; }
+            &.wallet span { color: #8de336; }
+
+            &.money, &.msg, &.bonuses {cursor: pointer;}
+
+            &.exit {
+                a {
+                    display: inline-block;
+                    padding: 0 15px;
+                    height: 100%;
+                    line-height: 40px;
+                    font-size: 12px;
+                    color: #999;
+                }
+            }
+
+            &.logo {
+                a {
+                    display: inline-block;
+                    padding: 0 20px 0 0;
+                    height: 100%;
+                    font-size: 18px;
+                    font-weight: bold;
+                    line-height: 36px;
+                    text-decoration: none;
+                    color: #CCC;
+
+                    &:hover {
+                        color: #CCC;
+                    }
+                }
+            }
+
+            &.user {
+                position: relative;
+              padding: 0 10px 0 30px;
+                font-size: 0;
+              i{
+                font-style: normal;
+              }
+
+                img {
+                    position: absolute;
+                    margin: auto 0;
+                    left: 2px;
+                    top: 0;
+                    bottom: 0;
+                    width: 26px;
+                    height: 26px;
+                }
+
+                span {
+                    line-height: 38px;
+                    font-size: 12px;
+                    font-weight: normal;
+                  min-width: 100px;
+                }
+            }
+
+            &.bonuses {
+                font-size: 0;
+                padding-right: 0;
+
+                > figure {
+                    width: 130px;
+                    margin-left: 15px;
+                    vertical-align: top;
+                    display: inline-block;
+                    position: relative;
+                    height: 100%;
+
+                    > * {
+                        position: absolute;
+                        display: block;
+                    }
+
+                    > span {
+                        top: 3px;
+                        height: 14px;
+                        line-height: 14px;
+                        font-size: 14px;
+                        color: #FFF;
+                    }
+
+                    > div {
+                        width: 100%;
+                        bottom: 3px;
+                        height: 14px;
+
+                        > div {
+                            border-radius: 2px;
+                            top: 4px;
+                            left: 0;
+                            position: absolute;
+                            border: 1px solid #184c72;
+                            background: #002238;
+                            width: 85px;
+                            font-size: 0;
+                            display: block;
+                            height: 6px;
+
+                            > div {
+                                ._grad(#0d4e78, #006cb1);
+                                display: block;
+                                float: left;
+                                height: 100%;
+                                font-size: 0;
+                            }
+                        }
+
+                        span {
+                            position: absolute;
+                            top: 2px;
+                            left: 92px;
+                            height: 11px;
+                            line-height: 11px;
+                            font-size: 11px;
+                            color: #697a87;
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

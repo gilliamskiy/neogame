@@ -1,0 +1,45 @@
+{% extends "@front/" ~ promotion.layout %}
+
+{% block content %}
+
+    <section class="header-content tools_b">
+        <h1>{{ 'Акции'|trans({}, 'promotions') }}</h1>
+    </section>
+
+    <article class="detail_promo">
+        <section>
+            <figure class="block_instead_img"></figure>
+
+            <header><a>{{ promotion.translate.name }}</a></header>
+
+            <aside>
+                <!--
+                When: Oct 10, 2014 - Oct 13, 2014
+                <!---->
+                <div>
+                    Начало:
+                    <em>{{ promotion.startDate|format_date("MMMM") }}</em>
+                    <span>{{ promotion.startDate|format_date("d") }}</span>
+                </div>
+                <div>
+                    Окончание:
+                    <em>{{ promotion.endDate|format_date("MMMM") }}</em>
+                    <span>{{ promotion.endDate|format_date("d") }}</span>
+                </div>
+            </aside>
+            <div class="promo_content">
+                {{ promotion.translate.content|markup }}
+
+            </div>
+        </section>
+
+        <nav class="promos_nav">
+            <a href="{{ path('promotions_list') }}">
+                <span>{{ 'К полному списку акций'|trans({}, 'promotions') }}</span>
+            </a>
+        </nav>
+    </article>
+
+
+
+{% endblock %}

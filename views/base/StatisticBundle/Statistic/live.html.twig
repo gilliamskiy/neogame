@@ -1,0 +1,154 @@
+{% extends "@front/layout.html.twig" %}
+{% block seo %}
+    {{ parent() }}
+    <title>{{ 'statistics'|trans }}</title>
+    <meta name="keywords" content="{{ article.translate.keywords }}">
+    <meta name="description" content="{{ article.translate.description }}">
+{% endblock %}
+{% block content %}
+    <section>
+    <!-- less: s_breadcrumbs.less -->
+
+    {#{% include "@front/layout/breadCrumbs.html.twig" %}#}
+
+    <figure class="list statistics">
+    <header>
+        <h2>{{ 'statistics'|trans }}</h2>
+    </header>
+
+    <article>
+        <header>
+            <h3>{{ 'rating_winnings'|trans }}</h3>
+        </header>
+
+        {% for statistic in gamesByWinAmount %}
+            <article>
+                <div>&nbsp;</div>
+                <div><img style="width: 54px" src="{{ statistic.game.logo.path|imagine_filter('thumbnail') }}"  alt="{{ statistic.game.translate.name }}"></div>
+                <div>
+                    <a class="static_linc" href="{{ path('game_view', {category: statistic.game.category.slug, slug: statistic.game.slug}) }}">{{ statistic.game.translate.name }}</a>
+                    <span>{{ statistic.winAmount/100 }} $</span>
+                </div>
+            </article>
+        {% endfor %}
+
+
+    </article>
+
+    <article>
+        <header>
+            <h3>{{ 'rating_wins'|trans }}</h3>
+        </header>
+
+        {% for statistic in wins %}
+            <article>
+                <div>&nbsp;</div>
+                <div><img style="width: 54px" src="{{ asset('assets/images/avatars/defol.png') }}"/></div>
+                {#<div><img style="width: 54px" src="{{ statistic.avatarUrl }}"/></div>#}
+                <div>
+                    <span class="static_name">{{ statistic.preferredName }}</span>
+                    <a href="{{ path('game_view', {category: statistic.game.category.slug, slug: statistic.game.slug}) }}" class="static_linc">{{ statistic.game.translate.name }}</a>
+                    <span>{{ statistic.date }}</span>
+                    <div>{{ 'loss'|trans }}:  {{ statistic.betAmount/100 }} $</div>
+                    <div>{{ 'win'|trans }}: {{ statistic.winAmount/100 }} $</div>
+                </div>
+            </article>
+
+        {% endfor %}
+
+
+    </article>
+
+    <article>
+        <header>
+            <h3>{{ 'player_rankings'|trans }}</h3>
+        </header>
+        {% for statistic in playersByWinAmount %}
+            <article>
+                <div>&nbsp;</div>
+                {#<div><img style="width: 54px" src="{{ statistic.avatarUrl }}"/></div>#}
+                <div><img style="width: 54px" src="{{ asset('assets/images/avatars/defol.png') }}"/></div>
+                <div>
+                    <span class="static_name">{{ statistic.preferredName }}</span>
+                    <span>{{ statistic.winAmount/100 }} $</span>
+                </div>
+            </article>
+
+        {% endfor %}
+
+
+
+    </article>
+
+        <article style="width: 964px;margin-left: 0px;">
+            <header>
+                <h3>{{ 'rating_rounds'|trans }}</h3>
+            </header>
+
+            <div class="bodyTable">
+
+                <div class="bodyTable_wi" style="width: 111px;">{{ 'avatar'|trans }}</div>
+                <div class="bodyTable_wi" style="width: 134px;">{{ 'nick'|trans }}</div>
+                <div class="bodyTable_wi">{{ 'game'|trans }}</div>
+                <div class="bodyTable_wi" style="width: 157px;">{{ 'date'|trans }}</div>
+                <div class="bodyTable_wi">{{ 'loss'|trans }}</div>
+                <div class="bodyTable_wi" style="width: 151px;">{{ 'win'|trans }}</div>
+                <div class="bodyTable_wi">{{ 'percentage'|trans }}</div>
+            </div>
+
+            {% for statistic in roundWinsRatio %}
+                <article style="width: 964px;" class="bodyTable">
+                    <div class="bodyTable_first">&nbsp;</div>
+                    <div class="bodyTable_wi" style="width: 54px;">
+                        <div><img style="width: 54px" src="{{ asset('assets/images/avatars/defol.png') }}"/></div>
+                        {#<div style="width: 54px"><img src="{{ statistic.avatarUrl }}"/></div>#}
+                    </div>
+                    <div class="bodyTable_wi nameTable">{{ statistic.preferredName }}</div>
+                    <div class="bodyTable_wi"><a class="static_linc" style="color: #ff9834;" href="{{ path('game_view', {category: statistic.game.category.slug, slug: statistic.game.slug}) }}"> {{ statistic.game.translate.name }}</a></div>
+                    <div class="bodyTable_wi"><span>{{ statistic.date }}</span></div>
+                    <div class="bodyTable_wi">{{ statistic.betAmount/100 }} $</div>
+                    <div class="bodyTable_wi">{{ statistic.winAmount/100 }} $</div>
+                    <div class="bodyTable_wi">{{ statistic.ratio }}</div>
+                </article>
+
+            {% endfor %}
+
+
+
+        </article>
+
+
+    </figure>
+
+
+
+    {#<hr/> рейтинг раундов по соотношению выигрыша к ставке:<br/>#}
+    {#{% for statistic in roundWinsRatio %}#}
+        {#<img src="{{ statistic.avatarUrl }}" /> {{ statistic.preferredName }}:<br/>#}
+        {#{{ statistic.game.translate.name }}<br/>#}
+        {#{{ statistic.date }}<br>#}
+        {#{{ statistic.betAmount }}<br>#}
+        {#{{ statistic.winAmount }}<br>#}
+        {#{{ statistic.ratio }}<br>#}
+    {#{% endfor %}#}
+
+
+    {#<hr/> рейтинг игр по payout:<br/>#}
+    {#{% for statistic in gamesByPayouts %}#}
+        {#{{ statistic.game.translate.name }}: {{ statistic.payout }}<br>#}
+    {#{% endfor %}#}
+    {##}
+    {#<hr/> список последних выплат:<br/>#}
+    {#{% for statistic in lastWithdrawals %}#}
+        {#<img src="{{ statistic.avatarUrl }}" /> {{ statistic.preferredName }}:<br/>#}
+        {#{{ statistic.paidAt }}<br/>#}
+        {#{{ statistic.amount }}<br>#}
+    {#{% endfor %}#}
+
+
+        <!-- less: s_seotext.less -->
+        {% include "@front/layout/seo_text.html.twig" %}
+        <!--end less: s_seotext.less -->
+    </section>
+
+{% endblock %}

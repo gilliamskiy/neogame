@@ -1,0 +1,54 @@
+
+/*! Seo text
+*/
+body > .main > section > .seo-text {
+    .clearfix;
+    padding: 16px 39px 11px;
+    background: url(../images/seo_bg.png) no-repeat;
+    background-position: top center;
+    overflow: hidden;
+
+    &:before {
+        content: '';
+        display: block;
+        height: 1px;
+        background: url(../images/horizontal_divider.png) center top;
+        margin: 10px 0px 25px 0px;
+    }
+
+    > section {
+        text-align: left;
+        float: left;
+        width: 48%;
+
+        & + section {
+            float: right;
+        }
+
+        header {
+            padding-bottom: 2px;
+            > * {
+                color: @header-yellow;
+                font-size: 19px;
+                line-height: 22px;
+                margin-top: 0px;
+            }
+        }
+
+        > p {
+            font-size: 13px;
+            line-height: 18px;
+            color: white;
+            margin: 0px;
+            letter-spacing: 0.2px;
+
+            a {
+                text-decoration: underline;
+                color: @link-color;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

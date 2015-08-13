@@ -1,0 +1,154 @@
+/*! Sidebar */
+body > .main > section > .mainSidebar {
+    float: right;
+    width: 246px;
+    border: 1px solid #0f5c87;
+    margin: 12px 5px 0px 0px;
+    > .personalData {
+        position: relative;
+        height: 154px;
+        background: url("../images/personal_data_bg.jpg") repeat-x;
+        background-position: 0px 37px;
+        .personalMail {
+            height: 37px;
+            line-height: 37px;
+            font-weight: bold;
+            font-size: 14px;
+            .text-shadow(0px, 0px, 14px, #004ee8);
+            color: #FFF;
+            font-family: 'TahomaBold', 'Tahoma', sans-serif;
+            margin: 0px;
+            padding-left: 22px;
+            overflow: hidden;
+            ._grad_vert(#001c4e, #000a1c)
+        }
+
+        img {
+            width: 84px;
+            height: 83px;
+            top: 49px;
+            position: absolute;
+            left: 18px;
+          background: #0039ab;
+          border: 1px solid #1c3f96;
+          border-radius: 1px;
+          -webkit-border-radius: 1px;
+          -moz-border-radius: 1px;
+        }
+        > .balance {
+            position: absolute;
+            left: 114px;
+            font-size: 14px;
+            line-height: 18px;
+            color: #d6dde2;
+            top: 47px;
+            span {
+                color: @green;
+                display: block;
+                font-weight: 700;
+                font-size: 17px;
+            }
+
+        }
+        .status {
+            position: absolute;
+            top: 95px;
+            left: 114px;
+            font-size: 14px;
+            line-height: 18px;
+            color: #d6dde2;
+            span {
+                color: @orange;
+                display: block;
+                font-weight: 700;
+                font-size: 15px;
+            }
+        }
+        &:after {
+            content: "";
+            background: url("../images/vertical_sidebar.jpg") no-repeat;
+            width: 244px;
+            height: 1px;
+            display: block;
+            position: absolute;
+            top: 152px;
+
+        }
+    }
+    > .personalFunctions {
+
+        ul {
+            padding: 0px;
+            margin: 0px;
+            li {
+                height: 35px;
+                list-style: none;
+                margin-bottom: 1px;
+                a {
+                    display: block;
+                    height: 100%;
+                    line-height: 35px;
+                    font-size: 14px;
+                    text-decoration: none;
+                    padding-left: 16px;
+                    color: #9dd7ff;
+                    font-family: 'TahomaBold', 'Tahoma', sans-serif;
+                    background: #081b4c;
+                    &:hover {
+                        background: #1741a5;
+                    }
+                }
+                &:after {
+                    content: "";
+                    background: url("../images/vertical_sidebar.jpg") no-repeat;
+                    width: 244px;
+                    height: 1px;
+                    display: block;
+
+                }
+                &:last-child:after {
+                    content: "";
+                    display: none;
+
+                }
+            }
+
+        }
+
+    }
+}
+body .flexslider {
+  .flex-direction-nav {
+    li .flex-prev {
+      width: 35px!important;
+      height: 115px!important;
+      margin-top: 0px;
+      top: 0px!important;
+      background: url("../images/miniBanner/left_btn.png") no-repeat left center;
+      &:before {
+        font-size: 0!important;
+        content: '';
+      }
+
+    }
+    li .flex-next {
+      width: 35px!important;
+      height: 115px!important;
+      font-size: 0!important;
+      background: url("../images/miniBanner/right_btn.png") no-repeat 0px center;
+      margin-top: 0px;
+      top: 0px!important;
+      &:before {
+        font-size: 0!important;
+        content: '';
+      }
+
+    }
+  }
+  &:hover .flex-prev {
+    left: 0px!important;
+  }
+  &:hover .flex-next {
+    right: 0!important;
+  }
+}

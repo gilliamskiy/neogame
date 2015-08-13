@@ -1,0 +1,139 @@
+{% extends "@front/layout.html.twig" %}
+{% block seo %}
+    {{ parent() }}
+    <title>{{ 'popular_games'|trans }}</title>
+
+{% endblock %}
+{% block content %}
+  {#{% block content %}#}
+      {#Игры:<br/>#}
+      {#{% for game in games %}#}
+          {#<img src="{{ game.logo.path|imagine_filter('thumbnail') }}"  alt="{{ game.translate.name }}" /><br>#}
+          {#Название игры: {{ game.translate.name }}<br>#}
+      {#{% endfor %}#}
+  {#{% endblock %}#}
+<section>
+    <h4 style="display: none;">{{ 'popular_games'|trans }}</h4>
+    <!-- less: s_breadcrumbs.less -->
+    <figure class="breadCrumbs">
+
+        {% if app.request.get('category') == 'novomatic' %}
+            <nav>
+                <span><a href="{{ path('front_homepage') }}">VulkanoGames</a></span>
+                <span><a href="{{ path('game_list') }}">{{ 'game_room'|trans}}</a></span>
+                <span>Популярные</span>
+            </nav>
+        {% endif %}
+
+    </figure>
+    <!--end less: s_breadcrumbs.less -->
+
+    <figure class="main-games">
+        <header>
+            <h3>{{ 'popular_games'|trans }}</h3>
+        </header>
+        <nav class="tabs">
+            <a href="{{ path('game_list') }}" title="{{ 'all_games'|trans }}">{{ 'all_games'|trans }}</a>
+            {% for category in categories %}
+                <a href="{{ path('game_type_list', {category: category.slug}) }}"
+                   title="{{ category.translate.name }}">{{ category.translate.name }}</a>
+            {% endfor %}
+        </nav>
+        <div class="box visible">
+            {% for game in games %}
+                <div class="games_post">
+                    <em><img src="{{ game.logo.path|imagine_filter('thumbnail') }}" alt="{{ game.translate.name }}"></em>
+                    <figure>
+                        {% if game.isNew %}
+                            {#<div class="logoNews"></div>#}
+                        {% endif %}
+                        {% if game.is3D %}
+                            <div class="logo3d"></div>
+                        {% endif %}
+                        <article>
+                            <h4 style="display: none;">{{ game.translate.name }}</h4>
+                            {% if not is_granted('ROLE_USER') %}
+                                <a data-toggle="modal"
+                                   data-id="{{ path('game_play_real', {category: game.category.slug, slug: game.slug}) }}"
+                                   class="localStore playNow login_right_now"
+                                   href="#login">{{ 'play_now'|trans }}</a>
+
+                            {% else %}
+                                <a class="playNow login_right_now"
+                                   href="{{ path('game_play_real', {category: game.category.slug, slug: game.slug}) }}">{{ 'play_now'|trans }}</a>
+
+                            {% endif %}
+
+                            {% if game.isEnabledDemo %}
+                                <a class="demo login_right_now"
+                                   href="{{ path('game_play_demo', {category: game.category.slug, slug: game.slug}) }}">{{ 'demo_game'|trans }}</a>
+
+                            {% endif %}
+
+
+                            <a class="details"
+                               href="{{ path('game_view', {category: game.category.slug, slug: game.slug}) }}">{{ 'read_more'|trans }}</a>
+                        </article>
+                    </figure>
+                    <span>{{ game.translate.name }}</span>
+                </div>
+            {% endfor %}
+        </div>
+    </figure>
+    <!-- less: s_seotext.less -->
+
+    {% if app.request.locale == "ru" %}
+        <figure style="display: none;"  class="seo-text games">
+            <section>
+                <header>
+                    <h1>Игровой клуб Almurut testGames</h1>
+                </header>
+                <p>Вы находитесь в игровом клубе от казино Almurut. Если вы здесь, значит знаете толк в хорошем
+                    времяпрепровождении.</p><br/>
+
+                <p>Как вы могли заметить, на страничке представлены игровые аппараты от трендовых производителей,
+                    таких как Новоматик, Игрософт, Газгейминг. В нашем игровом клубе Almurut любой гемблер может
+                    найти себе автомат для души.</p><br/>
+
+                <p>Играть на любом игровом автомате в клубе Almurut можно играть бесплатно, для ознакомления и на
+                    реальные деньги. Последний вариант подходит для тех, кто понимает что делает, а не просто зашел
+                    посмотреть.</p><br/><br/>
+
+
+            </section>
+
+            <section>
+                <header>
+                    <h2>Игровой зал клуба Almurut</h2>
+                </header>
+                <p>Игровой зал клуба Almurut– это страничка, где вы сейчас находитесь. Игровым залом он называется,
+                    потому что вы находитесь в полноценном казино, и можете насладиться всеми возможностями этого
+                    заведения, только в любом месте.</p><br/>
+
+                <p>Параллели очевидны: если в казино есть охрана, то здесь защищенное соединение и пароли, если в
+                    казино есть персонал, то здесь онлайн поддержка, которая может заменить не только его.</p><br/>
+
+                <p>Игровой зал создан таким образом, чтобы пользователю было максимально удобно. Потому что если это
+                    не так, то обратитесь в онлайн поддержку и скажите, что вам не нравится.</p><br/><br/>
+
+            </section>
+        </figure>
+
+    {% else %}
+
+    {% endif %}
+    {#{% include "@front/layout/seo_text.html.twig" %}#}
+    <!--end less: s_seotext.less -->
+</section>
+
+<script>
+
+    $('.localStore').click(function () {
+        localStorage.removeItem('tempUrl');
+        var tempUrl = $(this).attr('data-id');
+        localStorage.setItem('tempUrl', tempUrl);
+    });
+
+</script>
+
+{% endblock %}

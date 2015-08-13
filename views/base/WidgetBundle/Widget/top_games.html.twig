@@ -1,0 +1,32 @@
+{#Виджет "лучшие игры"<br/>#}
+
+{% for game in bestGames %}
+    <div class="games-slot">
+        {% if game.isEnabledDemo %}
+            <a href="{{ path('game_play_demo', {category: game.category.slug, slug: game.slug}) }}" class="games-prev">
+                <img src="{{ game.logo.path|imagine_filter('thumbnail') }}" alt="{{ game.translate.name }}">
+            </a>
+        {% else %}
+            <a href="{{ path('game_play_real', {category: game.category.slug, slug: game.slug}) }}" class="games-prev">
+                <img src="{{ game.logo.path|imagine_filter('thumbnail') }}" alt="{{ game.translate.name }}">
+            </a>
+        {% endif %}
+        <a>{{ game.translate.name }}</a>
+
+    </div>
+    {#<div class="hideGameCont">#}
+    {#<div class="hideGamePage">#}
+    {#{% if not is_granted('ROLE_USER') %}#}
+    {#<a data-toggle="modal" class="playNow login_right_now" href="#login">{{ 'play_now'|trans }}</a>#}
+    {#{% else %}#}
+    {#<a class="playNow login_right_now" href="{{ path('game_play_real', {category: game.category.slug, slug: game.slug}) }}">{{ 'play_now'|trans }}</a>#}
+    {#{% endif %}#}
+
+    {#{% if game.isEnabledDemo %}#}
+    {#<a class="demo login_right_now" href="{{ path('game_play_demo', {category: game.category.slug, slug: game.slug}) }}">{{ 'demo_game'|trans }}</a>#}
+    {#{% endif %}#}
+    {#<a class="details" href="{{ path('game_view', {category: game.category.slug, slug: game.slug}) }}">{{ 'read_more'|trans }}</a>#}
+    {#</div>#}
+
+    {#</div>#}
+{% endfor %}

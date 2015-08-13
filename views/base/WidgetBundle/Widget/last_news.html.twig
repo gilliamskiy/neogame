@@ -1,0 +1,9 @@
+{# Last news widget template #}
+
+{% for news in list %}
+    Заголовок: <a href="{{ path('news_view', {slug:news.translate.slug, id:news.id}) }}">{{ news.translate.name }}</a><br>
+    Дата: {{ news.date|format_date }}<br>
+    Анонс: {{ news.translate.announce|markup }}<br>
+    Содержание: {{ news.translate.content|markup }}
+    <hr>
+{% endfor %}

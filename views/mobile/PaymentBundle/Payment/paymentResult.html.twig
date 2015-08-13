@@ -1,0 +1,22 @@
+{% extends "@front/layout.html.twig" %}
+
+{% block content %}
+    <section>
+        <!-- less: s_breadcrumbs.less -->
+        {% include "@front/layout/breadCrumbs.html.twig" %}
+        <figure class="news-one">
+            <article>
+                <header>
+                    <h1>payment result:</h1>
+                </header>
+                <p> {{ payment.id }},
+                    {{ payment.amount }} {{ payment.currency }}</p>
+
+            </article>
+        </figure>
+        <!-- less: s_seotext.less -->
+        {% include "@front/layout/seo_text.html.twig" %}
+        <!--end less: s_seotext.less -->
+    </section>
+
+{% endblock %}

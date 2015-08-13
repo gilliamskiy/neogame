@@ -1,0 +1,51 @@
+
+/*! News list*/
+body > .main > section > .news-list {
+    > header {
+        > * {
+            font-size: 28px;
+            margin: 0px 0px 18px 0px;
+            padding-top: 7px;
+            color: white;
+        }
+    }
+    padding: 0px 22px;
+    > article {
+        > div {
+            > p {
+                & + div {
+                    clear: both;
+                    overflow: auto;
+
+                    a {
+                        color: @orange;
+                        font-size: 13px;
+                        text-decoration: underline;
+                        margin-left: 5px;
+                        float: right;
+                    }
+                }
+            }
+            section {
+                > nav {
+                    line-height: 10px;
+                    margin: 10px 0px 0px 0px;
+                    > label {
+                        color: @grey;
+                        font-size: 11px;
+                    }
+                    > a {
+                        font-size: 11px;
+                        text-decoration: underline;
+                        margin: 0px 2px;
+                        color: #2058a4;
+                        white-space: pre;
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

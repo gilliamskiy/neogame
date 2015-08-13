@@ -1,0 +1,77 @@
+{% extends "@front/layout.html.twig" %}
+
+{% block content %}
+    <section>
+        <!-- less: s_breadcrumbs.less -->
+        {% include "@front/layout/breadCrumbs.html.twig" %}
+        <!--end less: s_breadcrumbs.less -->
+        <!-- less: s_news-list.less -->
+        <figure class="my_bonuses">
+            <header>
+                <h1>{{ 'rounds_history'|trans }}</h1>
+            </header>
+            <div class="search-games">
+                <form action="" class="form-inline">
+                    <label class="navigation-games">
+                        <select name="game"  id="games_selector">
+                            <option value="all-games">{{ 'select_game'|trans }}</option>
+                            {% for game in games %}
+                                <option value="{{ game.serverName }}" {% if app.request.get('game') == game.serverName %}selected="selected"{% endif %}>{{ game.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </label>
+                    <button type="submit" class="search-btn">{{ 'find'|trans }}</button>
+                </form>
+            </div>
+            <article>
+                <SECTION class="table_block">
+                    <table width="100%">
+                        <thead>
+                        <tr>
+                            <td>{{'game'|trans }}:</td>
+                            <td>{{'type'|trans }}:</td>
+                            <td>{{'player'|trans }}:</td>
+                            <td>{{'date'|trans }}:</td>
+                            <td>{{'rate'|trans }}:</td>
+                            <td>{{'rate'|trans }}:</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for round in rounds %}
+                            <tr>
+                                <td>
+                                    <img src="{{ round.game.logo.path|imagine_filter('thumbnail') }}" />
+                                    {#{{ round.game.name }} [{{ round.game.id }}]#}
+                                </td>
+                                <td>{{ round.type|trans }}</td>
+                                <td>{{ round.user.id }}</td>
+                                <td>{{ round.datetime|date('d.m.Y H:i:s') }}</td>
+                                <td>{{ round.bet_amount }}</td>
+                                <td>{{ round.win_amount }}</td>
+                            </tr>
+                        {% else %}
+                            <tr style="border-bottom: none;">
+                                <td>{{'no_records'|trans }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </SECTION>
+            </article>
+            <!-- less: s_pagination.less -->
+            <nav class="paginator">
+                {{ knp_pagination_render(rounds) }}
+            </nav>
+            <!--end less: s_pagination.less -->
+        </figure>
+        {% include "@front/layout/right_cabinet_menu.html.twig" %}
+        <div ctyle="clear:both;"></div>
+        <!--end less: s_news-list.less -->
+
+        <!-- less: s_seotext.less -->
+        {% include "@front/layout/seo_text.html.twig" %}
+        <!--end less: s_seotext.less -->
+    </section>
+{% endblock %}
+
+

@@ -1,0 +1,229 @@
+main_game: основная игра
+free_game: бесплатные раунды
+chance_game: риск-игра
+bonus_game: бонусная игра
+mini_bonus_game: мини-бонусная игра
+super_bonus_game: супер-бонусная игра
+my_lottery: Мои лотерейные билеты
+history_bonuses: История бонусов
+status: Статус
+add_funds: Пополнить счет
+withdraw: Вывести
+type: Тип раунда
+date: Дата
+amount: Сумма
+balance: Баланс
+payment_system: Платежная система
+payment: Оплата
+withdrawal: Вывод
+credit: Кредит
+current_password: Текущий пароль
+new_password: Новый пароль
+repeat_password: Повторите пароль
+header: Заголовок
+download: Загрузить
+select_game: Выберите игру
+find: Найти
+game: Название игры
+rate: Ставка
+player: Игрок
+win: Выигрыш
+no_records: нет записей
+amount_of_payment: Сумма платежа
+payment_by: Оплата с помощью
+Process: Пополнить
+my_account: Мои данные
+amend: Изменить
+Profile: Профиль
+form_preferred_name: Псевдоним
+form_full_name: Полное имя
+form_birthday: Дата рождения
+gender: Пол
+country: Страна
+city: Город
+address: Адрес
+phone_number: Номер телефона
+upstairs: Наверх
+card_number: Номер карты
+state_province_region: Штат/регион/область
+card_holder: Держатель карты
+month_and_year: Месяц и год истечения срока действия карт (мм/гггг)
+security_code: Код безопасности (cvv/cvv2/cvc)
+month: Mесяц
+year: Год
+all_the_fields: Все поля заполняются латинскими буквами
+region: Регион
+zip: Почтовый индекс
+email: E-mail
+game_club: Игровой Клуб
+cash: Касса
+games: Игры
+all_games: Все игры
+roulettes: Рулетки
+slots: Слот-автоматы
+cards: Карточные игры
+videopokers: Видеопокеры
+other: Другие
+rounds_history: История игр
+depositing: Пополнение счета
+fair_play: Честная игра
+responsibility_casino: Ответственность казино
+security: Безопасность
+support: Служба поддержки
+agreement: Соглашение
+payouts: Выплата выигрышей
+game_club_copyright: Игровой интернет клуб «Almurut» © 2011-2014. Казино клуб Almurut – игровые автоматы онлайн.
+login: ВОЙТИ В КЛУБ
+register: РЕГИСТРАЦИЯ
+ajax_load: Загрузка, пожалуйста подождите...
+log_in: Вход в клуб
+registration: Регистрация в клубе
+casino_title: Казино клуб Almurut – игровые автоматы онлайн
+latest_wins: Последние выигрыши
+top_games: Лучшие игры
+jackpot: джекпот
+all_games: Все игры
+play_now: Играть сейчас
+demo_game: Демо игра
+read_more: Подробнее
+main_game: основная игра
+free_game: бесплатные раунды
+chance_game: риск-игра
+bonus_game: бонусная игра
+mini_bonus_game: мини-бонусная игра
+super_bonus_game: супер-бонусная игра
+games: Игры
+categories_of_games: Категории игр
+all_games: Все игры
+game_room: Игровой зал
+play_now: Играть сейчас
+demo_game: Демо игра
+read_more: Подробнее
+registration: Регистрация
+login: Вход
+messages: Сообщения
+play_for_money: Играть на деньги
+balance: Баланс
+bonus: Бонус
+select_game: Выбрать игру
+rules_of_the_game: Правила игры
+support: Служба поддержки
+demo_mode: демо-режим
+rating_games: Рейтинг игр
+liked: В избранное
+features_game: Характеристики игры
+play_now: ИГРАТЬ СЕЙЧАС
+complete_games: К полному списку игр
+next: Дальше
+pay_btn: Оплатить
+form_email: E-mail:
+form_password: Пароль:
+form_preferred_locale: Язык:
+form_is_receiving_newsletters: Подписаться на новости
+form_is_receiving_bonuses: Хочу получать бонусы
+wager: Cтавка
+form_username: Логин
+account: Акаунт
+code_n: Код
+voucher: Ваучер
+popular_games: Популярные
+novomatic_slot: Novomatic slots
+novomatic_deluxe: Novomatic Deluxe Slots
+igrosoft_slot: Igrosoft slots
+gazgaming_slot: GazGaming slots
+casino_games: Игры казино
+Популярные: Популярные
+to_be:  Чтобы иметь постоянный доступ в игровой клуб Almurut, установите расширение
+install_extension: Установить расширение
+statistics: Статистика
+rating_winnings: Рейтинг игр по сумме выигрышей
+rating_wins: Рейтинг выигрышей
+loss: Ставка
+win: Выигрыш
+player_rankings: Рейтинг игроков по сумме выигрышей
+rating_rounds: Рейтинг раундов по соотношению выигрыша к ставке
+avatar: Аватарка
+nick: Никнейм
+percentage: Процент
+winners: Победители
+cof_money_account: по курсу ЦБ РФ на
+attention: Внимание!
+the_following: В выписке по движению средств, будет указана следующая информация:
+minimum_sum: Минимальная сумма
+maximum_sum: Максимальная сумма
+back_to: Вернуться к списку платежных систем
+back: Вернуться к
+
+error_404: Ошибка 404
+page_not_found: Такая страница не найдена
+several_reasons: Могут быть несколько причин
+moved_or_renamed: Страница перемещена или переименована
+no_longer: Страница больше не существует на этом сайте
+url_untrue: URL не соответствует действительности
+propose_to: Предлагаю перейти
+home_page: На главную страницу
+write_to_contact: Написать в контакты
+additionally: Дополнительно
+mobile_version: Мобильная версия
+bonus_policy: Бонусная политика
+individual_proposals: Индивидуальные предложения
+partners: Партнерам
+about: О нас
+payments_oper: Cделки
+mail: Почта
+terms: Условия
+mobile: Мобильная
+help: Помощь
+pob_loter: Победители
+live_tournaments: Текущие турниры
+past_tournaments: Прошедшие Турниры
+russion: Русский
+english: English
+promotions_bonuses: Акции и бонусы
+tournaments: Турниры
+lotteries: Лотереи
+wallet: Номер кошелька/счета:
+title_with: Игровые автоматы Almurut. Играть бесплатно и на деньги - Вывести средства
+title_pay: Игровые автоматы Almurut. Играть бесплатно и на деньги - Пополнение счета
+personal: Персональные предложения
+edit_p: Редактировать профиль
+rate_win: Выигрыш
+select_a_game: Выберите игру
+bonuses: Бонусы
+payments_operations: Операции со счетами
+validity: Срок действия
+status_bonus: Статус бонуса
+contacts_us: Контакты
+policies: Политика Казино
+lasts: Время действия
+promotions: Акции
+wager: Ставка
+req_email: Пожалуйста, введите верный адрес
+req_pass: Введите не менше {0} символов
+
+Invalid username or password: Неверное имя пользователя или пароль
+
+date_game: Время
+game_game: Игра
+
+main: Основная игра
+free_roll: Фриспины
+bonus: Бонусная игра
+chance: Риск-игра
+login_mob: Войти
+register_mob: Регистрация
+full_version: Полная версия
+
+pl_rocess: Пополнить
+user_lotteries: Лотерейные билеты
+live_tournaments: Текущие турниры
+extensions: Расширения
+demo: Демо
+
+game_demo_pay: Вы играете<br/>в Демо режиме
+game_demo_payment: Пожалуйста,<br/>пополните<br/>свой игровой счет
+game_demo_last: Напомнить позже
+monay_cache_btn: Пополнить счет
+monay_cache: На Вашем счету недостаточно средств для продолжения игры
+more_info: Подробнее
+lucky_games: Играть

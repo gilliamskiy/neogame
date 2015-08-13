@@ -1,0 +1,44 @@
+{% extends "@front/layout.html.twig" %}
+{% block seo %}
+    {{ parent() }}
+    <meta name="keywords" content="{{ article.translate.keywords }}">
+    <meta name="description" content="{{ article.translate.description }}">
+{% endblock %}
+{% block content %}
+    <section>
+        <!-- less: s_breadcrumbs.less -->
+
+        <figure class="breadCrumbs">
+            <nav>
+                <span><a href="{{ path('front_homepage') }}">VulkanoGames</a></span>
+                <span><a href="{{ path('articles_list') }}">{{ 'Статьи'|trans({}, 'articles') }}</a></span>
+
+                <span>{{ article.translate.name }}</span>
+            </nav>
+        </figure>
+
+
+        <!-- less: s_news-one.less -->
+        <figure class="news-one">
+            <article>
+                <header>
+                    <h2>{{ article.translate.name }}</h2>
+                </header>
+                <span class="newsDate">{{ article.date|format_date }}</span>
+                {{ article.translate.content|markup }}
+                <footer>
+                    <a href="{{ path('articles_list') }}">{{ 'К полному списку статей'|trans({}, 'articles') }}</a>
+                </footer>
+            </article>
+        </figure>
+        <!-- less: s_seotext.less -->
+        {% include "@front/layout/seo_text.html.twig" %}
+        <!--end less: s_seotext.less -->
+    </section>
+<div id="testG"></div>
+
+    <script>
+
+
+    </script>
+{% endblock %}

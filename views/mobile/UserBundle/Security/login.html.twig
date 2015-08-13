@@ -1,0 +1,44 @@
+{% extends "@front/layout.html.twig" %}
+{% block seo %}
+    {{ parent() }}
+    <title>{{ 'log_in'|trans }}</title>
+
+{% endblock %}
+{% trans_default_domain "users" %}
+
+{% block content %}
+    <section class="auth-header">
+        <h1>{{ 'log_in'|trans }}</h1>
+        <a class="auth-header-close" href="/"></a>
+    </section>
+
+    <article class="auth-content" style="min-height: 300px">
+        <div class="auth-form-content">
+            <form class="form-horizontal" action="{{ path('user_login_check') }}" method="post">
+                {% if error %}
+                    <p class="warning">{{ error.message }}</p>
+                {% endif %}
+                <div class="control-group">
+                    <div class="controls">
+                        <input type="text" name="_username" class="form-control" id="nameLogin"
+                               value="{{ last_username }}" placeholder="{{ 'form_username'|trans }}" required>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <input type="password" name="_password" class="form-control" id="passLogin" placeholder="{{ 'form_password'|trans }}" required>
+                    </div>
+                </div>
+                <div class="controls too__btn">
+                    <button type="submit" id="btn_login">{{ 'login'|trans }}</button>
+
+                </div>
+                <div class="auth-linc-group">
+                    <a href="{{ path('user_resetting_form') }}" class="auth-linc">{{ 'forgot_password'|trans({}, 'users') }}</a>
+                    <a style="text-transform: uppercase;" href="{{ path('user_register') }}" class="auth-linc">{{ 'register_schet'|trans({}, 'users') }}</a>
+                 </div>
+            </form>
+        </div>
+    </article>
+{% endblock %}
+

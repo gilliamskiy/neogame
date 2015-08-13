@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=1000">
+    <meta name="interkassa-verification" content="94a08bc94bd966897a7a404cc742c549" />
+    {% block seo %}
+        {{ page_seo() }}
+    {% endblock %}
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/sample/styles/style.min.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/checkbox/styleCheckbox.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/selectbox/styleSelectbox.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/flex/flexslider.min.css') }}">
+    {% endblock %}
+    {% block javascripts %}
+        <script type="text/javascript" src="{{ asset('assets/vendor/build/modernizr.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/vendor/build/jquery-1.11.0.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/vendor/selectbox/jquery.selectbox.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/js/jquery.form.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/js/jquery.validate.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/js/jquery.cookie.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/js/main.min.js') }}"></script>
+        <!--[if (gte IE 6)&(lte IE 8)]>
+        <script type="text/javascript" src="{{ asset('assets/vendor/build/mootools_1.4.5.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/vendor/build/selectivizr-min.js') }}"></script>
+        <![endif]-->
+        <script type="text/javascript" src="{{ asset('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    {% endblock %}
+    <link href="{{ asset('favicon.ico') }}" rel="shortcut icon" type="image/x-icon" />
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+</head>
+<body class="modal-windows">
+{% if app.request.locale == "ru" %}
+    <style>
+        .nav1 {width: 161px;}
+        .nav2 {width: 181px;}
+        .nav3 {width: 131px;}
+        .nav4 {width: 139px;}
+        .nav5 {width: 140px;}
+        .nav6 {width: 120px;}
+        .nav7 {width: 114px;}
+    </style>
+{% else %}
+    <style>
+        .nav1 {width: 148px;}
+        .nav2 {width: 225px;}
+        .nav3 {width: 155px;}
+        .nav4 {width: 139px;}
+        .nav5 {width: 105px;}
+        .nav6 {width: 100px;}
+        .nav7 {width: 114px;}
+    </style>
+{% endif %}
+
+{% if app.request.locale == "ru" %}
+    <div class="plg_widget" id="cas2pay-banner">
+        <div class="plg_widget-content">
+            <div class="plg_widget-text">
+                {{ 'to_be'|trans }}
+            </div>
+            <a href="{{ path('front_homepage') }}extension.html" class="plg_widget-btn" id="install-plugin"> {{ 'install_extension'|trans }}</a>
+            <div class="plg_widget-close" id="cas2pay-close"></div>
+        </div>
+    </div>
+{% else %}
+{% endif %}
+
+
+<script>
+    if ($.cookie('cas2pay_closed')) {
+        $("#cas2pay-banner").hide();
+    }
+</script>
+{% if  is_granted('ROLE_USER') %}
+    <figure id="toolbar" class="toolbar">
+    <script>
+        var bonus_wager_amount = 0,
+                bonus_bet_amount = 0;
+    </script>
+
+    <nav>
+        <div class="logo">
+            <a href="{{ path('front_homepage') }}">{{ 'game_club'|trans }}</a>
+        </div>
+
+        <div class="money main-padding">
+                <span>
+                    <aside></aside>
+                    <b>0,00&nbsp;$</b>
+                    <a href="{{ account_url('/pay') }}"></a>
+                </span>
+        </div>
+
+        <div class="bonuses main-padding">
+                <span>
+                    <aside></aside>
+                    <em>0</em>
+                    <a class="ico-link" href="{{ account_url('/bonus-offers') }}"></a>
+                </span>
+
+            <figure>
+                <span>0,00&nbsp;$</span>
+
+                <div class="percent">
+                    <div>
+                        <div></div>
+                    </div>
+                    <span>0%</span>
+                </div>
+            </figure>
+        </div>
+
+        {#<div class="msg main-padding">#}
+                    {#<span>#}
+                        {#<aside></aside>#}
+                        {#<em>0</em>#}
+                        {#<a class="ico-link" href="{{ path('profile_notifications_list') }}"></a>#}
+                    {#</span>#}
+        {#</div>#}
+
+        <div class="list wallet main-padding">
+                <span>
+                    <aside></aside>
+                    {{ 'cash'|trans }}
+                    <figure>
+                        <aside>
+                            <a href="{{ account_url('/pay') }}">{{ 'pay'|trans({}, 'payment') }}</a>
+                            <a href="{{ account_url('/bonus-offers') }}">{{ 'offers'|trans({}, 'bonus') }}</a>
+                            <a href="{{ account_url('/order/withdrawal') }}">{{ 'withdraw'|trans({}, 'payment') }}</a>
+                            <a href="{{ account_url('/financial-transactions') }}">{{ 'payments_operations'|trans }}</a>
+                            {#<a href="/bonus/history">История бонусов</a>#}
+
+                        </aside>
+                    </figure>
+                </span>
+        </div>
+
+        <div class="list games main-padding">
+                <span>
+                    <aside></aside>
+                    {{ 'games'|trans }}
+                    <figure>
+                        <aside>
+                            <a href="{{ path('game_list') }}">{{ 'popular_games'|trans}}</a>
+                            <a href="{{ path('game_type_list', {category: 'novomatic'}) }}">{{ 'novomatic_slot'|trans }}</a>
+                            <a href="{{ path('game_type_list', {category: 'novomatic-deluxe'}) }}">{{ 'novomatic_deluxe'|trans }}</a>
+                            <a href="{{ path('game_type_list', {category: 'Igrosoft'}) }}">{{ 'igrosoft_slot'|trans }}</a>
+                            {#<a href="{{ path('game_type_list', {category: 'gazgaming'}) }}">{{ 'gazgaming_slot'|trans }}</a>#}
+                            {#<a href="{{ path('game_type_list', {category: 'casino-games'}) }}">{{ 'casino_games'|trans }}</a>#}
+
+                        </aside>
+                    </figure>
+                </span>
+        </div>
+
+
+        <div class="right exit"><a href="{{ path('user_logout') }}">{{ 'logout'|trans({}, 'users') }}</a></div>
+        <div class="right user list">
+            <img src="{{ asset('assets/images/avatars/min_avatar.jpg') }}">
+                <span>
+                    <i id="usr_nic"></i>
+                    <figure>
+                        <aside>
+                            <a href="{{ account_url('/lottery-tickets') }}">{{ 'user_lotteries'|trans }}</a>
+                            <a href="{{ account_url('/edit') }}">{{ 'edit_profile'|trans({}, 'users') }}</a>
+                            <a href="{{ account_url('/edit') }}">{{ 'change_password'|trans({}, 'users') }}</a>
+                            {#<a href="{{ path('profile_notifications_list') }}">{{ 'Notifications'|trans({}, 'notification') }}</a>#}
+                            <a href="{{ account_url('/document/load') }}">{{ 'Documents'|trans({}, 'document') }}</a>
+                            <a href="{{ account_url('/game-rounds') }}">{{ 'rounds_history'|trans }}</a>
+                        </aside>
+                    </figure>
+                </span>
+        </div>
+    </nav>
+</figure>
+    <script>
+        if ($("#toolbar")) {
+            $("#cas2pay-banner").css({'marginTop':'41px'})
+        }
+    </script>
+{% endif %}
+<div class="bg-main">
+    <figure class="spires"></figure>
+    <figure class="column"></figure>
+</div>
+
+<section class="main">
+    <h4 style="display: none;">{{ 'game_club'|trans }}</h4>
+
+    <header>
+        {% if not is_granted('ROLE_USER') %}
+            <a href="{{ path('user_oauth') }}" id="authBtn"><span>{{ 'login'|trans }}</span></a>
+            <a href="{{ path('user_oauth') }}" id="regBtn"><span>{{ 'register'|trans }}</span></a>
+        {% endif %}
+        {% if app.request.locale == "ru" %}
+         <figure class="logo"><a href="{{ path('front_homepage') }}"></a></figure>
+
+        {% else %}
+        <figure class="logo enwYear" style="background: url({{ asset('assets/images/logo_en.png') }});"><a  href="{{ path('front_homepage') }}"></a></figure>
+        {% endif %}
+
+
+        <nav class="topMenuNav">
+        <ul>
+            <li class="no-list">
+                <a class="nav1" style=""  href="{{ path('game_list') }}"><i class="incon incon_nov1"></i>{{ 'game_room'|trans}}</a>
+               <ul>
+                   <li><a href="{{ path('game_type_list', {category: 'novomatic'}) }}">{{ 'novomatic_slot'|trans }}</a></li>
+                   <li><a href="{{ path('game_type_list', {category: 'novomatic-deluxe'}) }}">{{ 'novomatic_deluxe'|trans }}</a></li>
+                   <li><a href="{{ path('game_type_list', {category: 'Igrosoft'}) }}">{{ 'igrosoft_slot'|trans }}</a></li>
+                   {#<li><a href="{{ path('game_type_list', {category: 'gazgaming'}) }}">{{ 'gazgaming_slot'|trans }}</a></li>#}
+                   {#<li><a href="{{ path('game_type_list', {category: 'casino-games'}) }}">{{ 'casino_games'|trans }}</a></li>#}
+               </ul>
+            </li>
+            <li>
+                <a class="nav2" style=""  href="{{ path('promotions_list') }}"><i class="incon incon_nov2"></i>{{ 'promotions_bonuses'|trans}}</a>
+                <ul>
+                    <li><a href="{{ path('front_homepage') }}bonuses.html">{{ 'bonuses'|trans }}</a></li>
+                    <li><a href="{{ path('promotions_list') }}">{{ 'Акции'|trans({}, 'promotions') }}</a></li>
+                    <li><a href="{{ path('promotions_archive') }}">{{ 'Прошедшие Акции'|trans({}, 'promotions') }}</a></li>
+
+                </ul>
+            </li>
+            <li>
+                <a class="nav3" style=""  href="{{ path('tournaments_list') }}"><i class="incon incon_nov3"></i>{{ 'tournaments'|trans }}</a>
+                <ul>
+                    <li><a href="{{ path('tournaments_list') }}">{{ 'live_tournaments'|trans }}</a></li>
+                    <li><a href="{{ path('tournaments_archive') }}">{{ 'Прошедшие Турниры'|trans({}, 'tournaments') }}</a></li>
+                </ul>
+
+            </li>
+            <li>
+                <a class="nav4" style=""  href="{{ path('lotteries_list') }}"><i class="incon incon_nov4"></i>{{ 'lotteries'|trans }}</a>
+                <ul>
+                    <li><a href="{{ path('lotteries_list') }}">{{ 'Лотереи'|trans({}, 'lotteries') }}</a></li>
+                    {#<li><a href="{{ path('lotteries_list') }}">{{ 'Прошедшие лотереи'|trans({}, 'lotteries') }}</a></li>#}
+                    <li><a href="{{ path('lotteries_winners') }}">{{ 'pob_loter'|trans }}</a></li>
+                    {#{% if  is_granted('ROLE_USER') %}#}
+                    {#<li><a href="{{ account_url('/lottery-tickets') }}">{{ 'user_lotteries'|trans }}</a></li>#}
+                    {#{% endif %}#}
+                </ul>
+            </li>
+
+
+            <li>
+                <a class="nav5" style=""  href="{{ mobile_url }}"><i class="incon incon_nov5"></i>{{ 'mobile'|trans }}<span></span></a>
+            </li>
+            <li>
+                <a class="nav6" style=""  href="{{ path('front_homepage') }}faq.html"><i class="incon incon_nov6"></i>{{ 'help'|trans }}</a>
+                {#<ul>#}
+                    {#<li><a href="{{ path('news_list') }}">{{ 'Новости'|trans({}, 'news') }}</a></li>#}
+                    {#<li><a href="{{ path('articles_list') }}">{{ 'Статьи'|trans({}, 'articles') }}</a></li>#}
+                {#</ul>#}
+            </li>
+
+            {% if app.request.locale == "ru" %}
+                <li>
+                    <a class="nav7" style=""  href="{{ path('front_homepage', {_locale: 'ru'}) }}"><i class="incon incon_nov7"></i>{{ 'russion'|trans }}</a>
+                    <ul>
+                        <li><a style="width: 112px;" href="{{ path('front_homepage', {_locale: 'en'}) }}"><i class="incon incon_nov8"></i>{{ 'english'|trans}}</a></li>
+
+                    </ul>
+                </li>                                                                                                                                                                                                                                                   </li>
+
+            {% else %}
+                <li>
+                <a class="nav7" style=""  href="{{ path('front_homepage', {_locale: 'en'}) }}"><i class="incon incon_nov8"></i>{{ 'english'|trans}}</a>
+
+
+                    <ul>
+                        <li><a style="width: 112px;" href="{{ path('front_homepage', {_locale: 'ru'}) }}"><i class="incon incon_nov7"></i>{{ 'russion'|trans }}</a> </li>
+                    </ul>
+                </li>
+            {% endif %}
+
+        </ul>
+
+
+    </nav>
+</header>
+    {#<a href="#"  class="tex_left chat_open js-show-livechat"><span>Техническая поддержка</span></a>#}
+    {#<div class="tex_right">#}
+        {#<span>Войти</span> <img style="margin-left: 2px;" src="{{ asset('assets/images/vertical_soc.png') }}" alt="#">#}
+    {#</div>#}
+
+
+    {{ block('content') }}
+
+    <footer>
+        <section class="paySystems">
+            <h4 style="display: none;">{{ 'game_club'|trans }}</h4>
+
+            <div class="footer_topBg"></div>
+            <div class="footer_play_lines"></div>
+            <div class="footer_play_icon"></div>
+            <div class="footer_boot_bg">
+                <div class="footer_18_plass"></div>
+            </div>
+            <div class="footer_lines"></div>
+        </section>
+        <nav class="footerNav">
+
+
+            <ul>
+                <li style="margin-left: 160px;">{{ 'about'|trans }}
+                    <ul>
+                        <li><a href="{{ path('front_homepage') }}terms.html">{{ 'agreement'|trans }}</a></li>
+                        <li><a href="{{ path('front_homepage') }}responsible-gaming.html">{{ 'responsibility_casino'|trans }}</a></li>
+                        <li><a href="{{ path('front_homepage') }}support.html">{{ 'support'|trans }}</a></li>
+                        <li><a href="{{ path('front_homepage') }}security.html">{{ 'security'|trans }}</a></li>
+                        <li><a href="{{ path('front_homepage') }}fair-gaming.html">{{ 'fair_play'|trans }}</a></li>
+                        <li><a href="{{ path('front_homepage') }}withdrawals.html">{{ 'payouts'|trans }}</a></li>
+                        <li><a href="{{ path('front_homepage') }}deposits.html">{{ 'depositing'|trans }}</a></li>
+                        <li><a target="_blank" href="http://www.twistcash.com/">{{ 'partners'|trans }}</a></li>
+                    </ul>
+                </li>
+                <li>{{ 'casino_games'|trans }}
+                    <ul>
+
+                        <li><a href="{{ path('game_list') }}">{{ 'popular_games'|trans}}</a></li>
+                        <li><a href="{{ path('game_type_list', {category: 'novomatic'}) }}">{{ 'novomatic_slot'|trans }}</a></li>
+                        <li><a href="{{ path('game_type_list', {category: 'novomatic-deluxe'}) }}">{{ 'novomatic_deluxe'|trans }}</a></li>
+                        <li><a href="{{ path('game_type_list', {category: 'Igrosoft'}) }}">{{ 'igrosoft_slot'|trans }}</a></li>
+                        {#<li><a href="{{ path('game_type_list', {category: 'gazgaming'}) }}">{{ 'gazgaming_slot'|trans }}</a></li>#}
+                        {#<li><a href="{{ path('game_type_list', {category: 'casino-games'}) }}">{{ 'casino_games'|trans }}</a></li>#}
+                    </ul>
+                </li>
+                <li>{{ 'Акции и бонусы'|trans({}, 'promotions') }}
+                    <ul>
+                        {#<li><a href="#">Джекпот</a></li>#}
+                        <li><a href="{{ path('lotteries_list') }}">{{ 'Лотереи'|trans({}, 'lotteries') }}</a></li>
+                        <li><a href="{{ path('promotions_list') }}">{{ 'Акции'|trans({}, 'promotions') }}</a></li>
+                        <li><a href="{{ account_url('/bonus-offers') }}">{{ 'individual_proposals'|trans }}</a></li>
+                        <li><a href="{{ path('front_homepage') }}bonuses.html">{{ 'bonus_policy'|trans }}</a></li>
+
+                    </ul>
+                </li>
+                <li>{{ 'additionally'|trans }}
+                    <ul>
+                        {#<li><a href="{{ path('front_homepage') }}about.html">{{ 'about'|trans }}</a></li>#}
+                        <li><a href="{{ path('front_homepage') }}faq.html">FAQ</a></li>
+                        <li><a href="{{ path('casino_cms_statistic_live') }}">{{ 'statistics'|trans }}</a></li>
+                        <li><a href="{{ path('tournaments_list') }}">{{ 'Турниры'|trans({}, 'tournaments') }}</a></li>
+                        <li><a href="{{ path('news_list') }}">{{ 'Новости'|trans({}, 'news') }}</a></li>
+                        <li><a href="{{ path('articles_list') }}">{{ 'Статьи'|trans({}, 'articles') }}</a></li>
+                        <li><a href="{{ mobile_url }}">{{ 'mobile_version'|trans }}</a></li>
+                        <li><a href="{{ path('front_homepage') }}extension.html">{{ 'extensions'|trans }}</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+        <section class="copyright">
+            <h4 style="display: none;">{{ 'game_club'|trans }}</h4>
+
+            <p>
+                {{ 'game_club_copyright'|trans }}
+
+            </p>
+        </section>
+    </footer>
+</section>
+<section class="windows">
+
+</section>
+<div id="toTop"> ^ {{ 'upstairs'|trans }} </div>
+<script>
+    $('select').selectbox();
+//    $('.localStore').click(function() {localStorage.removeItem('tempUrl');var tempUrl = $(this).attr('data-id');
+//        localStorage.setItem('tempUrl',tempUrl);});
+    $('#toolbar, .personalData').each(function(){
+        var me = $(this);
+        toolbar_info("{{ asset('assets/images/avatars/defol.png') }}", me, "{{ path('cms_api_user') }}");
+        {#var  intervalID = window.setInterval(function(){#}
+            {#toolbar_info("{{ asset('assets/images/avatars/defol.png') }}", me, "{{ path('cms_api_user') }}");#}
+        {#}, 20000);#}
+    });
+
+    $(function(){
+        $("#cas2pay-close").on('click', function(){
+            $('#cas2pay-banner').slideUp(300);
+            setBannerCookie();
+        });
+        $("#install-plugin").on('click', setBannerCookie);
+
+        function setBannerCookie()
+        {
+            var date = new Date();
+            date.setTime(date.getTime() + 259200 * 1000);
+            $.cookie('cas2pay_closed', 1, { expires: date, path: '/' });
+        }
+
+    });
+    $('.tabs a:contains("GazGaming")').hide();
+    $('.tabs a:contains("Casino games")').hide();
+
+</script>
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+{#<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54806ebe3f9aa8a9" async="async"></script>#}
+<!-- LiveTex {literal} -->
+<script type='text/javascript'>
+
+    (function(){
+        var widget_id = 731314;
+        _shcp =[{widget_id : widget_id}];
+        var lang =(navigator.language || navigator.systemLanguage
+        || navigator.userLanguage ||"en")
+                .substr(0,2).toLowerCase();
+        var url ="widget.siteheart.com/widget/sh/"+ widget_id +"/"+ lang +"/widget.js";
+        var hcc = document.createElement("script");
+        hcc.type ="text/javascript";
+        hcc.async =true;
+        hcc.src =("https:"== document.location.protocol ?"https":"http")
+        +"://"+ url;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hcc, s.nextSibling);
+    })();
+
+</script>
+<!-- LiveTex {/literal} -->
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter26714877 = new Ya.Metrika({id:26714877,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/26714877" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Ga.Metrika counter -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-55692318-1', 'auto');
+    ga('send', 'pageview');
+</script>
+<!-- Ga.Metrika counter -->
+{#<script type="text/javascript">#}
+    {#var reformalOptions = {#}
+        {#project_id: 798989,#}
+        {#project_host: "vulkanogames.reformal.ru",#}
+        {#tab_orientation: "right",#}
+        {#tab_indent: "50%",#}
+        {#tab_bg_color: "#006100",#}
+        {#tab_border_color: "#FFFFFF",#}
+        {#tab_image_url: "http://tab.reformal.ru/T9GC0LfRi9Cy0Ysg0Lgg0L%252FRgNC10LTQu9C%252B0LbQtdC90LjRjw==/FFFFFF/88128dfd6ca0743b5ccc2f8afed9f3b1/right/0/tab.png",#}
+        {#tab_border_width: 2#}
+    {#};#}
+
+    {#(function() {#}
+        {#var script = document.createElement('script');#}
+        {#script.type = 'text/javascript'; script.async = true;#}
+        {#script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'media.reformal.ru/widgets/v3/reformal.js';#}
+        {#document.getElementsByTagName('head')[0].appendChild(script);#}
+    {#})();#}
+{#</script><noscript><a href="http://reformal.ru"><img src="http://media.reformal.ru/reformal.png" /></a><a href="http://vulkanogames.reformal.ru">Oтзывы и предложения для Игровой клуб Almurut</a></noscript>#}
+
+{% if app.request.session.has('track') %}
+    {% set counter_track = app.request.session.get('track') %}
+{% else %}
+    {% set counter_track = '0:0' %}
+{% endif %}
+<script type="text/javascript">
+    (function() {
+        var tw = document.createElement('script');
+        tw.type = 'text/javascript';
+        tw.async = true;
+        tw.src = 'http://www.twistcash.com/track?{{ counter_track }}&js=1';
+        if (document.referrer) {
+            tw.src += '&ref=' + encodeURIComponent(document.referrer);
+        }
+        var el = document.getElementsByTagName('script')[0];
+        el.parentNode.insertBefore(tw, el);
+    })();
+</script>
+</body>
+</html>

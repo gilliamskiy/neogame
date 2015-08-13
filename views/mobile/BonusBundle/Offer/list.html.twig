@@ -1,0 +1,103 @@
+{% extends "@front/layout.html.twig" %}
+
+{% block seo %}
+    {{ parent() }}
+    <title>{{ 'personal'|trans({}, 'bonus') }}</title>
+{% endblock %}
+{% trans_default_domain "bonus" %}
+{% block content %}
+
+
+<section class="header-content tools_b">
+    <h1>{{ 'personal'|trans({}, 'bonus') }}</h1>
+</section>
+<article class="pages-offset">
+    {% for offer in offers %}
+
+        <article>
+            {#<header>#}
+            {#<h2>Тестовый бонус</h2>#}
+            {#</header>#}
+            <div style="overflow: hidden">
+                <span class="newsDate">{{ 'lasts'|trans }}: {{ offer.since_datetime|date('d.m.Y H:i:s') }} -  {{ offer.till_datetime|date('d.m.Y H:i:s') }}</span>
+                <div>
+                    <section style="text-align: center;">
+                        {% if offer.is_available %}
+                            <a href="{{ path('bonus_offers_activate', {id: offer.id}) }}" class="addNew">{{ 'to_get'|trans({}, 'bonus') }} {{ offer.reward.amount }} {{ offer.reward.currency }}</a>
+                        {% else %}
+                            <a href="{{ path('profile_pay') }}" class="addNew">{{ 'expects_deposit'|trans({}, 'bonus') }}</a>
+                        {% endif %}
+
+
+                    </section>
+                    {#<ul style="margin-top: 20px">#}
+                        {#<li> {{ 'user_activations'|trans }}: {{ offer.user_activations }} </li>#}
+                        {#<li> {{ 'remaining_activations'|trans }}: {{ offer.remaining_activations }}</li>#}
+                        {#<li> {{ 'is_personal'|trans }}: {{ offer.is_personal ? 'yes' : 'no' }}</li>#}
+                        {#{% if offer.is_available %}#}
+                        {#<li>{{ 'activation_reward_amount'|trans }}: {{ offer.activation_reward_amount }}<li>#}
+                            {#{% endif %}#}
+                            {#{% if offer.coupon_code is defined %}#}
+                        {#<li>{{ 'coupon_code'|trans }}: {{ offer.coupon_code }}</li>#}
+                        {#{% endif %}#}
+                        {#<li>{{ 'currency'|trans }}: {{ offer.currency }}</li>#}
+                        {#<li>{{ 'deposit_rule'|trans }}: {{ ('deposit_rule_' ~ offer.deposit_rule)|trans  }}</li>#}
+                    {#</ul>#}
+
+                </div>
+            </div>
+            {#<section class="table_block" style="margin: 0 0px 20px 0;">#}
+                {#<table width="100%">#}
+                    {#<tbody>#}
+                    {#<tr>#}
+                        {#<th style="width: 200px;">{{ 'validity'|trans({}, 'bonus')}}</th>#}
+                        {#<th style="width: 300px;">{{ 'rules'|trans }}</th>#}
+                        {#&#123;&#35;<th>{{ 'status_bonus'|trans({}, 'bonus') }}</th>&#35;&#125;#}
+                    {#</tr>#}
+
+
+                    {#{% for rule in offer.rules %}#}
+                        {#<tr>#}
+                            {#<td>{{ rule.user_deposited_since|date('d.m.Y') }} - {{ rule.user_deposited_till|date('d.m.Y') }}</td>#}
+                            {#<td style="text-align: left;">#}
+
+                                {#<p>#}
+                                    {#{{ 'reward'|trans }}: {{ rule.reward }} {% if not '%' in rule.reward %} {{ offer.currency }} {% endif %} </br>#}
+
+                                    {#{% if rule.max_amount is defined %}#}
+{#н                                    {% endif %}#}
+
+                                    {#{{ 'wager'|trans }}: {{ rule.wager }}</br>#}
+
+                                    {#{% if rule.deposit_min_amount is defined %}#}
+                                        {#{{ 'deposit_min_amount'|trans }}: {{ rule.deposit_min_amount }} {{ offer.currency }}</br>#}
+                                    {#{% endif %}#}
+
+                                    {#{% if rule.deposit_max_amount is defined %}#}
+                                        {#{{ 'deposit_max_amount'|trans }}: {{ rule.deposit_max_amount }} {{ offer.currency }} </br>#}
+                                    {#{% endif %}#}
+
+                                    {#{% if rule.user_status is defined %}#}
+                                        {#{{ 'user_status'|trans }}: {{ rule.user_status.name }}</br>#}
+                                    {#{% endif %}#}
+
+                                    {#{% if rule.payment_system is defined %}#}
+                                    {#{{ 'payment_system'|trans }}: {{ rule.payment_system.name }} </p>#}
+                                {#{% endif %}#}
+                            {#</td>#}
+                            {#&#123;&#35;<td></td>&#35;&#125;#}
+
+                        {#</tr>#}
+                    {#{% endfor %}#}
+
+                    {#</tbody>#}
+                {#</table>#}
+            {#</section>#}
+
+
+        </article>
+
+    {% endfor %}
+
+</article>
+{% endblock %}

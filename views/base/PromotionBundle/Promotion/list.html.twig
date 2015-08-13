@@ -1,0 +1,63 @@
+{% extends "@front/layout.html.twig" %}
+ {% block seo %}
+     {{ parent() }}
+     <title>{{ 'Акции'|trans({}, 'promotions') }}</title>
+
+ {% endblock %}
+{% block content %}
+
+    <section>
+        <!-- less: s_breadcrumbs.less -->
+        <figure class="breadCrumbs">
+            <nav>
+                <span><a href="{{ path('front_homepage') }}">VulkanoGames</a></span>
+
+                <span>{{ 'Акции'|trans({}, 'promotions') }}</span>
+            </nav>
+        </figure>
+
+        <!-- less: s_news-list.less -->
+        <figure class="list promotions-list img_right_fx_list">
+            <header>
+                <h2>{{ 'Акции'|trans({}, 'promotions') }}</h2>
+            </header>
+            {% for promotion in list %}
+
+                <article>
+                    <header>
+                        <h1>
+                            <a href="{{ path('promotions_view', {id:promotion.id}) }}">{{ promotion.translate.name }}</a>
+                        </h1>
+                    </header>
+                    <div>
+
+						<span class="newsDate">{{ 'Время проведения'|trans({}, 'promotions') }}:<br>
+                            ({{ promotion.startDate|format_datetime }}) - ({{ promotion.endDate|format_datetime }})</span>
+                        {{ promotion.translate.announce|markup }}
+
+                        <figure class="postLike" style="display: none">
+                            <div>
+                                <a href="#" class="like"><span></span>{{ 'Нравится'|trans({}, 'lotteries') }}</a>
+                                <a href="#" class="dislike"><span></span></a>
+                            </div>
+                            <div class="peopleLike">
+                                {{ 'Понравилось'|trans({}, 'lotteries') }} 11 {{ 'игрокам'|trans({}, 'lotteries') }}<br> {{ 'Не понравилось'|trans({}, 'lotteries') }} 0 {{ 'игрокам'|trans({}, 'lotteries') }}
+                            </div>
+                        </figure>
+                    </div>
+                </article>
+            {% endfor %}
+
+        </figure>
+        <!--end less: s_news-list.less -->
+        <!-- less: s_pagination.less -->
+        <nav class="paginator">
+
+        </nav>
+        <!--end less: s_pagination.less -->
+
+        <!-- less: s_seotext.less -->
+        {% include "@front/layout/seo_text.html.twig" %}
+        <!--end less: s_seotext.less -->
+    </section>
+{% endblock %}

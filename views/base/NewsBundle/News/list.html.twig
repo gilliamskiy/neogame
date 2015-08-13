@@ -1,0 +1,53 @@
+{% extends "@front/layout.html.twig" %}
+ {% block seo %}
+     {{ parent() }}
+     <title>{{ 'Новости'|trans({}, 'news') }}</title>
+ {% endblock %}
+{% block content %}
+    <section>
+
+        <!-- less: s_breadcrumbs.less -->
+        <figure class="breadCrumbs">
+            <nav>
+                <span><a href="{{ path('front_homepage') }}">VulkanoGames</a></span>
+                <span>{{ 'Новости'|trans({}, 'news') }}</span>
+            </nav>
+        </figure>
+        <!-- less: s_news-one.less -->
+        <!-- less: s_news-list.less -->
+        <figure class="list news-list">
+            <header>
+                <h1>{{ 'Новости'|trans({}, 'news') }}</h1>
+            </header>
+            {% for news in list %}
+                <article>
+                    <h4 style="display: none;">{{ news.translate.name }}</h4>
+                    <header>
+                        <h2>
+                            <a href="{{ path('news_view', {slug:news.translate.slug, id:news.id}) }}">{{ news.translate.name }}</a>
+                        </h2>
+                    </header>
+                    <div>
+                        <span class="newsDate">{{ news.date|format_date }}</span>
+                        {{ news.translate.announce|markup }}
+                        <div>
+                            <a href="{{ path('news_view', {slug:news.translate.slug, id:news.id}) }}">{{ 'Подробнее'|trans({}, 'news') }} >> </a>
+                        </div>
+                        <section>
+                            <nav>
+                                <label>{{ 'Теги'|trans({}, 'news') }}:</label>
+                                {% for tag in news.translate.tags %}<a href="">{{ tag.name }}</a> {% endfor %}
+                            </nav>
+                        </section>
+                    </div>
+                </article>
+            {% endfor %}
+        </figure>
+        <nav class="paginator">
+        {{ knp_pagination_render(list) }}
+        </nav>
+        <!-- less: s_seotext.less -->
+        {% include "@front/layout/seo_text.html.twig" %}
+        <!--end less: s_seotext.less -->
+    </section>
+{% endblock %}

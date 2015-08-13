@@ -1,0 +1,43 @@
+register: Register
+login: Login
+form_email: E-mail
+form_password: Password
+form_preferred_locale: Language
+form_is_receiving_newsletters: Subscribe
+form_is_receiving_bonuses: I want to receive bonuses
+form_edit_btn: Save
+male: Male
+female: Female
+
+form_preferred_name: Preferred name
+form_full_name: Full name
+form_birthday: Birthday
+gender: Gender
+country: Country
+city: City
+address: Address
+phone_number: Phone
+logout: Logout
+edit_profile: Edit Profile
+change_password: Change Password
+password:
+    invalid_current: Invalid current password
+    unknown_error: Unknown error
+    changed: Password changed
+
+current_password: Current password
+new_password: New password
+repeat_password: Repeat password
+form_username: E-mail
+log_in: Log in
+registration : Registration
+req_email: Please enter a valid email address
+req_pass: Not less then enter {0} characters
+verification: Verification
+select_send: To send
+the_letter: Your E-mail the letter
+remember_me: Remember me
+forgot_your: Forgot your password?
+register_schet: Sign up
+forgot_password: Forgot your password?
+form_password: Password

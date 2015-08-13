@@ -1,0 +1,461 @@
+{% if is_mobile() or is_tablet() %}
+    {% include "CasinoCmsGameBundle:Game:client_mobile.html.twig" %}
+{% else %}
+    <!DOCTYPE html>
+    <html>
+    <head>
+
+        {{ page_seo() }}
+    {% if app.request.locale == "ru" %}
+        <title>{{ game.translate.name }} - играть онлайн бесплатно без регистрации в игровом клубе Almurut</title>
+    {% else %}
+        <title>{{ game.translate.name }} - play online for free at VulkanoGames club</title>
+    {% endif %}
+        {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.min.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style_games.min.css') }}">
+        {% endblock %}
+        {% block javascripts %}
+            <script type="text/javascript" src="{{ asset('assets/vendor/build/modernizr.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('assets/vendor/build/jquery-1.11.0.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('assets/vendor/selectbox/jquery.selectbox.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('assets/js/main.min.js') }}"></script>
+            <!--[if (gte IE 6)&(lte IE 8)]>
+            <script type="text/javascript" src="{{ asset('assets/vendor/build/mootools_1.4.5.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('assets/vendor/build/selectivizr-min.js') }}"></script>
+            <![endif]-->
+
+
+        {% endblock %}
+
+    </head>
+    <body>
+    <div class="mainBlock">
+
+        <div id="toolbar_games" class="position_left">
+            <div class="logo_bg">
+    {% if app.request.locale == "ru" %}
+        <a style="display: block;" href="{{ path('front_homepage') }}" class="logo_games"></a>
+    {% else %}
+        <a style="display: block;" href="{{ path('front_homepage') }}" class="logo_games_en"></a>
+
+    {% endif %}
+            </div>
+
+            {% if not is_granted('ROLE_USER') %}
+                <a href="{{ path('user_oauth') }}" id="registerModalBtn"
+                   class="green_btn"><span>{{ 'register'|trans }}</span></a>
+                <a style="margin-bottom: 30px"  id="loginModalBtn" href="{{ path('user_oauth') }}"
+                   class="localStore blue_btn"><span>{{ 'login'|trans }}</span></a>
+                {#data-id="{{ path('game_play_demo', {category: game.category.slug, slug: game.slug}) }}"#}
+                {#<script type="text/javascript" src="{{ asset('assets/js/jquery.form.js') }}"></script>#}
+                {#<script type="text/javascript" src="{{ asset('assets/js/jquery.validate.js') }}"></script>#}
+                {#<script type="text/javascript" src="{{ asset('assets/js/jquery.validate.min.js') }}"></script>#}
+                <link rel="stylesheet" type="text/css"
+                      href="{{ asset('assets/vendor/checkbox/styleCheckbox.min.css') }}">
+                <link rel="stylesheet" type="text/css"
+                      href="{{ asset('assets/vendor/selectbox/styleSelectbox.min.css') }}">
+                <script>
+                    {#$(window).load(function () {#}
+                        {#loadContentJson("{{ path('cms_api_register') }}", '#form_register');#}
+                        {#loadContentJson("{{ path('cms_api_login') }}", '#form_login');#}
+                    {#});#}
+//                    Вот
+                    {#$(function(){#}
+                        {#var temJson = 0;#}
+                        {#$("#loginModalBtn, #loginModalPay").click(function() {#}
+                            {#if (temJson == 0){#}
+{#//                                $('.loadajax').show();#}
+                                {#loadContentJson("{{ path('cms_api_login') }}", '#form_login');#}
+                                {#temJson = 1;#}
+                            {#}else{}#}
+                        {#});#}
+                        {#var temJsonReg = 0;#}
+                        {#$("#registerModalBtn, .regBtn").click(function() {#}
+                            {#if (temJsonReg == 0){#}
+{#//                                $('.loadajax').show();#}
+                                {#loadContentJson("{{ path('cms_api_register') }}", '#form_register');#}
+                                {#temJsonReg = 1;#}
+                            {#}else{}#}
+                        {#});#}
+                    {#});#}
+
+                </script>
+            {% else %}
+                {% if isDemo %}
+                    <div class="avatar_block">
+                        <i class="avatar"><img src="{{ asset('assets/images/avatars/min_avatar.jpg') }}"></i>
+                        <span></span>
+                    </div>
+                    {#<a href="{{ path('profile_notifications_list') }}" class="pos_block send">#}
+                        {#<i><b>0</b></i>#}
+                        {#<span class="title">{{ 'messages'|trans }}</span>#}
+
+                    {#</a>#}
+                    <a href="{{ account_url('/pay') }}" class="green_btn">{{ 'pay'|trans({}, 'payment') }}</a>
+                    <a style="margin-bottom: 50px;"
+                       href="{{ path('game_play_real', {category: game.category.slug, slug: game.slug}) }}"
+                       class="blue_btn">{{ 'play_for_money'|trans }}</a>
+                {% else %}
+                    <div class="avatar_block">
+                        <i class="avatar"><img src="{{ asset('assets/images/avatars/min_avatar.jpg') }}"></i>
+                        <span></span>
+
+                    </div>
+                    <div class="pos_block money">
+                        <i></i>
+                        <span class="title">{{ 'balance'|trans }}:</span>
+                        <span class="dollar">0 $</span>
+                    </div>
+                    <a href="{{ account_url('/bonus-offers') }}" class="pos_block bonus">
+                        <i><b id="len_bonus">0</b></i>
+                        <span class="title">{{ 'bonus'|trans }}:</span>
+                        <span class="dollar">0 $</span>
+
+                        <div class="percent">
+                            <div>
+                                <div style="width: 0%;"></div>
+                            </div>
+                            <span>0%</span>
+                        </div>
+                    </a>
+                    {#<a href="{{ path('profile_notifications_list') }}" class="pos_block send">#}
+                        {#<i><b>0</b></i>#}
+                        {#<span class="title">{{ 'messages'|trans }}</span>#}
+
+                    {#</a>#}
+                    <a href="{{ account_url('/pay') }}" class="green_btn">{{ 'pay'|trans({}, 'payment') }}</a>
+                {% endif %}
+
+
+
+            {% endif %}
+
+
+            <a href="#all_games" id="openGames" data-toggle="modal" class="blue_btn">{{ 'select_game'|trans }}</a>
+            <a href="{{ path('game_view', {category: game.category.slug, slug: game.slug}) }}"
+               class="blue_btnT">{{ 'rules_of_the_game'|trans }}</a>
+
+            <a href="{{ path('front_homepage') }}support.html" id="sh_button" class="blue_btn position_boot1 js-show-livechat">{{ 'support'|trans }}</a>
+
+
+            <a href="{{ path('game_list') }}" class="blue_btnT position_boot2">{{ 'logout'|trans({}, 'users') }}</a>
+
+
+    {% if not is_granted('ROLE_USER') %}
+        {#<a class="pay_btn_games" href="{{ path('profile_pay') }}">{{ 'pl_rocess'|trans }}</a>#}
+
+        <div class="block_pay_btn">
+            <a data-id="{{ account_url('/pay') }}" id="loginModalPay" class="localStore pay_btn_games" href="{{ account_url('/pay') }}">{{ 'pl_rocess'|trans }}</a>
+
+        </div>
+    {% else %}
+
+    {% endif %}
+
+
+        </div>
+        <div class="games_content">
+            <div class="bigTitleGames">
+
+                {% if isDemo %}
+                    <p>{{ game.translate.name }} - <span>{{ 'demo_mode'|trans }}</span></p>
+                {% else %}
+                    <p>{{ game.translate.name }}</p>
+                {% endif %}
+
+            </div>
+
+            {% include "CasinoCmsGameBundle:Game:client.html.twig" %}
+        </div>
+
+        <div class="position_right">
+            <header>
+                <h3>{{ 'rating_games'|trans }}</h3>
+            </header>
+            {{ widget("cms.top_games") }}
+
+        </div>
+    </div>
+
+
+    <section class="windows">
+        <div id="all_games" class="reset_password modal hide fade" tabindex="-1" role="dialog"
+             aria-labelledby="feedbackLabel" aria-hidden="true">
+
+            <header>
+                <h3>{{ 'select_a_game'|trans }}</h3>
+                <em class="closeModalWindow close" data-dismiss="modal" aria-hidden="true"></em>
+
+                <div style="display: none; position: absolute; left: 160px; top: 4px; width: 110px; height: 10px"
+                     class="loadajax"><img src="{{ asset('assets/images/loadajax.gif') }}" alt="#"></div>
+            </header>
+
+            <figure class="main-games">
+                <nav class="nav">
+                    <a href="{{ path('cms_api_games_list') }}"
+                       title="{{ 'popular_games'|trans }}">{{ 'popular_games'|trans }}</a>
+                    {% for category in categories %}
+                        <a href="{{ path('game_list') }}{{ category.slug }}.json"
+                           title="{{ category.translate.name }}">{{ category.translate.name }}</a>
+                    {% endfor %}
+                </nav>
+
+                <div class="games_json">
+                    <i style="display: block" class="ajax_open">{{ 'ajax_load'|trans }}</i>
+                </div>
+
+                <nav class="paginator">
+                    <ul class="pagination" style="display: none">
+                    </ul>
+                </nav>
+            </figure>
+        </div>
+        <div style="width: 670px; margin-left: -280px;" id="login" class="reset_password modal hide fade" tabindex="-1"
+             role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+            <div class="ajax_open">{{ 'ajax_load'|trans }}</div>
+
+            <header>
+                <h3>{{ 'log_in'|trans }}</h3>
+                <em class="closeModalWindow close" data-dismiss="modal" aria-hidden="true"></em>
+
+                <div style="display: none; position: absolute; left: 130px; top: 4px; width: 110px; height: 10px"
+                     class="loadajax"><img src="{{ asset('assets/images/loadajax.gif') }}" alt="#"></div>
+            </header>
+            <div id="form_login">
+
+            </div>
+
+
+        </div>
+        <div style="width: 670px; margin-left: -280px;" id="register" class="reset_password modal hide fade"
+             tabindex="-1" role="dialog" aria-labelledby="registerLabel" aria-hidden="true">
+            <div class="ajax_open">{{ 'ajax_load'|trans }}</div>
+            <header>
+                <h3>{{ 'registration'|trans }}</h3>
+                <em class="closeModalWindow close" data-dismiss="modal" aria-hidden="true"></em>
+
+                <div style=" display: none; position: absolute; left: 225px; top: 4px; width: 110px; height: 10px"
+                     class="loadajax"><img src="{{ asset('assets/images/loadajax.gif') }}" alt="#"></div>
+
+            </header>
+            <div id="form_register">
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- Уведомления о большом выиграше -->
+    {% if app.request.locale == "ru" %}
+    <div id="popupLucky" class="popupLucky" style="display: none">
+    {% else %}
+    <div id="popupLucky" class="popupLucky en" style="display: none">
+        {% endif %}
+        <span class="popupLucky_close"></span>
+        <a class="popupLuckyBtn" href="{{ path('game_play_real', {category: game.category.slug, slug: game.slug}) }}">{{ 'lucky_games'|trans }}</a>
+    </div>
+    <div id="popupLuckyOverlay"></div>
+    <!-- Уведомления о большом выиграше -->
+    <div id="show_money" class="show-money" style="display: none;">
+        <div class="show-money-content">
+            <h4>{{ 'monay_cache'|trans }}</h4>
+            <a class="green_btn" href="{{ account_url('/pay') }}">{{ 'monay_cache_btn'|trans }}</a>
+
+        </div>
+    </div>
+    <div id="show_money-backdrop" class="show-money-backdrop" style="display: none;"></div>
+
+    <script type="text/javascript" src="{{ asset('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+
+    <script>
+        $('.nav a:contains("GazGaming")').hide();
+        $('.nav a:contains("Casino games")').hide();
+        $('select').selectbox();
+        var categories = {
+            {% for category in categories %}"{{ category.slug }}": "{{ category.translate.name }}"{% if not loop.last %}, {% endif %}{% endfor %}
+        };
+
+        $('#openGames, #loginModalBtn, #registerModalBtn').click(function (e) {
+            $('.games_content').css({'marginLeft': '-20000px'});
+        });
+        $('#all_games, #login, #register').on('hidden', function () {
+            $('.games_content').css({'marginLeft': 'auto'});
+        });
+        $('#register').on('show', function () {
+            $('#login').modal('hide');
+        });
+
+
+
+        // Предзагрузка категорий игор.
+        {#$(window).load(function () {#}
+            {#getGamesAllOrType("{{ path('cms_api_games_list') }}");#}
+        {#});#}
+
+        $(function(){
+            var temGamesJson = 0;
+            var games_real = "{{ 'play_now'|trans}}";
+            var games_demo = "{{ 'demo_game'|trans}}";
+            var red = "{{ 'read_more'|trans}}";
+
+            $("#openGames").click(function() {
+                if (temGamesJson == 0){
+                    getGamesAllOrType("{{ path('cms_api_games_list') }}", games_real, games_demo, red);
+                    temGamesJson = 1;
+                }else{}
+            });
+
+        });
+        // Выборка нужных кнопок для категорий игор.
+        var games_real = "{{ 'play_now'|trans}}";
+        var games_demo = "{{ 'demo_game'|trans}}";
+        var red = "{{ 'read_more'|trans}}";
+        var thatWindow = $('.main-games');
+        $('nav a:first-child').addClass('active');
+        thatWindow.find('nav a').click(function (e) {
+            e.preventDefault();
+            thatWindow.find('nav a').removeClass('active');
+            $(this).addClass('active');
+            getGamesAllOrType($(this).attr('href'), games_real, games_demo, red);
+        });
+
+        (function () {
+            var widget_id = 731314;
+
+            _shcp = [{widget_id: widget_id}];
+
+            var lang = (navigator.language || navigator.systemLanguage
+            || navigator.userLanguage || "en")
+                    .substr(0, 2).toLowerCase();
+            var url = "widget.siteheart.com/widget/sh/" + widget_id + "/" + lang + "/widget.js";
+            var hcc = document.createElement("script");
+            hcc.type = "text/javascript";
+            hcc.async = true;
+            hcc.src = ("https:" == document.location.protocol ? "https" : "http")
+            + "://" + url;
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hcc, s.nextSibling);
+        })();
+        {% if isDemo %} var isDemo = true;{% else %}var isDemo = false;{% endif %}
+        function catchResponse() {
+            if (isDemo) {
+                popupLuckyShow();
+            }
+        }
+        var overlay = $('#popupLuckyOverlay');
+        var close = $('.popupLucky_close, #popupLuckyOverlay');
+        var modal = $('.popupLucky');
+        close.click( function(){
+            modal
+                    .animate({opacity: 0, top: '45%'}, 200,
+                    function(){
+                        $(this).css('display', 'none');
+                        overlay.fadeOut(400);
+                        $('.games_content').css({'marginLeft': 'auto'});
+                    }
+            );
+        });
+
+    </script>
+    {% if not is_granted('ROLE_USER') %}
+
+    {% else %}
+        <script>
+            $('#toolbar_games').each(function () {
+                var me = $(this);
+                toolbar_games("{{ asset('assets/images/avatars/min_avatar.jpg') }}", me, "{{ path('cms_api_user') }}");
+                var intervalID = window.setInterval(function () {
+                    toolbar_games("{{ asset('assets/images/avatars/min_avatar.jpg') }}", me, "{{ path('cms_api_user') }}");
+                }, 20000);
+            });
+        </script>
+        {% if not isDemo %}
+            <script>
+                money_refresh_init ("{{ path('cms_api_user') }}");
+                var intervalID = window.setInterval(function () {
+                    money_refresh_init ("{{ path('cms_api_user') }}");
+                }, 8000);
+            </script>
+        {% endif %}
+    {% endif %}
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function () {
+                try {
+                    w.yaCounter26714877 = new Ya.Metrika({
+                        id: 26714877,
+                        webvisor: true,
+                        clickmap: true,
+                        trackLinks: true,
+                        accurateTrackBounce: true
+                    });
+                } catch (e) {
+                }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                    s = d.createElement("script"),
+                    f = function () {
+                        n.parentNode.insertBefore(s, n);
+                    };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else {
+                f();
+            }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+        <div><img src="//mc.yandex.ru/watch/26714877" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+    <!-- Ga.Metrika counter -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-55692318-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- Ga.Metrika counter -->
+    {#<script type="text/javascript">#}
+        {#var reformalOptions = {#}
+            {#project_id: 798989,#}
+            {#project_host: "vulkanogames.reformal.ru",#}
+            {#tab_orientation: "right",#}
+            {#tab_indent: "50%",#}
+            {#tab_bg_color: "#006100",#}
+            {#tab_border_color: "#FFFFFF",#}
+            {#tab_image_url: "http://tab.reformal.ru/T9GC0LfRi9Cy0Ysg0Lgg0L%252FRgNC10LTQu9C%252B0LbQtdC90LjRjw==/FFFFFF/88128dfd6ca0743b5ccc2f8afed9f3b1/right/0/tab.png",#}
+            {#tab_border_width: 2#}
+        {#};#}
+
+        {#(function () {#}
+            {#var script = document.createElement('script');#}
+            {#script.type = 'text/javascript';#}
+            {#script.async = true;#}
+            {#script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'media.reformal.ru/widgets/v3/reformal.js';#}
+            {#document.getElementsByTagName('head')[0].appendChild(script);#}
+        {#})();#}
+    {#</script>#}
+    {#<noscript><a href="http://reformal.ru"><img src="http://media.reformal.ru/reformal.png"/></a><a#}
+                {#href="http://vulkanogames.reformal.ru">Oтзывы и предложения для Игровой клуб Almurut</a></noscript>#}
+
+
+    </body>
+    </html>
+{% endif %}

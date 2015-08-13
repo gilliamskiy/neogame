@@ -1,0 +1,98 @@
+{% extends "@front/layout.html.twig" %}
+
+ {% block seo %}
+     {{ parent() }}
+     <title>{{ 'Победители лотерей'|trans({}, 'lotteries') }}</title>
+ {% endblock %}
+{% block content %}
+
+    <section>
+    <!-- less: s_breadcrumbs.less -->
+    <figure class="breadCrumbs">
+        <nav>
+            <span><a href="{{ path('front_homepage') }}">VulkanoGames</a></span>
+
+            <span>{{ 'Победители лотерей'|trans({}, 'lotteries') }}</span>
+        </nav>
+    </figure>
+    <!--end less: s_breadcrumbs.less -->
+    <!-- less: s_news-list.less -->
+    <figure class="list tourney-list">
+    <header>
+        <h1>{{ 'Победители лотерей'|trans({}, 'lotteries') }}</h1>
+    </header>
+
+
+    {% for lottery in list %}
+        <article>
+            <header>
+                <h2><a href="{{ path('lotteries_view', {id:lottery.id}) }}">{{ lottery.translate.name }}</a></h2>
+            </header>
+            <div>
+                <article style="width: 929px;">
+                <span class="newsDate">
+                    {{'Начало'|trans({}, 'tournaments') }}: {{ lottery.startDate|format_date }}<br>
+                    {{'Окончание'|trans({}, 'tournaments') }}: {{ lottery.endDate|format_date }}</span>
+                    <nav>
+                        <label>{{'winners'|trans }}:</label>
+              {% for winnerId, winner in lottery.winnersInfo %}
+
+                  <a href="{{ path('lotteries_winner', {lotteryId: lottery.id, userId: winnerId}) }}">
+                      {% if winner.photoPath %}
+                          {#<img src="{{ winner.photoPath|imagine_filter('thumbnail') }}" />#}
+                          {{ winner.photoComment }}
+                      {% endif %}
+                  </a>
+
+              {% endfor %}
+                    </nav>
+
+                    {{ lottery.translate.announce|markup }}
+                    {#<figure class="postLike">#}
+                        {#<div>#}
+                            {#<a href="#" class="like"><span></span>{{ 'Нравится'|trans({}, 'lotteries') }}</a>#}
+                            {#<a href="#" class="dislike"><span></span></a>#}
+                        {#</div>#}
+                        {#<div class="peopleLike">#}
+                            {#{{ 'Понравилось'|trans({}, 'lotteries') }} 11 {{ 'игрокам'|trans({}, 'lotteries') }}<br> {{ 'Не понравилось'|trans({}, 'lotteries') }} 0 {{ 'игрокам'|trans({}, 'lotteries') }}#}
+                        {#</div>#}
+                    {#</figure>#}
+                </article>
+
+            </div>
+        </article>
+
+
+
+        {#Заголовок: <a href="{{ path('lotteries_view', {id:lottery.id}) }}">{{ lottery.translate.name }}</a><br>#}
+        {#Дата начала: {{ lottery.startDate|format_date }}<br>#}
+        {#Дата окончения: {{ lottery.endDate|format_date }}<br>#}
+        {#Анонс: {{ lottery.translate.announce|markup }}<br>#}
+        {#Содержание: {{ lottery.translate.content|raw }}<br>#}
+        {#Победители:#}
+        {#<ul>#}
+            {#{% for winnerId, winner in lottery.winnersInfo %}#}
+                {#<li>#}
+                    {#<a href="{{ path('lotteries_winner', {lotteryId: lottery.id, userId: winnerId}) }}">#}
+                        {#{% if winner.photoPath %}#}
+                        {#<img src="{{ winner.photoPath|imagine_filter('thumbnail') }}" /> {{ winner.photoComment }}#}
+                        {#{% endif %}#}
+                    {#</a>#}
+                {#</li>#}
+            {#{% endfor %}#}
+        {#</ul>#}
+        {#<hr>#}
+    {% endfor %}
+    </figure>
+        <!--end less: s_news-list.less -->
+        <!-- less: s_pagination.less -->
+        <nav class="paginator">
+            {{ knp_pagination_render(list) }}
+        </nav>
+        <!--end less: s_pagination.less -->
+        <!-- less: s_seotext.less -->
+        {% include "@front/layout/seo_text.html.twig" %}
+        <!--end less: s_seotext.less -->
+    </section>
+
+{% endblock %}

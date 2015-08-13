@@ -1,0 +1,14 @@
+pay: Pay
+payments_history: Payments History
+payment: payment
+withdrawal: withdrawal
+bonus: bonus
+credit: credit
+withdraw: Withdraw
+order_withdrawal: Order Withdrawal
+add_requisites: Add Requisites
+edit_requisites: Edit Requisites
+requisites.added: Requisites saved
+requisites.updated: Requisites updated
+withdrawal.ordered: Withdrawal Ordered
+payments_operations: Payments Operations

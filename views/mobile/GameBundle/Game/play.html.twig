@@ -1,0 +1,8 @@
+{% extends "CasinoCmsGameBundle:Game:client_mobile.html.twig" %}
+{% block javascript %}
+    <script>
+        function window_location_href () {
+            location.href = '{{ account_url('/pay') }}';
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block seo %}
+        {{ page_seo() }}
+    {% endblock %}
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style_mobile.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/checkbox/styleCheckbox.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/selectbox/styleSelectbox.min.css') }}">
+    {% endblock %}
+    {% block javascripts %}
+
+        <script type="text/javascript" src="{{ asset('assets/vendor/build/jquery-1.11.0.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/js/jquery.cookie.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/vendor/selectbox/jquery.selectbox.min.js') }}"></script>
+        {#<script type="text/javascript" src="{{ asset('assets/js/jquery.cookie.js') }}"></script>#}
+
+
+        <script type="text/javascript" src="{{ asset('assets/js/main_mobile.min.js') }}?v=18603"></script>
+
+        <!--[if (gte IE 6)&(lte IE 8)]>
+        <script type="text/javascript" src="{{ asset('assets/vendor/build/mootools_1.4.5.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/vendor/build/selectivizr-min.js') }}"></script>
+        <![endif]-->
+
+    {% endblock %}
+    <link href="{{ asset('favicon.ico') }}" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body>
+{#<a href="{{ path('front_homepage', {_locale: 'en'}) }}">EN</a>#}
+{#<a href="{{ path('front_homepage', {_locale: 'ru'}) }}">RU</a>#}
+
+{#mobile layout<br/>#}
+
+{% for flashMessage in app.session.flashbag.get('success') %}
+    <div class="flash-notice">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+<header>
+    {% if  is_granted('ROLE_USER') %}
+        <a id="header_menu_active" class="menu" href="#"></a>
+    {% else %}
+        <div class="log_reg_Block">
+            <a href="{{ path('user_oauth') }}" class="login_btn">{{ 'login_mob'|trans }}</a>
+            <a href="{{ path('user_oauth') }}" class="register_btn">{{ 'register_mob'|trans }}</a>
+        </div>
+    {% endif %}
+    {% if app.request.locale == "ru" %}
+        <a class="logo" href="{{ path('front_homepage') }}"></a>
+    {% else %}
+        <a class="logo_en" href="{{ path('front_homepage') }}"></a>
+    {% endif %}
+
+
+    {% if  is_granted('ROLE_USER') %}
+        <a class="user" href="{{ account_url('/edit') }}"></a>
+    {% else %}
+        <div class="rus_eng_Block">
+            <a href="{{ path('front_homepage', {_locale: 'ru'}) }}" class="rus_btn"></a>
+            <a href="{{ path('front_homepage', {_locale: 'en'}) }}" class="eng_btn"></a>
+        </div>
+    {% endif %}
+
+
+    <nav>
+        <a class="games" href="{{ path('front_homepage') }}"><i></i>{{ 'games'|trans }}</a>
+        <a class="deposit" href="{{ account_url('/pay') }}"><i></i>{{ 'pay'|trans({}, 'payment') }}</a>
+        <a class="withdraw" href="{{ account_url('/order/withdrawal') }}"><i></i>{{ 'withdraw'|trans({}, 'payment') }}</a>
+        <a class="transaction" href="{{ account_url('/financial-transactions') }}"><i></i>{{ 'payments_oper'|trans }}</a>
+        <a class="bosuses" href="{{ account_url('/bonus-offers') }}"><i></i>{{ 'offers'|trans({}, 'bonus') }}</a>
+        <a class="promotions" href="{{ path('promotions_list') }}"><i></i>{{ 'promotions'|trans }}</a>
+        <a class="contacts_us" href="{{ path('front_homepage') }}m-support.html"><i></i>{{ 'contacts_us'|trans }}</a>
+        <a class="faq" href="{{ path('front_homepage') }}faq.html"><i></i>{{ 'help'|trans }}</a>
+        <a class="policies" href="{{ path('front_homepage') }}m-policies.html"><i></i>{{ 'policies'|trans }}</a>
+        <a class="logout" href="{{ path('user_logout') }}"><i></i>{{ 'logout'|trans({}, 'users') }}</a>
+    </nav>
+</header>
+{% if  is_granted('ROLE_USER') %}
+<section class="header-content"></section>
+
+    <div class="toolbar_login">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-block">
+                    <div class="col-table">
+                        <a id="refre" href="#" class="refrech"></a>
+                    </div>
+                    <div class="col-table">
+                        <span class="toobar_nav" style="overflow: hidden; height: 23px;"></span>
+                    </div>
+
+                </div>
+                <div class="col-block">
+                    <span class="toobar_money"></span>
+                </div>
+                <div class="col-block">
+                    <span class="toobar_mail">{{'mail'|trans}}(<span>0</span>)</span>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <style>.tools {display: none;} .tools_b{border-top: 1px solid #001E6E!important;}</style>
+{% endif %}
+{{ block('content') }}
+{#<div id="overlay"></div>#}
+<footer>
+    <nav>
+        <a class="call" href="{{ path('front_homepage') }}m-support.html">
+            <i></i>
+            24/7
+        </a>
+        <a class="terms" href="{{ path('front_homepage') }}m-terms.html">
+            <i></i>
+            {{ 'terms'|trans }}
+        </a>
+        <a class="promos" href="{{ path('promotions_list') }}">
+            <i></i>
+            {{ 'promotions'|trans }}
+        </a>
+        <a class="secure" href="{{ path('front_homepage') }}m-security.html">
+            <i></i>
+            {{ 'security'|trans }}
+        </a>
+        {% if  is_granted('ROLE_USER') %}
+        <a class="logout" href="{{ path('user_logout') }}">
+            <i></i>
+            {{ 'logout'|trans({}, 'users') }}
+        </a>
+        {% else %}
+        {% endif %}
+    </nav>
+
+
+
+
+</footer>
+<div id="toTop">^ {{ 'upstairs'|trans }} ^</div>
+<a class="fullVers" href="{{ base_url }}">{{ 'full_version'|trans }}</a>
+<div class="money-system">
+    <img src="{{ asset('assets/mobile_img/money_system.png') }}">
+    <img src="{{ asset('assets/mobile_img/money_system2.png') }}">
+    <img src="{{ asset('assets/mobile_img/money_system3.png') }}">
+</div>
+<div class="v_line"></div>
+<p class="v_copy">
+    {{ 'game_club_copyright'|trans }}
+</p>
+<script>
+    $('.toolbar_login').each(function(){
+        var me = $(this);
+        toolbar_info( me, "{{ path('cms_api_user') }}", false);
+    });
+    $("#refre").click(function () {
+        $('#refre').addClass('gif-refrech');
+        $('.toolbar_login').each(function(){
+            var me = $(this);
+            toolbar_info( me, "{{ path('cms_api_user') }}", true);
+        });
+        return false;
+    });
+    {% if app.request.attributes.get('_route') == 'front_homepage'%}
+    for (var i = 0; i < 500; i++) {
+        if (($.cookie('like'+i) == 1)) {
+            $('#like'+i).addClass('active');
+        }
+    }
+    {% endif %}
+</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter27459636 = new Ya.Metrika({id:27459636,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/27459636" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+{% if app.request.pathinfo == '/ru/m-support.html' or app.request.pathinfo == '/en/m-support.html' %}
+<!-- Start SiteHeart code -->
+<script>
+    (function(){
+        var widget_id = 731314;
+        _shcp =[{widget_id : widget_id}];
+        var lang =(navigator.language || navigator.systemLanguage
+        || navigator.userLanguage ||"en")
+                .substr(0,2).toLowerCase();
+        var url ="widget.siteheart.com/widget/sh/"+ widget_id +"/"+ lang +"/widget.js";
+        var hcc = document.createElement("script");
+        hcc.type ="text/javascript";
+        hcc.async =true;
+        hcc.src =("https:"== document.location.protocol ?"https":"http")
+        +"://"+ url;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hcc, s.nextSibling);
+    })();
+</script>
+<!-- End SiteHeart code -->
+{% endif %}
+<!-- Статистика посещений мобильной версии сайта для партнерской программы -->
+{% if app.request.session.has('track') %}
+    {% set counter_track = app.request.session.get('track') %}
+{% else %}
+    {% set counter_track = '0:0' %}
+{% endif %}
+<script type="text/javascript">
+    (function() {
+        var tw = document.createElement('script');
+        tw.type = 'text/javascript';
+        tw.async = true;
+        tw.src = 'http://www.twistcash.com/track?{{ counter_track }}&js=1';
+        if (document.referrer) {
+            tw.src += '&ref=' + encodeURIComponent(document.referrer);
+        }
+        var el = document.getElementsByTagName('script')[0];
+        el.parentNode.insertBefore(tw, el);
+    })();
+</script>
+<!-- END Статистика посещений мобильной версии сайта для партнерской программы -->
+</body>
+</html>

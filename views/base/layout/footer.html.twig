@@ -1,0 +1,254 @@
+
+<footer>
+    <section class="paySystems">
+        <h4 style="display: none;">{{ 'game_club'|trans }}</h4>
+
+        <div class="footer_topBg"></div>
+        <div class="footer_play_lines"></div>
+        <div class="footer_play_icon"></div>
+        <div class="footer_boot_bg">
+            <div class="footer_18_plass"></div>
+        </div>
+        <div class="footer_lines"></div>
+    </section>
+    <nav class="footerNav">
+
+
+        <ul>
+            <li style="margin-left: 160px;">{{ 'about'|trans }}
+                <ul>
+                    <li><a href="{{ path('front_homepage') }}terms.html">{{ 'agreement'|trans }}</a></li>
+                    <li><a href="{{ path('front_homepage') }}responsible-gaming.html">{{ 'responsibility_casino'|trans }}</a></li>
+                    <li><a href="{{ path('front_homepage') }}support.html">{{ 'support'|trans }}</a></li>
+                    <li><a href="{{ path('front_homepage') }}security.html">{{ 'security'|trans }}</a></li>
+                    <li><a href="{{ path('front_homepage') }}fair-gaming.html">{{ 'fair_play'|trans }}</a></li>
+                    <li><a href="{{ path('front_homepage') }}withdrawals.html">{{ 'payouts'|trans }}</a></li>
+                    <li><a href="{{ path('front_homepage') }}deposits.html">{{ 'depositing'|trans }}</a></li>
+                    <li><a target="_blank" href="http://twistcasinos.com/">{{ 'partners'|trans }}</a></li>
+                </ul>
+            </li>
+            <li>{{ 'casino_games'|trans }}
+                <ul>
+
+                    <li><a href="{{ path('game_list') }}">{{ 'popular_games'|trans}}</a></li>
+                    <li><a href="{{ path('game_type_list', {category: 'novomatic'}) }}">{{ 'novomatic_slot'|trans }}</a></li>
+                    <li><a href="{{ path('game_type_list', {category: 'novomatic-deluxe'}) }}">{{ 'novomatic_deluxe'|trans }}</a></li>
+                    <li><a href="{{ path('game_type_list', {category: 'Igrosoft'}) }}">{{ 'igrosoft_slot'|trans }}</a></li>
+                    {#<li><a href="{{ path('game_type_list', {category: 'gazgaming'}) }}">{{ 'gazgaming_slot'|trans }}</a></li>#}
+                    {#<li><a href="{{ path('game_type_list', {category: 'casino-games'}) }}">{{ 'casino_games'|trans }}</a></li>#}
+                </ul>
+            </li>
+            <li>{{ 'Акции и бонусы'|trans({}, 'promotions') }}
+                <ul>
+                    {#<li><a href="#">Джекпот</a></li>#}
+                    <li><a href="{{ path('lotteries_list') }}">{{ 'Лотереи'|trans({}, 'lotteries') }}</a></li>
+                    <li><a href="{{ path('promotions_list') }}">{{ 'Акции'|trans({}, 'promotions') }}</a></li>
+                    <li><a href="{{ account_url('/bonus-offers') }}">{{ 'individual_proposals'|trans }}</a></li>
+                    <li><a href="{{ path('front_homepage') }}bonuses.html">{{ 'bonus_policy'|trans }}</a></li>
+
+                </ul>
+            </li>
+            <li>{{ 'additionally'|trans }}
+                <ul>
+                    {#<li><a href="{{ path('front_homepage') }}about.html">{{ 'about'|trans }}</a></li>#}
+                    <li><a href="{{ path('front_homepage') }}faq.html">FAQ</a></li>
+                    <li><a href="{{ path('casino_cms_statistic_live') }}">{{ 'statistics'|trans }}</a></li>
+                    <li><a href="{{ path('tournaments_list') }}">{{ 'Турниры'|trans({}, 'tournaments') }}</a></li>
+                    <li><a href="{{ path('news_list') }}">{{ 'Новости'|trans({}, 'news') }}</a></li>
+                    <li><a href="{{ path('articles_list') }}">{{ 'Статьи'|trans({}, 'articles') }}</a></li>
+                    <li><a href="{{ mobile_url }}">{{ 'mobile_version'|trans }}</a></li>
+                    <li><a href="{{ path('front_homepage') }}extension.html">{{ 'extensions'|trans }}</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </nav>
+    <section class="copyright">
+        <h4 style="display: none;">{{ 'game_club'|trans }}</h4>
+
+        <p>
+            {{ 'game_club_copyright'|trans }}
+
+        </p>
+    </section>
+</footer>
+</section>
+<section class="windows">
+
+    <div id="login" class="reset_password modal hide fade" tabindex="-1" role="dialog"  aria-hidden="true">
+        <div class="ajax_open">{{ 'ajax_load'|trans }}</div>
+        <header>
+            <h3>{{ 'log_in'|trans }}</h3>
+            <em class="closeModalWindow close" data-dismiss="modal" aria-hidden="true"></em>
+            <div style="display: none; position: absolute; left: 130px; top: 4px; width: 110px; height: 10px" class="loadajax"><img src="{{ asset('assets/images/loadajax.gif') }}" alt="#"></div>
+        </header>
+        <div id="form_login">
+
+        </div>
+    </div>
+    <div id="register" class="reset_password modal hide fade" tabindex="-1" role="dialog"  aria-hidden="true">
+        <div class="ajax_open">{{ 'ajax_load'|trans }}</div>
+        <header>
+            <h3>{{ 'registration'|trans }}</h3>
+            <em class="closeModalWindow close" data-dismiss="modal" aria-hidden="true"></em>
+            <div style=" display: none; position: absolute; left: 225px; top: 4px; width: 110px; height: 10px" class="loadajax"><img src="{{ asset('assets/images/loadajax.gif') }}" alt="#"></div>
+
+        </header>
+        <div id="form_register">
+
+        </div>
+    </div>
+</section>
+<div id="toTop"> ^ {{ 'upstairs'|trans }} </div>
+<script>
+    {#$(function(){#}
+        {#var temJson = 0;#}
+        {#$("#authBtn").click(function() {#}
+            {#if (temJson == 0){#}
+              {#$('.loadajax').show();#}
+                {#loadContentJson("{{ path('cms_api_login') }}", '#form_login');#}
+                {#temJson = 1;#}
+            {#}else{}#}
+        {#});#}
+        {#var temJsonReg = 0;#}
+        {#$("#regBtn").click(function() {#}
+            {#if (temJsonReg == 0){#}
+          {#$('.loadajax').show();#}
+                {#loadContentJson("{{ path('cms_api_register') }}", '#form_register');#}
+                {#temJsonReg = 1;#}
+            {#}else{}#}
+        {#});#}
+    {#});#}
+    $('select').selectbox();
+//    $('.localStore').click(function() {localStorage.removeItem('tempUrl');var tempUrl = $(this).attr('data-id');
+//        localStorage.setItem('tempUrl',tempUrl);});
+    $('#toolbar, .personalData').each(function(){
+        var me = $(this);
+        toolbar_info("{{ asset('assets/images/avatars/defol.png') }}", me, "{{ path('cms_api_user') }}");
+        {#var  intervalID = window.setInterval(function(){#}
+        {#toolbar_info("{{ asset('assets/images/avatars/defol.png') }}", me, "{{ path('cms_api_user') }}");#}
+        {#}, 20000);#}
+    });
+
+    $(function(){
+        $("#cas2pay-close").on('click', function(){
+            $('#cas2pay-banner').slideUp(300);
+            setBannerCookie();
+        });
+        $("#install-plugin").on('click', setBannerCookie);
+
+        function setBannerCookie()
+        {
+            var date = new Date();
+            date.setTime(date.getTime() + 259200 * 1000);
+            $.cookie('cas2pay_closed', 1, { expires: date, path: '/' });
+        }
+
+    });
+    $('.tabs a:contains("GazGaming")').hide();
+    $('.tabs a:contains("Casino games")').hide();
+
+//    $('#register').on('show', function () {
+//        $('#login').modal('hide');
+//    })
+</script>
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+{#<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54806ebe3f9aa8a9" async="async"></script>#}
+
+<!-- LiveTex {literal} -->
+<script type='text/javascript'>
+
+    (function(){
+        var widget_id = 731314;
+        _shcp =[{widget_id : widget_id}];
+        var lang =(navigator.language || navigator.systemLanguage
+        || navigator.userLanguage ||"en")
+                .substr(0,2).toLowerCase();
+        var url ="widget.siteheart.com/widget/sh/"+ widget_id +"/"+ lang +"/widget.js";
+        var hcc = document.createElement("script");
+        hcc.type ="text/javascript";
+        hcc.async =true;
+        hcc.src =("https:"== document.location.protocol ?"https":"http")
+        +"://"+ url;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hcc, s.nextSibling);
+    })();
+
+</script>
+<!-- LiveTex {/literal} -->
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter26714877 = new Ya.Metrika({id:26714877,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/26714877" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Ga.Metrika counter -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-55692318-1', 'auto');
+    ga('send', 'pageview');
+</script>
+<!-- Ga.Metrika counter -->
+{#<script type="text/javascript">#}
+    {#var reformalOptions = {#}
+        {#project_id: 798989,#}
+        {#project_host: "vulkanogames.reformal.ru",#}
+        {#tab_orientation: "right",#}
+        {#tab_indent: "50%",#}
+        {#tab_bg_color: "#006100",#}
+        {#tab_border_color: "#FFFFFF",#}
+        {#tab_image_url: "http://tab.reformal.ru/T9GC0LfRi9Cy0Ysg0Lgg0L%252FRgNC10LTQu9C%252B0LbQtdC90LjRjw==/FFFFFF/88128dfd6ca0743b5ccc2f8afed9f3b1/right/0/tab.png",#}
+        {#tab_border_width: 2#}
+    {#};#}
+
+    {#(function() {#}
+        {#var script = document.createElement('script');#}
+        {#script.type = 'text/javascript'; script.async = true;#}
+        {#script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'media.reformal.ru/widgets/v3/reformal.js';#}
+        {#document.getElementsByTagName('head')[0].appendChild(script);#}
+    {#})();#}
+{#</script><noscript><a href="http://reformal.ru"><img src="http://media.reformal.ru/reformal.png" /></a><a href="http://vulkanogames.reformal.ru">Oтзывы и предложения для Игровой клуб Almurut</a></noscript>#}
+
+{% if app.request.session.has('track') %}
+    {% set counter_track = app.request.session.get('track') %}
+{% else %}
+    {% set counter_track = '0:0' %}
+{% endif %}
+<script type="text/javascript">
+    (function() {
+        var tw = document.createElement('script');
+        tw.type = 'text/javascript';
+        tw.async = true;
+        tw.src = 'http://www.twistcash.com/track?{{ counter_track }}&js=1';
+        if (document.referrer) {
+            tw.src += '&ref=' + encodeURIComponent(document.referrer);
+        }
+        var el = document.getElementsByTagName('script')[0];
+        el.parentNode.insertBefore(tw, el);
+    })();
+</script>
+</body>
+</html>

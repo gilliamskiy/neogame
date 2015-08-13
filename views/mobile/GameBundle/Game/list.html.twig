@@ -1,0 +1,30 @@
+{% extends "@front/layout.html.twig" %}
+{% block seo %}
+    {{ parent() }}
+    <title>{{ 'categories_of_games'|trans }}</title>
+
+{% endblock %}
+{% block content %}
+
+    <section class="header-content tools_b">
+        <h1>{{ 'games'|trans }}</h1>
+
+    </section>
+
+    <article class="games_page">
+        {% for game in games %}
+            {% if not is_granted('ROLE_USER') %}
+                <a href="{{ path('user_oauth') }}">
+            {% else %}
+                <a href="{{ path('game_play_real', {category: game.category.slug, slug: game.slug}) }}">
+            {% endif %}
+                <img src="{{ game.mobileLogo.path|imagine_filter('mobile_thumbnail') }}"  alt="{{ game.translate.name }}" />
+                <figure>
+                    <em>{{ game.translate.name }}</em>
+                </figure>
+                <i class=""></i>
+            </a>
+        {% endfor %}
+    </article>
+    <a href="#" id="red-more" class="red-next"><span>Еще игры</span></a>
+{% endblock %}

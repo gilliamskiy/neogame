@@ -1,0 +1,433 @@
+{% include "@front/layout/header.html.twig" %}
+<section>
+<!-- less: s_breadcrumbs.less -->
+<figure class="breadCrumbs">
+    <nav>
+        <span><a href="{{ path('front_homepage') }}">VulkanoGames</a></span>
+        <span><a href="{{ path('lotteries_list') }}">{{ 'Лотереи'|trans({}, 'lotteries') }}</a></span>
+        <span>{{ 'new_year'|trans({}, 'lottery_year') }}</span>
+    </nav>
+</figure>
+
+<div class="lottery_newYear">
+<div class="lottery-bannerBlock">
+    {% if app.request.locale == "ru" %}
+        <img src="{{ asset('assets/images/lottery/lottery_banner_ru.png') }}">
+    {% else %}
+        <img src="{{ asset('assets/images/lottery/lottery_banner_en.png') }}">
+    {% endif %}
+
+</div>
+
+{% if app.request.locale == "ru" %}
+    <div class="lottery-line lottery-line1"><h4>
+            {{ 'our_prizes'|trans({}, 'lottery_year') }}</h4>
+    </div>
+{% else %}
+    <div class="lottery-line lottery-line1"><h4 style="left: 90px;">
+            {{ 'our_prizes'|trans({}, 'lottery_year') }}</h4>
+    </div>
+{% endif %}
+<div class="lottery-content">
+    <div class="lottery-row">
+        <div class="lottery-tow">
+            <div class="lottery-block-img">
+                {% if app.request.locale == "ru" %}
+                    <img src="{{ asset('assets/images/lottery/tovImg1.png') }}" alt="#">
+                {% else %}
+                    <img src="{{ asset('assets/images/lottery/tovImg1en.png') }}" alt="#">
+                {% endif %}
+
+            </div>
+            <div class="lottery-block-text">
+                {% if app.request.locale == "ru" %}
+                    <p>Настольный полупрофессиональный 3D-принтер, который предназначен для быстрого прототипирования
+                        по технологии послойного наплавления (FDM). В качестве основного расходного материала
+                        используется экологичный, биоразлагаемый полилактид (PLA). Наличие считывающего устройства для
+                        карт памяти позволяет осуществлять печать в автономном режиме.</p>
+                {% else %}
+                    <p>Semiprofessional desktop 3D-printer, which is designed for rapid prototyping by fused deposition
+                        modeling (FDM). The ecological bio-degradable polylactide (PLA) is used for printing. The card
+                        reader allows printing in offline mode. </p>
+                {% endif %}
+            </div>
+
+
+        </div>
+        <div class="lottery-tow">
+            <div class="lottery-block-img">
+                <img src="{{ asset('assets/images/lottery/tovImg2.png') }}" alt="#">
+            </div>
+            <div class="lottery-block-text">
+
+                {% if app.request.locale == "ru" %}
+                    <p>Экран 15.4" IPS (2880x1800) Retina LED, глянцевый / Intel Core i7 (2.8 ГГц) / RAM 16 ГБ / SSD 1
+                        ТБ / Intel Iris Pro Graphics + nVidia GeForce GT 750M, 2 ГБ / без ОД / Wi-Fi / Bluetooth /
+                        веб-камера / Mac OS X 10.9 (Mavericks) / 2.02 кг</p>
+                {% else %}
+                    <p>Display 15.4" IPS (2880x1800) Retina LED, glossy / Intel Core i7 (2.8 ГГц) / RAM 16 ГБ /Intel
+                        Iris Pro Graphics + nVidia GeForce GT 750M, 2 ГБ / without ODD / Wi-Fi / Bluetooth / web-camera
+                        / Mac OS X 10.9 (Mavericks) / 2.02 kg</p>
+                {% endif %}
+
+
+            </div>
+        </div>
+        <div class="lottery-tow">
+            <div class="lottery-block-img">
+                <img src="{{ asset('assets/images/lottery/tovImg3.png') }}" alt="#">
+            </div>
+            <div class="lottery-block-text">
+                {% if app.request.locale == "ru" %}
+                    <p>
+                        Экран 5.5" Retina (1920x1080, сенсорный емкостный, Multi‑Touch) / моноблок / Apple A8 / камера 8
+                        Мп + фронтальная 1.2 Мп / Bluetooth 4.0 / Wi-Fi 802.11 a/b/g/n/ac / 1 ГБ оперативной памяти /
+                        128 ГБ встроенной памяти / NFC / 3G / LTE / GPS / GLONASS / разъем 3.5 мм / iOS 8 / 158.1 x 77.8
+                        x 7.1 мм, 172 г / серебристый
+                    </p>
+                {% else %}
+                    <p>Display 5.5" Retina (1920x1080, touch-sensitive, Multi‑Touch) / monoblock / Apple A8 / camera 8
+                        Mp + frint camera 1.2 Mp / Bluetooth 4.0 / Wi-Fi 802.11 a/b/g/n/ac / 1 ГБ RAM /
+                        128 Gb built in memory / NFC / 3G / LTE / GPS / GLONASS / 3.5 mm jack plug / iOS 8 / 158.1 x 77.8
+                        x 7.1 mm, 172 г / silver</p>
+                {% endif %}
+
+
+            </div>
+        </div>
+
+        <div class="lottery-tow">
+            <div class="lottery-block-img">
+                <img src="{{ asset('assets/images/lottery/tovImg4.png') }}" alt="#" style="bottom: 32px">
+            </div>
+            <div class="lottery-block-text" style="margin-top: -28px;">
+
+                {% if app.request.locale == "ru" %}
+                    <p>Матрица CMOS 36 x 24 мм, 20.2 Мп / объектив EF 24-105 mm f/4L IS USM / поддержка карт памяти
+                        SD/SDHC/SDXC / LCD-дисплей 3" / Full HD-видео / питание от литий-ионного аккумулятора / 144.5 x
+                        110.5 x 71.2 мм, 755 г</p>
+                {% else %}
+                    <p>CMOS 36 x 24 mm, 20.2 Mp matrix / EF 24-105 mm f/4L IS USM lense/ SD/SDHC/SDXC memory card
+                        support / LCD-dislay 3" / Full HD-video / rechargeable lithium-ion battery / 144.5 x 110.5 x
+                        71.2 mm, 755g</p>
+                {% endif %}
+
+
+
+            </div>
+
+
+        </div>
+        <div class="lottery-tow">
+            <div class="lottery-block-img">
+                <img src="{{ asset('assets/images/lottery/tovImg5.png') }}" alt="#" >
+            </div>
+            <div class="lottery-block-text">
+
+                {% if app.request.locale == "ru" %}
+                    <p>Диагональ экрана - 9.7" / Тип матрицы - IPS / Разрешение экрана - 2048x1536 / Вид экрана -
+                        Емкостный / Операционная система - iOS / Процессор - Apple A7 (1.3 ГГц) / Количество ядер - 2 /
+                        Встроенная память - 64 ГБ / Оперативная память - 1 ГБ / Поддержка карт памяти - нет</p>
+                {% else %}
+                    <p>Display - 9.7" / IPS matrix / screen resolution - 2048x1536 / Display type - condensive /
+                        Operational system - iOS / Processor - Apple A7 (1.3 Ghz) / Core number - 2 / Built in memory -
+                        64 Gb / RAM - 1 Gb / Memory card slot - no</p>
+                {% endif %}
+
+
+            </div>
+        </div>
+        <div class="lottery-tow">
+            <div class="lottery-block-img">
+                <img src="{{ asset('assets/images/lottery/tovImg6.png') }}" alt="#" style="bottom: 25px;">
+            </div>
+            <div class="lottery-block-text" style="margin-top: -28px;">
+
+
+                {% if app.request.locale == "ru" %}
+                    <p>Диагональ дисплея - 6" / Разрешение - 1024х758 / Тип матрицы - E Ink Carta / Количество градаций
+                        серого - 16 / Встроенная память - 4 ГБ / Вес - 206 г</p>
+                {% else %}
+                    <p>Display - 6" / Resolution - 1024х758 / Matrix type - E Ink Carta / Amount of grey gradation - 16
+                        / Built in memory - 4 Gb / Weight - 206g</p>
+                {% endif %}
+
+
+            </div>
+        </div>
+
+        <div class="lottery-tow">
+            <div class="lottery-block-img">
+                <img src="{{ asset('assets/images/lottery/tovImg7.png') }}" alt="#" style="">
+            </div>
+            <div class="lottery-block-text" style="">
+
+                {% if app.request.locale == "ru" %}
+                    <p>Тип наушников - Закрытые / Интерфейс проводного подключения - 1 x mini-jack (разъем 3.5 мм) /
+                        Диапазон частот наушников - 20 - 20000 Гц / Длина шнура - 1.361 м / Вес - 260 г</p>
+                {% else %}
+                    <p>Headphone type - Around Ear / Wire connection interface - 1 x mini-jack (jack plug 3.5 мм) /
+                        Headphone frequency range - 20 - 20000 Ghz / Wire length - 1.361 m / Weight - 260g</p>
+                {% endif %}
+
+
+            </div>
+
+
+        </div>
+        <div class="lottery-tow">
+            <div class="lottery-block-img">
+                <img src="{{ asset('assets/images/lottery/tovImg8.png') }}" alt="#" >
+            </div>
+            <div class="lottery-block-text">
+
+                {% if app.request.locale == "ru" %}
+                    <p>Процессор - Трёхъядерный IBM Power PC (3.2 ГГц)
+                        / Оперативная память - 512 МБ GDDR3-700 / Видеопамять - ATI C1/Xenos / Жесткий диск - 250 ГБ</p>
+                {% else %}
+                    <p>Processor - Triple core IBM Power PC (3.2 Ghz) / RAM - 512 Mb GDDR3-700 / Video memory - ATI
+                        C1/Xenos / HDD - 250 Gb</p>
+                {% endif %}
+
+
+
+            </div>
+        </div>
+        <div class="lottery-tow">
+            <div class="lottery-block-img">
+                <img src="{{ asset('assets/images/lottery/tovImg9.png') }}" alt="#" style="">
+            </div>
+            <div class="lottery-block-text" style="">
+                {% if app.request.locale == "ru" %}
+                    <p>Емкость - 512ГБ / Скорость - USB 3.0: 240МБ/с (чтение) и 160МБ/с (запись) USB 2.0: 30МБ/с
+                        (чтение) и 30МБ/с (запись) / Обратная совместимость - с USB 2.0 / Размер - без кольца для
+                        брелоков: 72 x 26,94 x 21мм с кольцом для брелоков: 88,53 x 26,94 x 21мм / Файловая система -
+                        exFat</p>
+                {% else %}
+                    <p>Capacity - 512Gb / Speed - USB 3.0: 240Mb/sec (reading) and 160Mb/sec (writing) USB 2.0: 30Mb/sec
+                        (reading) and 30Mb/sec (writing) / Backward compatibility - with USB 2.0 / Size - without
+                        keychain ring: 72 x 26,94 x 21mm with keychain ring: 88,53 x 26,94 x 21mm / File system -
+                        exFat</p>
+                {% endif %}
+
+
+
+            </div>
+        </div>
+
+        <div class="lottery-tow_12">
+            <a class="lottery-btn" href="{{ account_url('/bonus-offers') }}">{{ 'participate'|trans({}, 'lottery_year') }}</a>
+        </div>
+
+    </div>
+</div>
+{% if app.request.locale == "ru" %}
+<div class="lottery-line lottery-line2">
+    <h4>{{ 'rules'|trans({}, 'lottery_year') }}</h4>
+</div>
+{% else %}
+<div class="lottery-line lottery-line2" style='background: url({{ asset('assets/images/lottery/lottey_line4.png') }}) no-repeat right center;'>
+    <h4>{{ 'rules'|trans({}, 'lottery_year') }}</h4>
+</div>
+{% endif %}
+<div class="lottery-content">
+    <div class="lottery-row">
+        <div class="lottery-tow_12">
+            {% if app.request.locale == "ru" %}
+                <ul>
+                    <li>Лотерея проводится с 10 декабря (00:00) до 31 декабря 2014 года (23:59).</li>
+                    <li>Принять участие в лотерее может каждый зарегистрированный игрок игрового клуба Almurut.</li>
+                    <li>Для участия в лотерее игрок должен иметь минимум 1 лотерейный билет.</li>
+                    <li>Лотерейный билет выдается за каждый бонус игрового клуба Almurut, активированный на депозиты от
+                        $15.
+                    </li>
+                    <li>Получение лотерейных билетов невозможно после 31 декабря (23:59) GMT+4.</li>
+                    <li>Игрок может обладать неограниченным количеством лотерейных билетов.</li>
+                    <li>Размер депозита и/или бонуса не влияет на количество полученных лотерейных билетов.</li>
+                    <li>При заказе выплаты, игрок не теряет лотерейные билеты, полученные с момента последнего
+                        депозита.
+                    </li>
+                    <li>В розыгрыше призов участвуют все лотерейные билеты, полученные всеми игроками игрового Клуба
+                        Almurut.
+                    </li>
+                    <li>Выигрышный билет будет определен случайным образом.</li>
+                    <li>При получении приза игрок и все его лотерейные билеты исключаются из последующих розыгрышей.
+                    </li>
+                    <li>Призы Лотереи будут разыграны по очереди 6 января 2015 года, начиная в 12:00 GMT+4</li>
+                    <li>При получении лотерейного билета есть вероятность, что вместо обычного лотерейного билета игрок
+                        получит "престиж-билет".
+                    </li>
+                    <li>"Престиж-билет" считается как обычный билет до розыгрыша всех призов Лотереи игрового клуба
+                        Almurut.
+                    </li>
+                    <li>После лотереи "престиж-билеты" в течение месяца могут быть обменены всеми игроками, которые не
+                        получили приз, на бездепозитные бонусы игрового клуба Almurut (крайний срок 22 января 2015 года в
+                        23:59 GMT+4)
+                    </li>
+                </ul>
+            {% else %}
+                <ul>
+                    <li>The lottery is held from 10.12.2014 (00:00 GMT+4) through 31.12.2014 (23:59 GMT+4).</li>
+                    <li>Any registered VulkanoGames player can participate in the lottery.</li>
+                    <li>A player needs to have at least one lottery ticket to participate in the lottery.</li>
+                    <li>The lottery ticket is given for each bonus activated on deposits over $15.</li>
+                    <li>The lottery tickets will not be given after 31.12.2014 (23:59) GMT+4</li>
+                    <li>A player can own an unlimited number of lottery tickets.</li>
+                    <li>The amount of given lottery tickets doesn't depend on the size of deposits and/or received
+                        bonuses.
+                    </li>
+                    <li>A player will not lose lottery tickets received after the last deposit if the withdrawal is
+                        ordered.
+                    </li>
+                    <li>All lottery tickets received by players at VulkanoGames Club take part in the prizes giveaway.
+                    </li>
+                    <li>The winning lottery ticket will be picked randomly on 06.01.2015</li>
+                    <li>A player and all his lottery tickets are discarded from the lottery if one of the listed prizes
+                        have been received by that player.
+                    </li>
+                    <li>The lottery prizes are to be given away one by one, starting at 12:00 GMT+4</li>
+                    <li>Each player has a chance of receiving a "prestige-ticket" instead of a common one.</li>
+                    <li>The "prestige-ticket" is equal to common lottery tickets during the Lottery prizes giveaway at
+                        VulkanoGames Club.
+                    </li>
+                    <li>When the lottery ends all players who haven't won any prize can exchange their
+                        "prestige-tickets" for non deposit bonuses at VulkanoGames Club within a month (ending on
+                        22.01.2015 23:59 GMT +4 2014)
+                    </li>
+                </ul>
+            {% endif %}
+
+
+
+            <a class="lottery-btn" href="{{ account_url('/bonus-offers') }}">{{ 'get_lottery_ticket'|trans({}, 'lottery_year') }}</a>
+
+
+            <table class="lottery-table">
+                <thead>
+                <tr>
+                    <th>{{ 'tickets'|trans({}, 'lottery_year') }}</th>
+                    <th>{{ 'bonus_size'|trans({}, 'lottery_year') }}</th>
+                    <th>{{ 'ticket_value'|trans({}, 'lottery_year') }}</th>
+                    <th>{{ 'wager'|trans({}, 'lottery_year') }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        $5.00
+                    </td>
+                    <td>
+                        $5.00
+                    </td>
+                    <td>
+                        x30
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        5
+                    </td>
+                    <td>
+                        $35.00
+                    </td>
+                    <td>
+                        $7.00
+                    </td>
+                    <td>
+                        x30
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        10
+                    </td>
+                    <td>
+                        $100.00
+                    </td>
+                    <td>
+                        $10.00
+                    </td>
+                    <td>
+                        x30
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% if app.request.locale == "ru" %}
+        <div class="lottery-line lottery-line2" style="margin-top: 0px;"><h4>
+                {{ 'tick'|trans({}, 'lottery_year') }}</h4>
+        </div>
+    {% else %}
+        <div class="lottery-line lottery-line2" style="margin-top: 0px; background: url({{ asset('assets/images/lottery/lottey_line5.png') }}) no-repeat right center;"><h4>
+                {{ 'tick'|trans({}, 'lottery_year') }}</h4>
+        </div>
+       {% endif %}
+<div class="lottery-content">
+    <div class="lottery-row">
+        <div class="lottery-tow_12">
+            <div class="lottery-billet">
+
+                {% if app.request.locale == "ru" %}
+                <div class="lottery-billet-post fl_l bl_o">
+                    {% else %}
+                    <div class="lottery-billet-post fl_l bl_o bl_o_en">
+                    {% endif %}
+                    <div class="lottery-billet-code">31-ab352345</div>
+                    <div class="lottery-billet-text">
+                        <h3>{{ 'ordinary'|trans({}, 'lottery_year') }}</h3>
+                        <p>{{ 'the_ordinary'|trans({}, 'lottery_year') }}</p>
+                    </div>
+                </div>
+                    {% if app.request.locale == "ru" %}
+                    <div class="lottery-billet-post fl_r bl_z">
+                     {% else %}
+                     <div class="lottery-billet-post fl_r bl_z bl_z_en">
+                     {% endif %}
+                         <div class="lottery-billet-code">31-ab352345</div>
+                    <div class="lottery-billet-text">
+                        <h3>{{ 'golden'|trans({}, 'lottery_year') }}</h3>
+                        <p>{{ 'the_golden'|trans({}, 'lottery_year') }}</p>
+                    </div>
+                </div>
+            </div>
+                    {% if tickets %}
+                        <table class="lottery-table">
+                            <thead>
+                            <tr>
+                                <th>{{ 'nickname'|trans({}, 'lottery_year') }}</th>
+                                <th>{{ 'ticket_number'|trans({}, 'lottery_year') }}</th>
+
+                            </tr>
+                            </thead>
+
+
+                            <tbody>
+                            {% for ticket in tickets %}
+                                <tr>
+                                    <td>{{ ticket.user_account.profile.preferred_name }}</td>
+                                    <td>{{ ticket.number }}</td>
+                                </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    {% else %}
+
+                    {% endif %}
+        </div>
+    </div>
+</div>
+
+</div>
+
+</section>
+{% include "@front/layout/footer.html.twig" %}

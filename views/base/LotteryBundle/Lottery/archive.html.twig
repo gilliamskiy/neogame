@@ -1,0 +1,70 @@
+{% extends "@front/layout.html.twig" %}
+{% block seo %}
+    {{ parent() }}
+    <title>{{ 'Прошедшие лотереи'|trans({}, 'lotteries') }}</title>
+
+{% endblock %}
+{% block content %}
+    <section>
+        <!-- less: s_breadcrumbs.less -->
+        <figure class="breadCrumbs">
+            <nav>
+                <span><a href="{{ path('front_homepage') }}">VulkanoGames</a></span>
+                <span><a href="{{ path('lotteries_list') }}">{{ 'Лотереи'|trans({}, 'lotteries') }}</a></span>
+                <span>{{ 'Прошедшие лотереи'|trans({}, 'lotteries') }}</span>
+            </nav>
+        </figure>
+        <!--end less: s_breadcrumbs.less -->
+
+        <!-- less: s_news-list.less -->
+        <figure class="my_bonuses">
+            <header>
+                <h1>{{ 'Прошедшие лотереи'|trans({}, 'lotteries') }}</h1>
+            </header>
+            <article>
+                <SECTION class="table_block">
+                    <table width="100%">
+                        <thead>
+                        <tr>
+                            <td>{{'Названия'|trans({}, 'lotteries') }}:</td>
+                            <td>{{'Дата начала'|trans({}, 'lotteries') }}:</td>
+                            <td>{{'Дата окончения'|trans({}, 'lotteries') }}:</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for lottery in list %}
+                            <tr>
+                                <td><a href="{{ path('lotteries_view', {id:lottery.id}) }}">{{ lottery.translate.name }}</a></td>
+                                <td>{{ lottery.startDate|format_date }}</td>
+                                <td>{{ lottery.endDate|format_date }}</td>
+                            </tr>
+                        {% else %}
+                            <tr style="border-bottom: none;">
+                                <td>{{'нет записей'|trans({}, 'lotteries') }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </SECTION>
+            </article>
+            <!-- less: s_pagination.less -->
+            <nav class="paginator">
+                {{ knp_pagination_render(list) }}
+            </nav>
+            <!--end less: s_pagination.less -->
+        </figure>
+        {% if not is_granted('ROLE_USER') %}
+
+
+        {% else %}
+            {% include "@front/layout/right_cabinet_menu.html.twig" %}
+        {% endif %}
+        <div style="clear:both;"></div>
+        <!--end less: s_news-list.less -->
+
+        <!-- less: s_seotext.less -->
+        {% include "@front/layout/seo_text.html.twig" %}
+        <!--end less: s_seotext.less -->
+    </section>
+
+{% endblock %}

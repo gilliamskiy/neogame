@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=1000">
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.min.css') }}">
+    {% endblock %}
+    <link href="{{ asset('favicon.ico') }}" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body>
+    <div class="pages_404-bg">
+        <div class="pages_404-modal">
+            <header>
+                <h3><strong>{{ 'error_404'|trans }}</strong> {{ 'page_not_found'|trans }}</h3>
+            </header>
+            <div class="pages_404-content">
+                <h4>{{ 'several_reasons'|trans }}</h4>
+                <ul>
+                    <li>{{ 'moved_or_renamed'|trans }}</li>
+                    <li>{{ 'no_longer'|trans }}</li>
+                    <li>{{ 'url_untrue'|trans }}</li>
+                </ul>
+                <h4>{{ 'propose_to'|trans }}:</h4>
+                <ul>
+                    <li><a href="{{ path('front_homepage') }}">{{ 'home_page'|trans }}</a></li>
+                    <li><a href="{{ path('front_homepage') }}support.html">{{ 'write_to_contact'|trans }}</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

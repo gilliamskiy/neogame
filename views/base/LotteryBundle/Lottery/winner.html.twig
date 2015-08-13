@@ -1,0 +1,37 @@
+{% extends "@front/layout.html.twig" %}
+{% block content %}
+    <section>
+        <!-- less: s_breadcrumbs.less -->
+        <figure class="breadCrumbs">
+            <nav>
+                <span><a href="{{ path('front_homepage') }}">VulkanoGames</a></span>
+                <span>{{ 'Победители лотерей'|trans({}, 'lotteries') }}</span>
+            </nav>
+        </figure>
+        <!--end less: s_breadcrumbs.less -->
+
+        <!-- less: s_news-list.less -->
+        <figure class="tourney-list">
+            <article>
+                <header></header>
+                <div>
+                    <article>
+
+                        {% if winner.photo %}
+                            <img src="{{ winner.photo.path|imagine_filter('full') }}" />
+                        {% endif %}
+                        {{ winner.photoComment }}
+                    </article>
+                </div>
+            </article>
+        </figure>
+        <!--end less: s_news-list.less -->
+
+        <!-- less: s_seotext.less -->
+        {% include "@front/layout/seo_text.html.twig" %}
+        <!--end less: s_seotext.less -->
+    </section>
+
+
+
+{% endblock %}

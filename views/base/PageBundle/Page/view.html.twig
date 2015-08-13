@@ -1,0 +1,34 @@
+{% extends "@front/layout.html.twig" %}
+{% block seo %}
+    {{ parent() }}
+    <title>{{ page.translate.name }}</title>
+    <meta name="keywords" content="{{ page.translate.keywords }}">
+    <meta name="description" content="{{ page.translate.description }}">
+{% endblock %}
+{% block content %}
+    <section>
+        <!-- less: s_breadcrumbs.less -->
+       <figure class="breadCrumbs">
+            <nav>
+                <span><a href="{{ path('front_homepage') }}">VulkanoGames</a></span>
+
+                <span>{{ page.translate.name }}</span>
+            </nav>
+        </figure>
+
+        <figure class="list bonuses-list pages_all">
+
+            <header>
+                <h1>{{ page.translate.name }}</h1>
+            </header>
+            {{ page.translate.content|markup }}
+
+
+
+
+        </figure>
+        <!-- less: s_seotext.less -->
+        {% include "@front/layout/seo_text.html.twig" %}
+        <!--end less: s_seotext.less -->
+    </section>
+{% endblock %}

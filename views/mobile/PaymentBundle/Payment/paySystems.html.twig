@@ -1,0 +1,35 @@
+{% extends "@front/layout.html.twig" %}
+
+{% block content %}
+
+    <section class="header-content tools_b">
+        <h1>{{ 'pay'|trans({}, 'payment') }}</h1>
+    </section>
+
+    <article class="withdraw">
+        {% for paySystem in paySystems %}
+            <a href="{{ path('profile_pay_form', {id: paySystem.id}) }}">
+                <div>
+                    <img src="{{ asset('assets/mobile_img/') }}pay_img{{ paySystem.id }}.png" alt="{{ paySystem.name }}"/>
+                </div>
+                <div>
+                    <span>{{ paySystem.name }}</span>
+                </div>
+            </a>
+        {% endfor %}
+
+    </article>
+
+    {#{% if app.request.locale == "ru" %}#}
+
+
+    {#{% else %}#}
+        {#<script>#}
+            {#$(function () {#}
+                {#$('.playId13, .playId14, .playId15, .playId10, .playId11').hide();#}
+            {#});#}
+        {#</script>#}
+    {#{% endif %}#}
+
+
+{% endblock %}

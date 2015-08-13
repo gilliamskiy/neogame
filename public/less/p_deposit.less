@@ -1,0 +1,346 @@
+
+body > .main > section > .help {
+    float: left;
+    padding: 0px 0px 0px 23px;
+    text-decoration: none;
+    > header {
+        > * {
+            font-size: 27px;
+            margin: 0px;
+            padding-top: 8px;
+            color: white;
+            height: 67px;
+        }
+    }
+
+    > article {
+        margin-bottom: 12px;
+        overflow: hidden;
+        width: 710px;
+        header {
+            position: relative;
+            > * {
+                font-size: 16px;
+                height: 55px;
+                margin: 0px;
+                line-height: 47px;
+                padding: 0px 0px 0px 145px;
+                background: url(../images/visa.png) no-repeat;
+                background-position: 14px 0px;
+            }
+            &:hover {
+                cursor: pointer;
+            }
+            .close {
+                width: 15px;
+                height: 15px;
+                background: url(../images/help_arrows.png) no-repeat;
+                background-position: top left;
+                display: block;
+                position: absolute;
+                top: 18px;
+                right: 16px;
+                padding: 0px;
+
+            }
+            .open {
+                background-position: 0px -15px;
+            }
+
+        }
+        > div {
+            padding: 0px 20px 14px 20px;
+            display: none;
+            width: 100%;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            .clearfix;
+            p {
+                margin: 0px;
+                float: left;
+                width: 410px;
+
+            }
+            > section {
+                float: right;
+                margin: 9px 0px 0px 0px;
+                position: relative;
+                .green_btn {
+                    width: 211px;
+                    margin: 0px;
+                    height: 53px;
+                    background: #042c00;
+                    border: 2px solid #90e483;
+                    ._grad_vert(#157900, #0A2306);
+                    display: block;
+                    position: relative;
+                    ._border_radius(9px);
+                    overflow: hidden;
+
+                    &:before {
+                        content: "";
+                        height: 25px;
+                        display: block;
+                        width: 100%;
+                        background: #18680b;
+                        position: absolute;
+                        ._opacity(0.5);
+                    }
+
+                    > span {
+                        font-size: 19px;
+                        position: absolute;
+                        color: white;
+//                        height: 46px;
+                        .text-shadow(0px, 0px, 14px, #fff);
+//                        padding: 9px 0px 0px 46px;
+//                      padding: 14px 0px 5px 46px;
+                      padding: 14px 0px 5px 0px;
+                      text-align: center;
+                      width: 105%;
+                        background: url("../images/coins.png") no-repeat;
+                        background-position: 14px 12px;
+                    }
+                    &:hover {
+
+                        cursor: pointer;
+                        background: #18680b;
+                    }
+
+                }
+                > div {
+                    text-align: center;
+                    font-size: 13px;
+                    margin: 9px 0px 0px 0px;
+                    display: block;
+                    color: #9b9b9b;
+                }
+                &:before {
+
+                    content: "";
+                    height: 201px;
+                    display: block;
+                    width: 1px;
+                    background: #18680b;
+                    position: absolute;
+                    left: -22px;
+                    top: 0px;
+                    background: url("../images/vertical_small_div.png") no-repeat;
+                }
+
+            }
+
+        }
+    }
+
+    .accordion {
+      margin-bottom: 12px;
+      overflow: hidden;
+
+
+        .accordion-group {
+          margin-bottom: 12px;
+          overflow: hidden;
+          width: 710px;
+          border: 1px solid #0045ae;
+          border-radius: 5px 5px 5px 5px;
+          -webkit-border-radius: 5px 5px 5px 5px;
+          -moz-border-radius: 5px 5px 5px 5px;
+
+          .accordion-heading {
+              background: #001e70;
+              filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@top_color', endColorstr='@bottom_color');
+              background: -moz-linear-gradient(top, #001e70, #000000);
+              background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #001e70), color-stop(100%, #000000));
+              background: -webkit-linear-gradient(top, #001e70, #000000);
+              background: -o-linear-gradient(top, #001e70, #000000);
+              background: -ms-linear-gradient(top, #001e70, #000000);
+              background: linear-gradient(top, #001e70, #000000);
+              position: relative;
+
+              .accordion-toggle {
+                color: white;
+                font-size: 16px;
+                height: 55px;
+                margin: 0px;
+                line-height: 47px;
+                padding: 0px 0px 0px 145px;
+
+                background-position: 14px 0px;
+                font-family: inherit;
+                font-weight: bold;
+                text-rendering: optimizelegibility;
+                text-decoration: none;
+                &:hover {
+                  text-decoration: none;
+                }
+              }
+            .close {
+              width: 15px;
+              height: 15px;
+              background: url(../images/help_arrows.png) no-repeat;
+              background-position: top left;
+              display: block;
+              position: absolute;
+              top: 18px;
+              right: 16px;
+              padding: 0px;
+            }
+            .collapsed {
+              .close {
+                background-position: 0px -15px;
+
+              }
+            }
+
+
+            }
+
+          .accordion-inner {
+            padding: 0px 20px 14px 20px;
+            width: 100%;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            border-top: none;
+            overflow: hidden;
+
+            p {
+              color: white;
+              text-align: left;
+              margin: 0px;
+              float: left;
+              width: 410px;
+              line-height: 21px;
+            }
+            section {
+              float: right;
+              margin: 9px 0px 0px 0px;
+              position: relative;
+
+              &:before {
+                content: "";
+                height: 201px;
+                display: block;
+                width: 1px;
+                background: #18680b;
+                position: absolute;
+                left: -22px;
+                top: 0px;
+                background: url("../images/vertical_small_div.png") no-repeat;
+              }
+
+              .green_btn {
+                width: 211px;
+                margin: 0px;
+                height: 53px;
+                background: #042c00;
+                border: 2px solid #90e483;
+                background: #157900;
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@top_color', endColorstr='@bottom_color');
+                background: -moz-linear-gradient(top, #157900, #0a2306);
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #157900), color-stop(100%, #0a2306));
+                background: -webkit-linear-gradient(top, #157900, #0a2306);
+                background: -o-linear-gradient(top, #157900, #0a2306);
+                background: -ms-linear-gradient(top, #157900, #0a2306);
+                background: linear-gradient(top, #157900, #0a2306);
+                display: block;
+                position: relative;
+                border-radius: 9px;
+                -webkit-border-radius: 9px;
+                -moz-border-radius: 9px;
+                overflow: hidden;
+                &:hover {
+                  cursor: pointer;
+                  background: #18680b;
+                }
+                &:before {
+                  content: "";
+                  height: 25px;
+                  display: block;
+                  width: 100%;
+                  background: #18680b;
+                  position: absolute;
+                  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+                  -moz-opacity: 0.5;
+                  -khtml-opacity: 0.5;
+                  opacity: 0.5;
+
+
+                }
+                span {
+                  font-size: 19px;
+                  position: absolute;
+                  color: white;
+
+                  text-shadow: 0px 0px 14px #ffffff;
+                  -moz-text-shadow: 0px 0px 14px #ffffff;
+                  -webkit-text-shadow: 0px 0px 14px #ffffff;
+                  padding: 14px 0px 5px 0px;
+                  text-align: center;
+                  width: 105%;
+                  background: url("../images/coins.png") no-repeat;
+                  background-position: 14px 12px;
+                }
+              }
+
+              > div {
+                text-align: center;
+                font-size: 13px;
+                margin: 9px 0px 0px 0px;
+                display: block;
+                color: #71a128;
+              }
+            }
+
+          }
+        }
+    }
+
+}
+
+body > .main > section > .kass {
+  .accordion {
+    .accordion-group {
+      width: 949px;
+      .accordion-inner {
+        p {
+          width: 640px;
+        }
+        section {
+          .green_btn {
+
+          }
+          > div {
+            color: #868686;
+          }
+        }
+
+      }
+    }
+  }
+  > header {
+    h1 {
+      font-size: 27px;
+      margin: 0px;
+      padding-top: 9px;
+      line-height: 38px;
+      color: white;
+      height: auto;
+    }
+    p {
+      color: white;
+      text-align: left;
+      margin: 0px;
+      line-height: 21px;
+      font-size: 14px;
+      height: auto;
+      margin-bottom: 19px;
+      padding: 0;
+    }
+  }
+}
+.with .label-left {
+  width: 200px!important;
+}

@@ -1,0 +1,47 @@
+pay: Пополнить
+payments_operations: Операции со счетами
+payment: платеж
+withdrawal: выплата
+bonus: бонус
+credit: возврат
+withdraw: Вывести
+order_withdrawal: Заказать выплату
+add_requisites: Добавить реквизиты
+edit_requisites: Редактировать реквизиты
+requisites.added: Реквизиты добавлены
+requisites.updated: Реквизиты изменены
+withdrawal.ordered: Заказанный
+requisites: Реквизиты
+title: Название
+edit: Редактировать
+to_order: Заказать
+withdraw_title: Выплата
+my_account: Мои данные
+names: Название кошелька/счета:
+pay_btn: Сохранить
+amount: Сумма
+back_to: Вернуться к списку платежных систем
+back: Вернуться к
+order_payments: Заказ выплаты
+card_number: Номер карты
+security_code: Код безопасности (cvv)
+card_holder: Держатель карты
+month: Mесяц
+year: Год
+country: Страна
+region: Регион
+city: Город
+address: Адрес
+zip: Почтовый индекс
+email: E-mail
+phone_number: Номер телефона
+
+attention: Внимание!
+the_following: В выписке по движению средств, будет указана следующая информация:
+
+account: Cчет
+code: Код
+title_with: Игровые автоматы Almurut. Играть бесплатно и на деньги - Вывести средства
+title_pay: Игровые автоматы Almurut. Играть бесплатно и на деньги - Пополнение счета
+funds_deposited: Средства зачислены
+funds_received: Средства не поступили

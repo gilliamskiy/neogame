@@ -1,0 +1,48 @@
+pay: Deposit
+payments_history: Payments History
+payment: payment
+withdrawal: withdrawal
+bonus: bonus
+credit: credit
+withdraw: Withdraw
+order_withdrawal: Order Withdrawal
+add_requisites: Add Requisites
+edit_requisites: Edit Requisites
+requisites.added: Requisites saved
+requisites.updated: Requisites updated
+withdrawal.ordered: Withdrawal Ordered
+requisites: Requisites
+title: Title
+edit: Edit
+to_order: Order
+withdraw_title: Withdraw
+my_account: My Account
+names: Title wallet/account:
+pay_btn: Save
+amount: Amount
+back_to: Back to pay systems
+back: Back to
+order_payments: Order payments
+card_number: Card Number
+security_code: Security code (cvv)
+card_holder: Card Holder
+month: Expiration month
+year: Expiration year
+country: Country
+region: Region
+city: City
+address: Address
+zip: Zip
+email: E-mail
+phone_number: Phone number
+
+attention: Attention!
+the_following: The following information will be indicated in the bank statement:
+
+account: Account
+code: Code
+title_with: Slot machines volcano. Play for free and for money - Withdrawals
+title_pay: Slot machines volcano. Play for free and for money completions account
+
+funds_deposited: Funds deposited
+funds_received: Funds are not received

@@ -1,0 +1,46 @@
+{% extends "@front/" ~ promotion.layout %}
+
+{% block content %}
+
+    <section>
+
+        <!-- less: s_breadcrumbs.less -->
+        <figure class="breadCrumbs">
+            <nav>
+                <span><a href="{{ path('front_homepage') }}">VulkanoGames</a></span>
+                <span><a href="{{ path('promotions_list') }}">{{ 'Акции'|trans({}, 'promotions') }}</a></span>
+                <span>{{ promotion.translate.name }}</span>
+            </nav>
+        </figure>
+
+        <!-- less: s_news-one.less -->
+        <figure class="promotions-one img_right_fx">
+            <article>
+                <header>
+                    <h1>{{ promotion.translate.name }}</h1>
+                </header>
+					<span class="newsDate">{{ 'Время проведения'|trans({}, 'promotions') }}:<br>
+                        ({{ promotion.startDate|format_datetime }}) - ({{ promotion.endDate|format_datetime }})</span>
+                {{ promotion.translate.content|markup }}
+
+                <figure class="postLike" style="display: none">
+                    <div>
+                        <a href="#" class="like"><span></span>{{ 'Нравится'|trans({}, 'lotteries') }}</a>
+                        <a href="#" class="dislike"><span></span></a>
+                    </div>
+                    <div class="peopleLike">
+                        {{ 'Понравилось'|trans({}, 'lotteries') }} 11 {{ 'игрокам'|trans({}, 'lotteries') }}<br> {{ 'Не понравилось'|trans({}, 'lotteries') }} 0 {{ 'игрокам'|trans({}, 'lotteries') }}
+                    </div>
+                </figure>
+                <footer>
+                    <a href="{{ path('promotions_list') }}">{{ 'К полному списку акций'|trans({}, 'promotions') }}</a>
+                </footer>
+            </article>
+
+        </figure>
+        <!-- less: s_seotext.less -->
+        {% include "@front/layout/seo_text.html.twig" %}
+        <!--end less: s_seotext.less -->
+    </section>
+
+{% endblock %}

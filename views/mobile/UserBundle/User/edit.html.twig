@@ -1,0 +1,16 @@
+{% extends "@front/layout.html.twig" %}
+{% form_theme form "@front/Form/edit.html.twig" %}
+{% block content %}
+    <section class="header-content tools_b">
+        <h1>{{ 'edit_profile'|trans({}, 'users') }}</h1>
+    </section>
+    <article class="pay_off profile">
+        <header>
+            <h3>{{ 'my_account'|trans }}</h3>
+        </header>
+        <div style="overflow: hidden;">
+            {{ form(form) }}
+            <script>$('select').selectbox();</script>
+        </div>
+    </article>
+{% endblock %}

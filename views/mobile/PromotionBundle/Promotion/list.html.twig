@@ -1,0 +1,34 @@
+{% extends "@front/layout.html.twig" %}
+ {% block seo %}
+     {{ parent() }}
+     <title>{{ 'Акции'|trans({}, 'promotions') }}</title>
+
+ {% endblock %}
+{% block content %}
+
+    <section class="header-content tools_b">
+        <h1>{{ 'Акции'|trans({}, 'promotions') }}</h1>
+    </section>
+
+    <article class="promotions container_content">
+    <section class="container_promos">
+    {% for promotion in list %}
+        <div>
+            <figure class="block_instead_img"></figure>
+
+            <header><a href="{{ path('promotions_view', {id:promotion.id}) }}">{{ promotion.translate.name }}</a></header>
+
+            <aside>{{ 'Время проведения'|trans({}, 'promotions') }}:  {{ promotion.startDate|format_date }} - {{ promotion.endDate|format_date }}</aside>
+            <article class="list">
+                {{ promotion.translate.announce|markup }}
+                <a class="promotions-detail" href="{{ path('promotions_view', {id:promotion.id}) }}">
+                    <span>{{'more_info'|trans}}</span>
+                </a>
+            </article>
+        </div>
+    {% endfor %}
+    </section>
+    </article>
+
+
+{% endblock %}

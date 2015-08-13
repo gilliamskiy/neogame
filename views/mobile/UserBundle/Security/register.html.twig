@@ -1,0 +1,42 @@
+{% extends "@front/layout.html.twig" %}
+{% form_theme form "@front/Form/registration.html.twig" %}
+
+{% block content %}
+    <section class="auth-header">
+        <h1 style="overflow: hidden;height: 20px;">{{ 'registration'|trans }}</h1>
+        <a class="auth-header-close" href="/"></a>
+    </section>
+
+    <article class="auth-content" style="min-height: 300px">
+        <div class="auth-form-content">
+            <form class="form-horizontal" action="{{ path('user_register') }}" method="post">
+                <div class="warninggg">
+                    {% if errors is defined %}
+
+                        {% for field, fieldErrors in errors %}
+                            <p class="warning" style="display: block;">{{ field }}:</p>
+
+                            <ul>
+                                {% for fieldError in fieldErrors %}
+                                    <li>{{ fieldError }}</li>
+                                {% endfor %}
+                            </ul>
+
+                        {% endfor %}
+
+                    {% endif %}
+                </div>
+                {{ form(form) }}
+            </form>
+        </div>
+    </article>
+
+    <script>
+        $('select').selectbox();
+        var select_send = "{{ 'form_password'|trans({}, 'users')  }}";
+        $('#registration_email').attr('placeholder','E-mail');
+        $('#registration_password').attr('placeholder',select_send);
+    </script>
+
+{% endblock %}
+

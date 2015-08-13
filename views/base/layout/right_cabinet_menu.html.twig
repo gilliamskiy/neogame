@@ -1,0 +1,31 @@
+<section class="mainSidebar">
+    <figure class="personalData">
+        <p class="personalMail">
+
+        </p>
+        <img class="avatar_live" alt="#" src="{{ asset('assets/images/avatars/defol.png') }}">
+        <aside class="balance">
+            {{ 'balance'|trans }}        <span>0,00&nbsp;$</span>
+        </aside>
+        <aside class="status">
+            {{ 'status'|trans }}       <span></span>
+        </aside>
+    </figure>
+
+    <figure class="personalFunctions">
+        <ul>
+
+            <li><a href="{{ account_url('/lottery-tickets') }}">{{ 'my_lottery'|trans }}</a></li>
+            <li><a href="{{ account_url('/edit') }}">{{ 'edit_profile'|trans({}, 'users') }}</a></li>
+            {#<li><a href="{{ path('profile_notifications_list') }}">{{ 'Notifications'|trans({}, 'notification') }}</a></li>#}
+            <li><a href="{{ account_url('/document/load') }}">{{ 'documents'|trans({}, 'document') }}</a></li>
+            <li><a href="{{ account_url('/pay') }}">{{ 'pay'|trans({}, 'payment') }}</a></li>
+            <li><a href="{{ account_url('/bonus-offers') }}">{{ 'offers'|trans({}, 'bonus') }}</a></li>
+            <li><a href="{{ account_url('/order/withdrawal') }}">{{ 'withdraw'|trans({}, 'payment') }}</a></li>
+            <li><a href="{{ account_url('/financial-transactions') }}">{{ 'payments_operations'|trans }}</a></li>
+            {#<li><a href="/bonus/history">{{ 'history_bonuses'|trans }}</a></li>#}
+            <li><a href="{{ account_url('/game-rounds') }}">{{ 'rounds_history'|trans }}</a></li>
+            <li><a href="{{ path('user_logout') }}">{{ 'logout'|trans({}, 'users') }}</a></li>
+        </ul>
+    </figure>
+</section>

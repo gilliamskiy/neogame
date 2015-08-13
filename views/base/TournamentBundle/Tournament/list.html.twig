@@ -1,0 +1,83 @@
+{% extends "@front/layout.html.twig" %}
+ {% block seo %}
+     {{ parent() }}
+     <title>{{ 'Турниры'|trans({}, 'tournaments') }}</title>
+ {% endblock %}
+{% block content %}
+
+    <section>
+        <!-- less: s_breadcrumbs.less -->
+        <figure class="breadCrumbs">
+            <nav>
+                <span><a href="{{ path('front_homepage') }}">VulkanoGames</a></span>
+
+                <span>{{ 'Турниры'|trans({}, 'tournaments') }}</span>
+            </nav>
+        </figure>
+    <!--end less: s_breadcrumbs.less -->
+
+    <!-- less: s_news-list.less -->
+    <figure class="list tourney-list">
+        <header>
+            <h1>{{ 'Турниры'|trans({}, 'tournaments') }}</h1>
+        </header>
+
+{% for tournament in list %}
+    <article>
+        <header>
+            <h2><a href="{{ path('tournaments_view', {id:tournament.id}) }}">{{ tournament.translate.name }}</a></h2>
+        </header>
+        <div>
+            <article>
+                <span class="newsDate">
+                    {{'Начало'|trans({}, 'tournaments') }}: {{ tournament.startDate|format_datetime }}<br>
+                    {{'Окончание'|trans({}, 'tournaments') }}: {{ tournament.endDate|format_datetime }}</span>
+                {{ tournament.translate.announce|markup }}
+                <figure class="postLike" style="display: none">
+                    <div>
+                        <a href="#" class="like"><span></span>{{ 'Нравится'|trans({}, 'lotteries') }}</a>
+                        <a href="#" class="dislike"><span></span></a>
+                    </div>
+                    <div class="peopleLike">
+                        {{ 'Понравилось'|trans({}, 'lotteries') }} 11 {{ 'игрокам'|trans({}, 'lotteries') }}<br> {{ 'Не понравилось'|trans({}, 'lotteries') }} 0 {{ 'игрокам'|trans({}, 'lotteries') }}
+                    </div>
+                </figure>
+            </article>
+            <div>
+                <aside>
+                    <figure class="date">
+                        <p>
+                            <span>{{'Старт'|trans({}, 'tournaments') }}</span><span>{{ tournament.startDate|format_datetime }}</span>
+                        </p>
+                        <p>
+                            <span>{{'Финиш'|trans({}, 'tournaments') }}</span><span>{{ tournament.endDate|format_datetime }}</span>
+                        </p>
+                    </figure>
+                    <figure class="fund">
+                        <p>{{'Призовой фонд'|trans({}, 'tournaments') }}: <span>{{ tournament.funds.amount }} {{ tournament.funds.currency }}</span></p>
+                    </figure>
+                </aside>
+                <section>
+                    <figure class="prize_places" style="display: none;">
+                        <a data-toggle="modal" href="#tournament">{{'Призовые места'|trans({}, 'tournaments') }}</a>
+                    </figure>
+                    <figure class="take_part" style="display: none;">
+                        <p>Вы уже учавствуете в турнире</p>
+                    </figure>
+                </section>
+            </div>
+        </div>
+    </article>
+{% endfor %}
+    </figure>
+        <!--end less: s_news-list.less -->
+        <!-- less: s_pagination.less -->
+    <nav class="paginator">
+
+    </nav>
+    <!--end less: s_pagination.less -->
+        <!-- less: s_seotext.less -->
+        {% include "@front/layout/seo_text.html.twig" %}
+        <!--end less: s_seotext.less -->
+    </section>
+{% endblock %}

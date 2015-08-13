@@ -1,0 +1,42 @@
+{% extends "@front/layout.html.twig" %}
+
+{% block content %}
+    <section class="header-content tools_b">
+        <h1>{{ 'payments_operations'|trans({}, 'payment') }}</h1>
+    </section>
+    <article class="container_content">
+        <table>
+
+            <tr>
+                <th>{{'type'|trans }}</th>
+                <th>{{'date'|trans }}</th>
+                <th>{{'amount'|trans }}</th>
+                <th>{{'balance'|trans }}</th>
+                <th>{{'payment_system'|trans }}</th>
+                {#<td>Выигрыш</td>#}
+            </tr>
+
+
+            {% for operation in operations %}
+                <tr>
+                    <td>{{ operation.type|trans }}</td>
+                    <td>{{ operation.created_at|date('d.m.Y H:i:s') }}</td>
+                    <td>{{ operation.amount }} {{ operation.currency }}</td>
+                    <td>{{ operation.balance_state }} {{ operation.currency }}</td>
+                    <td> {% if operation.payment_system is defined %}{{ operation.payment_system.id }} {{ operation.payment_system.name }}{% endif %}</td>
+
+                </tr>
+            {% else %}
+                <tr style="border-bottom: none;">
+                    <td>нет записей</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+
+    </article>
+    <nav class="paginator">
+        {{ knp_pagination_render(operations) }}
+    </nav>
+
+{% endblock %}
